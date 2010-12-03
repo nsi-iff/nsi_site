@@ -64,6 +64,5 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'lettuce.django',
-    'site_base',
     'project',
 )
