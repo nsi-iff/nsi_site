@@ -3,47 +3,58 @@ Feature: Project maintenance
   I want to maintain projects data
   In order to keep the site up to date regarding our projects
 
+
   Scenario Outline: Project inclusion
-    Given I want to include a new project named <project>
-    When I supply a description <description>
-    And I supply a situation <situation>
-    And I supply a list of partners <partners>
-    And I supply a start date <start date>
-    And I supply an end date <end date>
-    Then the project name should be <project>
-    And the project's description should be <description>
-    And the project's situation should be <situation>
-    And the project's partners should be <partners>
-    And the project's start date should be <start date>
-    And the project's end date should be <end date>
+    Given I am on the new project page
+    When I fill in "Name" with "<name>"
+    And I fill in "Description" with "<description>"
+    And I fill in "Situation" with "<situation>"
+    And I fill in "Start date" with "<start date>"
+    And I fill in "End date" with "<end date>"
+    And I press "Save"
+    Then I should see "Project: <name>"
+    And I should see "Description: <description>"
+    And I should see "Situation: <situation>"
+    And I should see "Start date: <start date>"
+    And I should see "End date: <end date>"
 
   Examples:
-    | project | description | situation | partners | start date | end date
-    | world domination | NSI plans to conquer the world | opened | 03/2002 | -/- |
+    | project          | description                     | situation | start date | end date |
+    | world domination | NSI plans to conquer the galaxy | opened    | 03/2002    |          |
+
 
   Scenario Outline: Project update
-    Given I want to update a project named <project>
-    When I supply a description <description>
-    And I supply a situation <situation>
-    And I supply a list of partners <partners>
-    And I supply a start date <start date>
-    And I supply an end date <end date>
-    Then the project name should be <project>
-    And the project's description should be <description>
-    And the project's situation should be <situation>
-    And the project's partners should be <partners>
-    And the project's start date should be <start date>
-    And the project's end date should be <end date>
+    Given I have the following project:
+      | project           | description                         | situation | start date | end date |
+      | general agreement | NSI plans to be loved by all people | opened    | 01/2002    | 02/2002  |
+    And I am on the "<project>" project edit page
+    When I fill in "Name" with "<name>"
+    And I fill in "Description" with "<description>"
+    And I select "<situation>" from "Situation"
+    And I fill in "Start date" with "<start date>"
+    And I fill in "End date" with "<end date>"
+    And I press "Save"
+    Then I should see "Project: <name>"
+    And I should see "Description: <description>"
+    And I should see "Situation: <situation>"
+    And I should see "Start date: <start date>"
+    And I should see "End date: <end date>"
 
   Examples:
-    | project | description | situation | partners | start date | end date
-    | world domination | NSI plans to conquer the galaxy | opened | 03/2002 | -/- |
+    | project          | description                     | situation | start date | end date |
+    | world domination | NSI plans to conquer the galaxy | opened    | 03/2002    |          |
+
 
   Scenario Outline: Project delete
-    Given I want to delete a project named <project>
-    When I confirm the exclusion of the project <project>
-    Then the project <project> should be deleted
+    Given I have the following project:
+      | project           | description                         | situation | start date | end date |
+      | general agreement | NSI plans to be loved by all people | opened    | 01/2002    | 02/2002  |
+    And I am on the "<project>" page
+    When press "Delete"
+    Then I should see "Project successfully deleted"
+    And the "<project>" project does not exist
 
   Examples:
-    | project
-    | world domination
+    | project          |
+    | world domination |
+
