@@ -1,0 +1,9 @@
+<html>
+<body>
+  <form method="post">
+    {% csrf_token %}
+    {{ project_form.as_p }}
+    <input name="save" type="submit" value="Save">
+  </post>
+</body>
+</html>

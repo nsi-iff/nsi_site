@@ -6,21 +6,22 @@ Feature: Project maintenance
 
   Scenario Outline: Project inclusion
     Given I am on the new project page
-    When I fill in "Name" with "<name>"
-    And I fill in "Description" with "<description>"
-    And I fill in "Situation" with "<situation>"
-    And I fill in "Start date" with "<start date>"
-    And I fill in "End date" with "<end date>"
+    When I fill in "name" with "<name>"
+    And I fill in "description" with "<description>"
+    And I fill in "situation" with "<situation>"
+    And I fill in "start_date" with "<start date>"
+    And I fill in "end_date" with "<end date>"
     And I press "Save"
-    Then I should see "Project: <name>"
-    And I should see "Description: <description>"
-    And I should see "Situation: <situation>"
-    And I should see "Start date: <start date>"
-    And I should see "End date: <end date>"
+    Then I should see "Project": "<name>"
+    And I should see "Description": "<description>"
+    And I should see "Situation": "<situation>"
+    And I should see "Start date": "<start date>"
+    And I should see "End date": "<end date>"
 
   Examples:
-    | project          | description                     | situation | start date | end date |
-    | world domination | NSI plans to conquer the galaxy | opened    | 03/2002    |          |
+    | name             | description                     | situation | start date | end date |
+    | world domination | NSI plans to conquer the galaxy | opened    | 03/2002    |    -     |
+    | ERP5             | many things ready, lek          | opened    | 03/2002    |    -     |
 
 
   Scenario Outline: Project update
@@ -42,7 +43,7 @@ Feature: Project maintenance
 
   Examples:
     | project          | description                     | situation | start date | end date |
-    | world domination | NSI plans to conquer the galaxy | opened    | 03/2002    |          |
+    | world domination | NSI plans to conquer the galaxy | opened    | 03/2002    |    -     |
 
 
   Scenario Outline: Project delete
