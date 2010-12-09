@@ -3,7 +3,7 @@
     <p name="project">Project: {{ project.name }}</p>
     <p name="description">Description: {{ project.description }}</p>
     <p name="situation">Situation: {{ project.situation }}</p>
-    <p name="start date">Start date: {{ project.start_date }}</p>
-    <p name="end date">End date: {{ project.end_date }}</p>
+    <p name="start date">Start date: {{ project.start_date|date:"d/m/Y" }}</p>
+    <p name="end date">End date: {{ project.end_date|date:"d/m/Y" }}</p>
 </body>
 </html>

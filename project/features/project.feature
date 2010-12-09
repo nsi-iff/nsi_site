@@ -19,9 +19,9 @@ Feature: Project maintenance
     And I should see "End date": "<end date>"
 
   Examples:
-    | name             | description                     | situation | start date | end date |
-    | world domination | NSI plans to conquer the galaxy | opened    | 03/2002    |    -     |
-    | ERP5             | many things ready, lek          | opened    | 03/2002    |    -     |
+    | name             | description                     | situation | start date | end date   |
+    | world domination | NSI plans to conquer the galaxy | opened    | 01/03/2002 | 02/03/2002 |
+    | ERP5             | many things ready, lek          | opened    | 01/03/2002 | 02/03/2002 |
 
 
   Scenario Outline: Project update
