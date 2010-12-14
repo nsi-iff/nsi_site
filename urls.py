@@ -14,4 +14,5 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     # (r'^admin/', include(admin.site.urls)),
     (r'^project/new$', 'project.views.new_project'),
+    (r'^project/update/(?P<project_name>[a-zA-Z- ]+)/$','project.views.update_project')
 )

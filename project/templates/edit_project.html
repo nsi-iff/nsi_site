@@ -1,6 +1,6 @@
 <html>
 <body>
-  <form method="post">
+  <form method="post" action="">
     {% csrf_token %}
     {{ project_form.as_p }}
     <input name="save" type="submit" value="Save">
