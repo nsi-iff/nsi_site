@@ -1,7 +1,7 @@
 from lettuce import *
 from nose.tools import assert_equals
 from splinter.browser import Browser
-from should_dsl import should, should_not
+from should_dsl import should
 from project.models import Project
 
 @before.all
@@ -34,10 +34,24 @@ def project_in_database(step):
 
 @step(r'I am on the "(.*)" project edit page')
 def project_update_page(step, project_name):
-    #import ipdb;ipdb.set_trace()
     world.browser.visit('http://localhost:8000/project/update/'+project_name+'/')
+    
+@step(r'I am on the "(.*)" project delete page')
+def project_delete_page(step, project_name):
+    world.browser.visit('http://localhost:8000/project/delete/'+project_name+'/')
 
-def clear_database():
+@step(r'I should see the message "(.*)"')
+def see_delete_project_message(step, value):
+    tag = world.browser.find_by_css_selector('h1').value
+    tag |should| equal_to(value)
+
+@step(r'the "(.*)" project does not exist')
+def project_does_not_exist(step, project_name):
+    project = Project.objects.filter(name=project_name)
+    len(project) |should| equal_to(0)
+
+@after.each_scenario
+def clear_database(scenario):
     projects = Project.objects.all()
     for project in projects:
         project.delete()
@@ -45,7 +59,6 @@ def clear_database():
 @after.all
 def finish_him(total_result):
     world.browser.quit()
-    clear_database()
     print "Congratulations, %d of %d scenarios passed!" % (
         total_result.scenarios_passed,
         total_result.scenarios_ran

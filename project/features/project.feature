@@ -48,13 +48,13 @@ Feature: Project maintenance
   
   Scenario Outline: Project delete
    Given I have the following project:
-     | project           | description                         | situation | start date | end date |
-     | general agreement | NSI plans to be loved by all people | opened    | 01/2002    | 02/2002  |
-   And I am on the "<project>" page
-   When press "Delete"
-   Then I should see "Project successfully deleted"
+     | name              | description                         | situation | start_date    | end_date    |
+     | general agreement | NSI plans to be loved by all people | opened    | 2002-02-01 | 2002-02-02 |
+   And I am on the "general agreement" project delete page
+   When I press "Delete"
+   Then I should see the message "Project successfully deleted"
    And the "<project>" project does not exist
   
   Examples:
-   | project |
+   | project          |
    | world domination |

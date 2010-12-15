@@ -32,3 +32,16 @@ def update_project(request, project_name):
         'edit_project.html',
         {'project_form': project_form}
     )
+
+def delete_project(request, project_name):
+    project = Project.objects.get(name=project_name)
+    if request.method == 'POST':
+        project_id = request.POST.get('project_id', None)
+        if project_id is not None:
+            project = Project.objects.get(id=project_id)
+            project.delete()
+            return render_to_response('project_deleted.html')
+    return render_to_response(
+        'delete_project.html',
+        {'project':project},
+    )
