@@ -6,7 +6,7 @@ from project.models import Project
 
 @before.all
 def set_browser():
-    world.browser = Browser()
+    world.browser = Browser('zope.testbrowser')
 
 @step(r'I am on the new project page')
 def project_creation_page(step):
