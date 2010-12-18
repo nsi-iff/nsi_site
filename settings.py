@@ -66,4 +66,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'lettuce.django',
     'project',
+    'news',
 )
+

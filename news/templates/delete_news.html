@@ -1,0 +1,10 @@
+<html>
+<body>
+  <form method="post" action="">
+    {% csrf_token %}
+    <input type="hidden" value="{{ news.id }}" name="news_id" />
+    <input name="delete" type="submit" value="Delete">
+  </form>
+</body>
+</html>
+

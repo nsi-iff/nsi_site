@@ -21,7 +21,7 @@ Feature: News maintenance
   Examples:
     | title            | summary                         | body                                             | image       | publication_date |
     | world domination | NSI plans to conquer the galaxy | NSI plans to conquer the galaxy in the next year | milkway.jpg | 15/12/2010       |
-    | ERP5Br was born  | many things ready, lek          | ERP5Br was born                                  | erp5br.jpg  | 11/12/2010       |
+    | ERP5Br was born  | many things ready, lek          | ERP5Br was born                                  | erp5br.png  | 11/12/2010       |
 
 
   Scenario Outline: News update
