@@ -8,7 +8,7 @@ from news.models import News
 
 @before.all
 def set_browser():
-    world.browser = Browser('zope.testbrowser')
+    world.browser = Browser()
 
 @step(r'I am on the new news page')
 def project_creation_page(step):
@@ -61,6 +61,14 @@ def see_delete_news_message(step, value):
 def news_does_not_exist(step, news_title):
     news = News.objects.filter(title=news_title)
     len(news) |should| equal_to(0)
+
+@before.each_scenario
+def clear_images(scenario):
+    images_dir = os.path.join(os.path.abspath('.'), 'site_media', 'images', 'news')
+    print images_dir
+    for image_file in os.listdir(images_dir):
+        if image_file != '.' and image_file != '..':
+            os.unlink(image_file)
 
 @after.each_scenario
 def clear_database(scenario):
