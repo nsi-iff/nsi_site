@@ -4,10 +4,12 @@ from nose.tools import assert_equals
 from splinter.browser import Browser
 from should_dsl import should
 from django.conf import settings
+from selenium.firefox.firefox_profile import FirefoxProfile
 from news.models import News
 
 @before.all
 def set_browser():
+    enable_selenium_specs_to_run_offline()
     world.browser = Browser()
 
 @step(r'I am on the new news page')
@@ -83,4 +85,9 @@ def finish_him(total_result):
         total_result.scenarios_passed,
         total_result.scenarios_ran
     )
+
+def enable_selenium_specs_to_run_offline():
+    prefs = FirefoxProfile._get_webdriver_prefs()
+    prefs['network.manage-offline-status'] = 'false'
+    FirefoxProfile._get_webdriver_prefs = lambda cls: prefs
 
