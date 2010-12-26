@@ -1,10 +1,7 @@
 import os
 from lettuce import *
-from nose.tools import assert_equals
-from splinter.browser import Browser
 from should_dsl import should
 from django.conf import settings
-from selenium.firefox.firefox_profile import FirefoxProfile
 from news.models import News
 
 @step('I have the following news')

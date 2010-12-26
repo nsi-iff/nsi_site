@@ -1,6 +1,4 @@
 from lettuce import *
-from nose.tools import assert_equals
-from splinter.browser import Browser
 from should_dsl import should
 from project.models import Project
 

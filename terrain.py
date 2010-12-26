@@ -27,10 +27,6 @@ def clear_database(scenario):
 @after.all
 def finish_him(total_result):
     world.browser.quit()
-    print "Congratulations, %d of %d scenarios passed!" % (
-        total_result.scenarios_passed,
-        total_result.scenarios_ran
-    )
 
 
 # web steps
