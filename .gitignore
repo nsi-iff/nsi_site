@@ -2,3 +2,4 @@
 *.db
 *.komodoproject
 .komodotools
+build/
