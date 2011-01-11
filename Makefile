@@ -35,7 +35,6 @@ test: functional
 functional: functional_deps deps
 	@echo ==============================================
 	@echo ========= Running acceptance specs ===========
-	@lettuce news/features
-	@lettuce project/features
+	@python manage.py harvest
 	@echo
 
