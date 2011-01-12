@@ -10,13 +10,13 @@ deps: django pil
 functional_deps: lettuce splinter should-dsl nose lxml
 
 should-dsl:
-	@$(PYTHON) -c 'import should_dsl' 2>/dev/null || $(PIP) install http://github.com/hugobr/should-dsl/tarball/master
+	@$(PYTHON) -c 'import should_dsl' 2>/dev/null || $(PIP) install should-dsl
 
 django:
 	@$(PYTHON) -c 'import django' 2>/dev/null || $(PIP) install django
 
 splinter:
-	@$(PYTHON) -c 'import splinter' 2>/dev/null || $(PIP) install http://github.com/cobrateam/splinter/tarball/master
+	@$(PYTHON) -c 'import splinter' 2>/dev/null || $(PIP) install splinter
 
 pil:
 	@$(PYTHON) -c 'import pil' 2>/dev/null || $(PIP) install PIL
@@ -33,6 +33,9 @@ lxml:
 test: functional
 
 functional: functional_deps deps
+	@echo ==============================================
+	@echo ============ Create a database ===============
+	@python manage.py syncdb
 	@echo ==============================================
 	@echo ========= Running acceptance specs ===========
 	@python manage.py harvest
