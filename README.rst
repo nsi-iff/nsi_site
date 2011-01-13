@@ -21,4 +21,4 @@ Makefile installs the dependencies using `Pip <http://pip.openplans.org/>`_, the
 After install these system-related dependencies, you can run `make` to install all Python dependencies (if they are not installed) and run all tests. Depending on your environment, this script may need root permissions in order to install the dependencies.
 
 
-Developers should add any new dependency to Makefile. Please xD
+Developers should add any new dependency to Makefile. Please
