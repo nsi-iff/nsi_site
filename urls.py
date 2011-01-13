@@ -1,5 +1,6 @@
 from django.conf.urls.defaults import *
 from django.views.generic.simple import direct_to_template
+from django.conf import settings
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -18,5 +19,7 @@ urlpatterns = patterns('',
     (r'^news/new$', 'news.views.new_news'),
     (r'^news/update/(?P<news_title>[a-zA-Z- ]+)/$','news.views.update_news'),
     (r'^news/delete/(?P<news_title>[a-zA-Z- ]+)/$','news.views.delete_news'),
+
+    (r'^site_media/(.*)$', 'django.views.static.serve', {"document_root": settings.MEDIA_ROOT}),
 )
 

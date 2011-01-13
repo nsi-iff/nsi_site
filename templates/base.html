@@ -3,20 +3,27 @@
     <title>{% block title %}NSI{% endblock title %}</title>
 
     {% block styles %}
-    {% endblock styles%}
+      <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/base.css"/>
+    {% endblock styles %}
 
     {% block scripts %}
     {% endblock scripts %}
   </head>
 
   <body>
-    {% block header %}
-    {% endblock header %}
+    <div id="header">
+      {% block header %}
+      {% endblock header %}
+    </div>
 
-    {% block content %}
-    {% endblock content %}
+    <div id="content">
+      {% block content %}
+      {% endblock content %}
+    </div>
 
-    {% block footer %}
-    {% endblock footer %}
+    <div id="footer">
+      {% block footer %}
+      {% endblock footer %}
+    </div>
   </body>
 </html>
