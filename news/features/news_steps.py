@@ -40,8 +40,12 @@ def attach_file(step, label, value):
 @before.each_scenario
 def clear_images(scenario):
     images_dir = os.path.join(os.path.abspath('.'), 'site_media', 'images', 'news')
-    print images_dir
+    _ensure_dir(images_dir)
     for image_file in os.listdir(images_dir):
         if image_file != '.' and image_file != '..':
-            os.unlink(image_file)
+            os.unlink(os.path.join(images_dir, image_file))
+
+def _ensure_dir(f):
+    if not os.path.exists(f):
+        os.makedirs(f)
 
