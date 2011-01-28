@@ -37,10 +37,7 @@ test: functional
 
 functional: functional_deps deps
 	@echo ==============================================
-	@echo ============ Create a database ===============
-	@python manage.py migrate
-	@echo ==============================================
 	@echo ========= Running acceptance specs ===========
-	@python manage.py harvest
+	@python manage.py harvest --settings=settings_test
 	@echo
 
