@@ -5,7 +5,7 @@ export DJANGO_SETTINGS_MODULE=settings
 
 all: deps test
 
-deps: django pil
+deps: django pil south
 
 functional_deps: lettuce splinter should-dsl nose lxml
 
@@ -21,6 +21,9 @@ splinter:
 pil:
 	@$(PYTHON) -c 'import pil' 2>/dev/null || $(PIP) install PIL
 
+south:
+	@$(PYTHON) -c 'import south' 2>/dev/null || $(PIP) install South
+
 lettuce:
 	@$(PYTHON) -c 'import lettuce' 2>/dev/null || $(PIP) install lettuce
 
@@ -35,7 +38,7 @@ test: functional
 functional: functional_deps deps
 	@echo ==============================================
 	@echo ============ Create a database ===============
-	@python manage.py syncdb
+	@python manage.py migrate
 	@echo ==============================================
 	@echo ========= Running acceptance specs ===========
 	@python manage.py harvest

@@ -57,6 +57,10 @@ TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT_PATH,'%s/templates'),
 )
 
+LETTUCE_AVOID_APPS = (
+    'south',
+)
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -65,5 +69,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'lettuce.django',
+    'south',
 )
 
