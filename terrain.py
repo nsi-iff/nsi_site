@@ -2,8 +2,6 @@ from selenium.firefox.firefox_profile import FirefoxProfile
 from splinter.browser import Browser
 from lettuce import after, before, world, step
 from should_dsl import should
-from news.models import News
-from project.models import Project
 
 @before.all
 def set_browser():
@@ -17,12 +15,6 @@ def enable_selenium_specs_to_run_offline():
     def prefs_func():
         return prefs
     FirefoxProfile._get_webdriver_prefs = prefs_func
-
-@after.each_scenario
-def clear_database(scenario):
-    for klass in (Project, News):
-        for obj in klass.objects.all():
-            obj.delete()
 
 @after.all
 def finish_him(total_result):
