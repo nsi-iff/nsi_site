@@ -70,5 +70,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'lettuce.django',
     'south',
+    'history',
 )
 
