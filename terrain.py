@@ -1,3 +1,4 @@
+from django.core.management import call_command
 from selenium.firefox.firefox_profile import FirefoxProfile
 from splinter.browser import Browser
 from lettuce import after, before, world, step
@@ -16,6 +17,11 @@ def enable_selenium_specs_to_run_offline():
         return prefs
     FirefoxProfile._get_webdriver_prefs = prefs_func
 
+@before.each_scenario
+def clean_db(scenario):
+   call_command('flush', interactive=False)
+   call_command('loaddata', 'all')
+
 @after.all
 def finish_him(total_result):
     world.browser.quit()
@@ -29,15 +35,3 @@ def fill_field(step, label, value):
 @step(r'I press "(.*)"')
 def press_button(step, name):
     world.browser.find_by_name(name.lower()).click()
-
-@step(r'I should see "(.*)": "(.*)"')
-def see_data_news(step, label, value):
-    tag = world.browser.find_by_id(label.lower()).value
-    result = "%s: %s" % (label, value)
-    tag |should| equal_to(result)
-
-@step(r'I should see the message "(.*)"')
-def see_delete_news_message(step, value):
-    tag = world.browser.find_by_css_selector('h1').value
-    tag |should| equal_to(value)
-
