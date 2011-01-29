@@ -8,3 +8,8 @@ Feature: History maintenance
     When I go to the history page
     Then I should see "Hello, we are the glorious NSI."
 
+  Scenario: Accepts restructuredText format input
+    Given current history is "*NSI* rules!"
+    When I go to the history page
+    Then I should have "<em>NSI</em> rules!" as HTML
+

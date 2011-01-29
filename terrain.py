@@ -53,3 +53,8 @@ def press_button(step, name):
 def i_should_see(step, content):
     world.browser.html |should| contain(content)
 
+@step(u'I should have "(.*)" as HTML')
+def i_should_have_as_html(step, html_output):
+    # different step descriptions for intention-revealing purposes
+    step.then('I should see "%s"' % html_output)
+

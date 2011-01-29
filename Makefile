@@ -5,7 +5,7 @@ export DJANGO_SETTINGS_MODULE=settings
 
 all: deps test
 
-deps: django pil south
+deps: django pil south docutils
 
 functional_deps: lettuce splinter should-dsl nose lxml
 
@@ -24,6 +24,9 @@ pil:
 south:
 	@$(PYTHON) -c 'import south' 2>/dev/null || $(PIP) install South
 
+docutils:
+	@$(PYTHON) -c 'import docutils' 2>/dev/null || $(PIP) install docutils
+
 lettuce:
 	@$(PYTHON) -c 'import lettuce' 2>/dev/null || $(PIP) install lettuce
 
@@ -33,11 +36,17 @@ nose:
 lxml:
 	@$(PYTHON) -c 'import lxml' 2>/dev/null || $(PIP) install lxml
 
-test: functional
+test: functional unit
 
 functional: functional_deps deps
 	@echo ==============================================
 	@echo ========= Running acceptance specs ===========
 	@python manage.py harvest --settings=settings_test
+	@echo
+
+unit: deps
+	@echo ==============================================
+	@echo ========= Running acceptance specs ===========
+	@python manage.py test
 	@echo
 
