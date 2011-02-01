@@ -71,5 +71,6 @@ INSTALLED_APPS = (
     'lettuce.django',
     'south',
     'history',
+    'projects',
 )
 
