@@ -1,0 +1,12 @@
+<h1>Teams</h1>
+
+<ul>
+{% for team in teams %}
+  <li>
+    <h3>{{ team.name }}</h3>
+    <p>{{ team.description }}</p>
+  </li>
+{% endfor %}
+
+{{ team_count }} teams
+
