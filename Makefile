@@ -3,7 +3,7 @@ PIP=pip
 
 export DJANGO_SETTINGS_MODULE=settings
 
-all: create_database migrate_database deps test 
+all: deps test
 
 create_database:
 	@$(PYTHON) manage.py syncdb
@@ -15,8 +15,10 @@ deps: django pil south docutils
 
 functional_deps: lettuce splinter should-dsl nose lxml
 
+unit_deps: should-dsl model_mommy specloud nosedjango
+
 should-dsl:
-	@$(PYTHON) -c 'import should_dsl' 2>/dev/null || $(PIP) install should-dsl
+	@$(PYTHON) -c 'import should_dsl' 2>/dev/null || $(PIP) install http://github.com/hugobr/should-dsl/tarball/master
 
 django:
 	@$(PYTHON) -c 'import django' 2>/dev/null || $(PIP) install django
@@ -48,6 +50,9 @@ specloud:
 nosedjango:
 	@$(PYTHON) -c 'import nosedjango' 2>/dev/null || $(PIP) install nosedjango	
  
+model_mommy:
+	@$(PYTHON) -c 'import model_mommy' 2>/dev/null || $(PIP) install http://github.com/vandersonmota/model_mommy/tarball/master
+
 
 test: functional unit
 
@@ -57,7 +62,7 @@ functional: functional_deps deps
 	@python manage.py harvest --settings=settings_test
 	@echo
 
-unit: deps specloud nosedjango
+unit: unit_deps deps
 	@echo ==============================================
 	@echo ========= Running acceptance specs ===========
 	@specloud --with-django

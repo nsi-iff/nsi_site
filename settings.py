@@ -59,6 +59,7 @@ TEMPLATE_DIRS = (
 
 LETTUCE_AVOID_APPS = (
     'south',
+    'news',
 )
 
 INSTALLED_APPS = (
@@ -71,6 +72,7 @@ INSTALLED_APPS = (
     'lettuce.django',
     'south',
     'history',
+    'projects',
     'news',
 )
 

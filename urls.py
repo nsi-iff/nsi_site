@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     (r'^$', direct_to_template, {"template": 'index.html'}),
 
     (r'^history/$', 'history.views.show'),
+    (r'^projects/$', 'projects.views.show_all'),
 
     (r'^site_media/(.*)$', 'django.views.static.serve', {"document_root": settings.MEDIA_ROOT}),
 )
