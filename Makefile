@@ -5,13 +5,17 @@ export DJANGO_SETTINGS_MODULE=settings
 
 all: deps test
 
-create_database:
+database:
 	@$(PYTHON) manage.py syncdb
-
-migrate_database:
 	@$(PYTHON) manage.py migrate
 
-deps: django pil south docutils
+test_database:
+	@$(PYTHON) manage.py syncdb --settings=settings_test
+	@$(PYTHON) manage.py migrate --settings=settings_test
+
+deps: app_deps functional_deps unit_deps
+
+app_deps: django pil south docutils
 
 functional_deps: lettuce splinter should-dsl nose lxml
 
