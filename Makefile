@@ -3,7 +3,7 @@ PIP=pip
 
 export DJANGO_SETTINGS_MODULE=settings
 
-all: create_database migrate_database deps test 
+all: deps test
 
 create_database:
 	@$(PYTHON) manage.py syncdb
