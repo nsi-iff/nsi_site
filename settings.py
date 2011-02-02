@@ -59,6 +59,7 @@ TEMPLATE_DIRS = (
 
 LETTUCE_AVOID_APPS = (
     'south',
+    'history',
 )
 
 INSTALLED_APPS = (

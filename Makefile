@@ -9,8 +9,10 @@ deps: django pil south docutils
 
 functional_deps: lettuce splinter should-dsl nose lxml
 
+unit_deps: should-dsl model_mommy
+
 should-dsl:
-	@$(PYTHON) -c 'import should_dsl' 2>/dev/null || $(PIP) install should-dsl
+	@$(PYTHON) -c 'import should_dsl' 2>/dev/null || $(PIP) install http://github.com/hugobr/should-dsl/tarball/master
 
 django:
 	@$(PYTHON) -c 'import django' 2>/dev/null || $(PIP) install django
@@ -36,6 +38,9 @@ nose:
 lxml:
 	@$(PYTHON) -c 'import lxml' 2>/dev/null || $(PIP) install lxml
 
+model_mommy:
+	@$(PYTHON) -c 'import model_mommy' 2>/dev/null || $(PIP) install http://github.com/vandersonmota/model_mommy/tarball/master
+
 test: functional unit
 
 functional: functional_deps deps
@@ -44,7 +49,7 @@ functional: functional_deps deps
 	@python manage.py harvest --settings=settings_test
 	@echo
 
-unit: deps
+unit: unit_deps deps
 	@echo ==============================================
 	@echo ========= Running acceptance specs ===========
 	@python manage.py test

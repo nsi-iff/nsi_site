@@ -1,0 +1,19 @@
+<h1>Projects</h1>
+
+<ul>
+{% for project in projects %}
+  <li>
+    <h3>{{ project.name }}</h3>
+    <p>{{ project.description }}</p>
+    <p>Patrocinador: {{ project.sponsor }}</p>
+    <p>Status: {{ project.status }}</p>
+    {% if project.finished %}
+      <p>Duração: {{ project.start_date|date:"d/m/Y" }} a {{ project.end_date|date:"d/m/Y" }}</p>
+    {% else %}
+      <p>Início: {{ project.start_date|date:"d/m/Y" }}
+    {% endif %}
+  </li>
+{% endfor %}
+
+{{ project_count }} projects
+
