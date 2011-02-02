@@ -73,5 +73,6 @@ INSTALLED_APPS = (
     'south',
     'history',
     'projects',
+    'news',
 )
 

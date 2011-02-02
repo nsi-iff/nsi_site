@@ -3,7 +3,13 @@ PIP=pip
 
 export DJANGO_SETTINGS_MODULE=settings
 
-all: deps test
+all: create_database migrate_database deps test 
+
+create_database:
+	@$(PYTHON) manage.py syncdb
+
+migrate_database:
+	@$(PYTHON) manage.py migrate
 
 deps: django pil south docutils
 
