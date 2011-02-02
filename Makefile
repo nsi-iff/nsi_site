@@ -42,6 +42,13 @@ nose:
 lxml:
 	@$(PYTHON) -c 'import lxml' 2>/dev/null || $(PIP) install lxml
 
+specloud:
+	@$(PYTHON) -c 'import specloud' 2>/dev/null || $(PIP) install specloud --no-deps -r http://github.com/hugobr/specloud/raw/master/requirements.txt
+
+nosedjango:
+	@$(PYTHON) -c 'import nosedjango' 2>/dev/null || $(PIP) install nosedjango	
+ 
+
 test: functional unit
 
 functional: functional_deps deps
@@ -50,9 +57,9 @@ functional: functional_deps deps
 	@python manage.py harvest --settings=settings_test
 	@echo
 
-unit: deps
+unit: deps specloud nosedjango
 	@echo ==============================================
 	@echo ========= Running acceptance specs ===========
-	@python manage.py test
+	@specloud --with-django
 	@echo
 
