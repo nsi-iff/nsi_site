@@ -5,5 +5,6 @@ def path_to(page_name):
         {
           'the history page': '/history',
           'the projects page': '/projects',
+          'the teams page': '/teams'
         }[page_name])
 

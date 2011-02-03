@@ -5,17 +5,21 @@ export DJANGO_SETTINGS_MODULE=settings
 
 all: deps test
 
-create_database:
+database:
 	@$(PYTHON) manage.py syncdb
-
-migrate_database:
 	@$(PYTHON) manage.py migrate
 
-deps: django pil south docutils
+test_database:
+	@$(PYTHON) manage.py syncdb --settings=settings_test
+	@$(PYTHON) manage.py migrate --settings=settings_test
+
+deps: app_deps functional_deps unit_deps
+
+app_deps: django pil south docutils
 
 functional_deps: lettuce splinter should-dsl nose lxml
 
-unit_deps: should-dsl model_mommy
+unit_deps: should-dsl model_mommy specloud nosedjango
 
 should-dsl:
 	@$(PYTHON) -c 'import should_dsl' 2>/dev/null || $(PIP) install http://github.com/hugobr/should-dsl/tarball/master
@@ -44,8 +48,15 @@ nose:
 lxml:
 	@$(PYTHON) -c 'import lxml' 2>/dev/null || $(PIP) install lxml
 
+specloud:
+	@$(PYTHON) -c 'import specloud' 2>/dev/null || $(PIP) install specloud --no-deps -r http://github.com/hugobr/specloud/raw/master/requirements.txt
+
+nosedjango:
+	@$(PYTHON) -c 'import nosedjango' 2>/dev/null || $(PIP) install nosedjango	
+ 
 model_mommy:
 	@$(PYTHON) -c 'import model_mommy' 2>/dev/null || $(PIP) install http://github.com/vandersonmota/model_mommy/tarball/master
+
 
 test: functional unit
 
@@ -58,6 +69,6 @@ functional: functional_deps deps
 unit: unit_deps deps
 	@echo ==============================================
 	@echo ========= Running acceptance specs ===========
-	@python manage.py test
+	@specloud --with-django
 	@echo
 
