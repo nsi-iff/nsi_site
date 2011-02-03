@@ -11,7 +11,7 @@ urlpatterns = patterns('',
 
     (r'^history/$', 'apps.history.views.show'),
     (r'^projects/$', 'projects.views.show_all'),
-    (r'^teams/$', 'teams.views.show_all'),
+    (r'^teams/$', 'apps.teams.views.show_all'),
 
     (r'^site_media/(.*)$', 'django.views.static.serve', {"document_root": settings.MEDIA_ROOT}),
 )

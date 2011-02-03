@@ -1,5 +1,5 @@
 from django.shortcuts import render_to_response
-from teams.models import Team
+from apps.teams.models import Team
 
 def show_all(request):
     teams = Team.objects.all()
