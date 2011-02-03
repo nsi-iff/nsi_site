@@ -1,5 +1,5 @@
 from django.shortcuts import render_to_response
-from history.models import History
+from apps.history.models import History
 
 def show(request):
     return render_to_response('show.html',

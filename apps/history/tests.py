@@ -1,6 +1,6 @@
 from django.test import TestCase
 from should_dsl import *
-from history.models import History
+from apps.history.models import History
 
 class HistoryTest(TestCase):
 
