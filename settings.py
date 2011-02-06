@@ -1,5 +1,6 @@
-# Django settings for nsi_site project.
 import os
+
+
 PROJECT_ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
 
 DEBUG = True
@@ -29,7 +30,7 @@ SITE_ID = 1
 USE_I18N = True
 USE_L10N = True
 
-MEDIA_ROOT = os.path.join(PROJECT_ROOT_PATH,'site_media')
+MEDIA_ROOT = os.path.join(PROJECT_ROOT_PATH, 'site_media')
 MEDIA_URL = '/site_media'
 #ADMIN_MEDIA_PREFIX = '/admin_media/'
 
@@ -53,13 +54,12 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
-    os.path.join(PROJECT_ROOT_PATH,'templates'),
-    os.path.join(PROJECT_ROOT_PATH,'%s/templates'),
+    os.path.join(PROJECT_ROOT_PATH, 'templates'),
 )
 
 LETTUCE_AVOID_APPS = (
     'south',
-    'news',
+    'apps.news',
 )
 
 INSTALLED_APPS = (

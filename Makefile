@@ -68,7 +68,7 @@ functional: functional_deps deps
 
 unit: unit_deps deps
 	@echo ==============================================
-	@echo ========= Running acceptance specs ===========
+	@echo ========= Running unit specs ===========
 	@specloud --with-django
 	@echo
 

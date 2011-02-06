@@ -12,5 +12,5 @@ class News(models.Model):
     class Meta:
         verbose_name_plural = 'News'
         
-    def __uniicode__(self):
+    def __unicode__(self):
         return self.title
