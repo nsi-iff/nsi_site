@@ -76,3 +76,4 @@ INSTALLED_APPS = (
     'south',
     'apps.members',
 )
+
