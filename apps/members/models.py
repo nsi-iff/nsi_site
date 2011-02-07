@@ -1,5 +1,5 @@
 from django.db import models
-from teams.models import Team
+from apps.teams.models import Team
 from projects.models import Project
 
 class Member(models.Model):

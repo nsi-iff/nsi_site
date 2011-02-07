@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from lettuce import step
-from members.models import Member
+from apps.members.models import Member
 
 @step(u'Given exist a member:')
 def given_exist_a_member(step):
