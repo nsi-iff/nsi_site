@@ -75,3 +75,4 @@ INSTALLED_APPS = (
     'apps.history',
     'projects',
 )
+
