@@ -1,0 +1,15 @@
+<h1>Member</h1>
+  <h3>{{ member.name }}</h3>
+  <p>{{ member.current_team }}</p>
+  <p>{{ member.currently_does }}</p>
+  
+  <p>{{ member.life_and_work }}</p>
+  <p>Site: {{ member.site }}</p>
+  <p>Github: {{ member.github }}</p>
+  <p>Twitter: {{ member.twitter }}</p>
+  <p>SlideShare: {{ member.slideshare }}</p>
+  <p>Curriculo Lattes: {{ member.lattes }}</p>
+  <img src="/site_media/{{ member.photo.url }}" alt="{{ member.name }} photo" title="{{ member.name }} photo" >
+  <p>{{ member.project_memberships }}</p>
+  <p>{{ member.started_nsi_date|date:"d/m/Y" }}</p>
+
