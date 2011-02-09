@@ -7,7 +7,7 @@ Feature: Project maintenance
     Given exist a project:
       | name     | description              | logo    | sponsor | status | start_date | end_date   |
       | NSI Site | The terrific site of NSI | images/projects/nsi.png | NSI     | aberto | 2010-11-10 | 2011-02-01 |
-    When I go to the projects page
+    When I go to "the projects page"
     Then I should see "1 project"
     And I should see "NSI Site"
     And I should see "The terrific site of NSI"
@@ -20,7 +20,7 @@ Feature: Project maintenance
     Given exist a project:
       | name     | description              | logo    | sponsor | status | start_date |
       | NSI Site | The terrific site of NSI | nsi.png | NSI     | aberto | 2010-11-10 |
-    When I go to the projects page
+    When I go to "the projects page"
     Then I should see "1 project"
     And I should see "NSI Site"
     And I should see "The terrific site of NSI"

@@ -7,6 +7,6 @@ Feature: Team maintenance
     Given exist a team:
       | name          | description                          |
       | Site NSI      | Grupo de desenvolvimento do site NSI |
-    When I go to the teams page
+    When I go to "the teams page"
     Then I should see "Site NSI"
     And I should see "Grupo de desenvolvimento do site NSI"

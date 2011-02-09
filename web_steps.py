@@ -6,7 +6,7 @@ from paths import path_to
 def fill_field(step, label, value):
     world.browser.fill_in(label, value)
 
-@step(r'I go to (.+)')
+@step(r'I go to "(.+)"')
 def i_go_to(step, page_name):
     world.browser.visit(path_to(page_name))
 
