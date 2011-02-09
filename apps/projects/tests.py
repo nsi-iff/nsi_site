@@ -1,6 +1,6 @@
 from django.test import TestCase
 from should_dsl import should, should_not
-from projects.models import Project
+from apps.projects.models import Project
 
 class ProjectTest(TestCase):
     def test_finishing(self):

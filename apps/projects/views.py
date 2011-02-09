@@ -1,5 +1,5 @@
 from django.shortcuts import render_to_response
-from projects.models import Project
+from apps.projects.models import Project
 
 def show_all(request):
     projects = Project.objects.all()

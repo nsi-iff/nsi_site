@@ -1,6 +1,6 @@
 from django.db import models
 from apps.teams.models import Team
-from projects.models import Project
+from apps.projects.models import Project
 
 class Member(models.Model):
     name = models.CharField(max_length=100)

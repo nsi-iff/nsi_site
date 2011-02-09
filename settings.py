@@ -74,6 +74,6 @@ INSTALLED_APPS = (
     'apps.history',
     'apps.members',
     'apps.teams',
-    'projects',
+    'apps.projects',
 )
 
