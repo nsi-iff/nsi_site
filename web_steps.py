@@ -1,3 +1,4 @@
+import datetime
 from lettuce import world, step
 from should_dsl import should
 from paths import path_to
@@ -6,13 +7,26 @@ from paths import path_to
 def fill_field(step, label, value):
     world.browser.fill_in(label, value)
 
-@step(r'I go to "(.+)"')
+@step(r'now is "(.+)"')
+def now_is(step, str_datetime):
+    world.real_datetime = datetime.datetime
+    class MockDatetime(datetime.datetime):
+        @classmethod
+        def now(cls):
+            return world.extract_time(str_datetime)
+    datetime.datetime = MockDatetime
+
+@step(r'I go to (.+)')
 def i_go_to(step, page_name):
     world.browser.visit(path_to(page_name))
 
 @step(r'I press "(.*)"')
 def press_button(step, name):
     world.browser.find_by_name(name.lower()).click()
+
+@step(u'I click "(.*)"')
+def i_click(step, link):
+    world.browser.find_link_by_text(link).first.click()
 
 @step(r'I should see "(.*)"')
 def i_should_see(step, content):
