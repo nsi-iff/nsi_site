@@ -18,4 +18,3 @@ class Member(models.Model):
     project_memberships = models.CharField(max_length=100)
     started_nsi_date = models.DateField()
     desertion_nsi_date = models.DateField(null=True)
-    
