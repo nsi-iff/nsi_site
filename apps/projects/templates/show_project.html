@@ -1,0 +1,20 @@
+<h1>{{ project.name }}</h1>
+
+<p>{{ project.description }}</p>
+
+<table id="documents">
+  <thead>
+    <tr><th>Nome</th><th>Descrição</th><th>Enviado</th></tr>
+  </thead>
+  <tbody>
+{% for document in project.document_set.all %}
+    <tr>
+      <td>{{ document.title }}</td>
+      <td>{{ document.description }}</td>
+      <td>{{ document.uploaded_at|date:"d/m/Y à\s H:i" }}</td>
+      <td><a href="/site_media/{{ document.file.url }}">Download</a></td>
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+

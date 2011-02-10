@@ -5,7 +5,7 @@ Feature: Project maintenance
 
   Scenario: Projects page
     Given exist a project:
-      | name     | description              | logo    | sponsor | status | start_date | end_date   |
+      | name     | description              | logo                    | sponsor | status | start_date | end_date   |
       | NSI Site | The terrific site of NSI | images/projects/nsi.png | NSI     | aberto | 2010-11-10 | 2011-02-01 |
     When I go to "the projects page"
     Then I should see "1 project"

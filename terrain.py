@@ -42,13 +42,14 @@ def create_admin():
 
 def clean_images():
     images_dir = os.path.join(settings.MEDIA_ROOT, 'images')
-    clean_all(images_dir)
+    for file_name in os.listdir(images_dir):
+        clean_all(os.path.join(images_dir, file_name))
 
 
 def clean_all(directory):
     for file_name in os.listdir(directory):
         absname = os.path.join(directory, file_name)
-        if os.path.isdir(file_name) and file_name not in ['.', '..']:
+        if os.path.isdir(absname) and file_name not in ['.', '..']:
             clean_all(absname)
         elif not file_name.startswith('.'):
             os.unlink(absname)
@@ -58,3 +59,4 @@ def clean_all(directory):
 def finish_him(total_result):
     world.browser.quit()
     clean_images()
+

@@ -19,3 +19,12 @@ class Project(models.Model):
 
     def finished(self):
         return self.end_date is not None
+
+
+class Document(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    file = models.FileField(upload_to='files/projects')
+    project = models.ForeignKey(Project)
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
