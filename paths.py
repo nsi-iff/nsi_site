@@ -1,5 +1,6 @@
 from lettuce.django import django_url
 
+
 def path_to(page_name):
     return django_url(
         {
@@ -7,4 +8,3 @@ def path_to(page_name):
           'the projects page': '/projects',
           'the teams page': '/teams',
         }[page_name])
-

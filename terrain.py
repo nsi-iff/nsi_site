@@ -7,18 +7,22 @@ from splinter.browser import Browser
 from lettuce import after, before, world
 from web_steps import *
 
+
 @before.all
 def set_browser():
     enable_selenium_specs_to_run_offline()
     world.browser = Browser()
 
+
 def enable_selenium_specs_to_run_offline():
     prefs = FirefoxProfile._get_webdriver_prefs()
     prefs['network.manage-offline-status'] = 'false'
+
     @staticmethod
     def prefs_func():
         return prefs
     FirefoxProfile._get_webdriver_prefs = prefs_func
+
 
 @before.each_scenario
 def clean_database(scenario):
@@ -26,16 +30,20 @@ def clean_database(scenario):
     create_admin()
     clean_images()
 
+
 def clean_data():
-   call_command('flush', interactive=False)
-   call_command('loaddata', 'all')
+    call_command('flush', interactive=False)
+    call_command('loaddata', 'all')
+
 
 def create_admin():
     User.objects.create_superuser('admin', 'admin@test.com', 'admin')
 
+
 def clean_images():
     images_dir = os.path.join(settings.MEDIA_ROOT, 'images')
     clean_all(images_dir)
+
 
 def clean_all(directory):
     for file_name in os.listdir(directory):
@@ -45,8 +53,8 @@ def clean_all(directory):
         elif not file_name.startswith('.'):
             os.unlink(absname)
 
+
 @after.all
 def finish_him(total_result):
     world.browser.quit()
     clean_images()
-

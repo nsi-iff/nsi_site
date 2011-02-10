@@ -19,4 +19,3 @@ urlpatterns = patterns('',
 
     (r'^site_media/(.*)$', 'django.views.static.serve', {"document_root": settings.MEDIA_ROOT}),
 )
-
