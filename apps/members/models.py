@@ -4,8 +4,8 @@ from apps.projects.models import Project
 
 class Member(models.Model):
     name = models.CharField(max_length=100)
-    #current_team = models.ManyToManyField(Team)
-    current_team = models.CharField(max_length=100)
+    current_team = models.ManyToManyField(Team)
+    #current_team = models.CharField(max_length=100)
     currently_does = models.TextField()
     life_and_work =  models.TextField()
     site = models.URLField(null=True)
