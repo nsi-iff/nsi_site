@@ -2,12 +2,13 @@ from django.db import models
 from apps.teams.models import Team
 from apps.projects.models import Project
 
+
 class Member(models.Model):
     name = models.CharField(max_length=100)
     #current_team = models.ManyToManyField(Team)
     current_team = models.CharField(max_length=100)
     currently_does = models.TextField()
-    life_and_work =  models.TextField()
+    life_and_work = models.TextField()
     site = models.URLField(null=True)
     github = models.URLField(null=True)
     twitter = models.URLField(null=True)

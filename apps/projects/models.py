@@ -19,4 +19,3 @@ class Project(models.Model):
 
     def finished(self):
         return self.end_date is not None
-
