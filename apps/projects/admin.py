@@ -1,5 +1,15 @@
 from django.contrib import admin
-from apps.projects.models import Project
+from apps.projects.models import Project, Document
 
 
-admin.site.register(Project)
+class DocumentInline(admin.StackedInline):
+    model = Document
+    extra = 1
+
+
+class ProjectAdmin(admin.ModelAdmin):
+    inlines = [DocumentInline]
+
+
+admin.site.register(Project, ProjectAdmin)
+
