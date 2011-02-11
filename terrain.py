@@ -28,7 +28,7 @@ def enable_selenium_specs_to_run_offline():
 def clean_database(scenario):
     clean_data()
     create_admin()
-    clean_images()
+    clean_media()
 
 
 def clean_data():
@@ -40,8 +40,12 @@ def create_admin():
     User.objects.create_superuser('admin', 'admin@test.com', 'admin')
 
 
-def clean_images():
-    images_dir = os.path.join(settings.MEDIA_ROOT, 'images')
+def clean_media():
+    clean_media_by_kind('images')
+    clean_media_by_kind('files')
+
+def clean_media_by_kind(kind):
+    images_dir = os.path.join(settings.MEDIA_ROOT, kind)
     for file_name in os.listdir(images_dir):
         clean_all(os.path.join(images_dir, file_name))
 
@@ -58,5 +62,5 @@ def clean_all(directory):
 @after.all
 def finish_him(total_result):
     world.browser.quit()
-    clean_images()
+    clean_media()
 
