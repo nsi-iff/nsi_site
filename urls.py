@@ -9,7 +9,8 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     (r'^$', direct_to_template, {"template": 'index.html'}),
 
-    (r'^history/$', 'apps.history.views.show'),
+    (r'^history/$', 'apps.nsi_info.views.show_history'),
+    (r'^summary/$', 'apps.nsi_info.views.show_summary'),
 
     (r'^projects/$', 'apps.projects.views.show_all'),
     (r'^projects/(?P<project_id>\w+)/$', 'apps.projects.views.show_project'),

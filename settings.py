@@ -71,7 +71,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'lettuce.django',
     'south',
-    'apps.history',
+    'apps.nsi_info',
     'apps.members',
     'apps.teams',
     'apps.projects',

@@ -8,28 +8,30 @@ class Migration(SchemaMigration):
 
     def forwards(self, orm):
         
-        # Adding model 'History'
-        db.create_table('history_history', (
+        # Adding model 'NSIInfo'
+        db.create_table('nsi_info_nsiinfo', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('text', self.gf('django.db.models.fields.TextField')()),
+            ('history', self.gf('django.db.models.fields.TextField')()),
+            ('summary', self.gf('django.db.models.fields.TextField')()),
             ('updated_at', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
         ))
-        db.send_create_signal('history', ['History'])
+        db.send_create_signal('nsi_info', ['NSIInfo'])
 
 
     def backwards(self, orm):
         
-        # Deleting model 'History'
-        db.delete_table('history_history')
+        # Deleting model 'NSIInfo'
+        db.delete_table('nsi_info_nsiinfo')
 
 
     models = {
-        'history.history': {
-            'Meta': {'object_name': 'History'},
+        'nsi_info.nsiinfo': {
+            'Meta': {'object_name': 'NSIInfo'},
+            'history': ('django.db.models.fields.TextField', [], {}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'text': ('django.db.models.fields.TextField', [], {}),
+            'summary': ('django.db.models.fields.TextField', [], {}),
             'updated_at': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'})
         }
     }
 
-    complete_apps = ['history']
+    complete_apps = ['nsi_info']
