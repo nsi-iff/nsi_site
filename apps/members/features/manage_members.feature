@@ -26,3 +26,6 @@ Feature: Member maintenance
     And I should see "Curriculo Lattes: http://lattes.cnpq.br/pluck"
     And I should see an image called "pluck_photo.png"
     And I should see "01/01/2000"
+    And I should see "Projects Membership:"
+    And I should see "NSI Site"
+    And I should see "Início: 01/01/2011"
