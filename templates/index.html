@@ -3,24 +3,24 @@
 {% block title %}{{ block.super}} - O Glorioso{% endblock title %}
 {% block styles %}
   {{ block.super }}
-<!--  <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/index.css"/>-->
 {% endblock styles %}
 
 {% block header %}
   <h1>NSI - O Glorioso</h1>
 {% endblock header %}
 
-{% block content %}
+{% block menu %}
   <div id="menu">
     <ul>
         <li><a href="http://nsi.iff.edu.br"><label>Site principal</label></a></li>
         <li><a href="http://github.com/nsi-iff"><label>Projetos</label></a></li>
     </ul>
   </div>
-{% endblock content %}
+{% endblock menu %}
 
 {% block footer %}
   <div id="footer">
     <span><a href="#">Equipe</a></span>
   </div>
 {% endblock footer %}
+
