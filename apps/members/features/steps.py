@@ -10,22 +10,29 @@ from apps.projects.models import Project
 
 @step(u'exist a project:')
 def given_exist_a_project(step):
-    Project(**step.hashes[0]).save()
-    file_name = step.hashes[0]['logo'].split('/')[-1]
-    shutil.copy2(os.path.join(settings.PROJECT_ROOT_PATH, 'apps', 'projects',
-                              'features', 'resources', file_name),
-                 os.path.join(settings.MEDIA_ROOT, 'images', 'projects'))
+    for project in step.hashes:
+        Project(**project).save()
+        file_name = step.hashes[0]['logo'].split('/')[-1]
+        shutil.copy2(os.path.join(settings.PROJECT_ROOT_PATH, 'apps', 'projects',
+                                  'features', 'resources', file_name),
+                     os.path.join(settings.MEDIA_ROOT, 'images', 'projects'))
 
 @step(u'exist a member:')
 def and_team_has_the_member(step):
     Member(**step.hashes[0]).save()
 
-@step(u'And "(.*)" member started participation the "(.*)" project in "(.*)"')
-def and_member_participation_the_project_in(step, member_name, project_name, start_project_date):
+@step(r'"(.*)" member started participation the "(.*)" project in "(.*)"')
+def and_member_participation_the_project_in(step, member_name, project_name, start_participation_date):
     member = Member.objects.get(name=member_name)
     project = Project.objects.get(name=project_name)
-    Participation(member=member, project=project, start_date=start_project_date).save()
+    Participation(member=member, project=project, start_date=start_participation_date).save()
     
+@step(r'"(.*)" member participated on "(.*)" project between "(.*)" and "(.*)"')
+def and_member_participated_on_project_between(step, member_name, project_name, start_participation_date, end_participation_date):
+    member = Member.objects.get(name=member_name)
+    project = Project.objects.get(name=project_name)
+    Participation(member=member, project=project, start_date=start_participation_date, end_date=end_participation_date).save()    
+
 @step(r'I go to the "(.+)" member page')
 def i_go_to_member_page(step, member_name):
     member_obj = Member.objects.get(name=member_name)

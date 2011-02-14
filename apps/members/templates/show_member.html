@@ -9,13 +9,13 @@
   <p>Curriculo Lattes: {{ member.lattes }}</p>
   <img src="/site_media/{{ member.photo.url }}" alt="{{ member.name }} photo" title="{{ member.name }} photo" >
   <p>{{ member.started_nsi_date|date:"d/m/Y" }}</p>
-  <p>Projects Membership:</p>
+  <p>Projects Participations:</p>
   <ul>
   {% for participation in participation_list %}
     <li>
       <p>{{ participation.project.name }}</p>
       {% if participation.end_date %}
-        <p>Duração: {{ participation.start_date|date:"d/m/Y" }} a {{ participation..project.end_date|date:"d/m/Y" }}</p>
+        <p>Duração: {{ participation.start_date|date:"d/m/Y" }} a {{ participation.end_date|date:"d/m/Y" }}</p>
       {% else %}
         <p>Início: {{ participation.start_date|date:"d/m/Y" }}
       {% endif %}
