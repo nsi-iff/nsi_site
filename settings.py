@@ -73,7 +73,6 @@ INSTALLED_APPS = (
     'south',
     'apps.nsi_info',
     'apps.members',
-    'apps.teams',
     'apps.projects',
 )
 
