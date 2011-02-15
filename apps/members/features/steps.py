@@ -20,7 +20,8 @@ def given_exist_a_project(step):
 
 @step(u'exist a member:')
 def and_team_has_the_member(step):
-    Member(**step.hashes[0]).save()
+    for member in step.hashes:
+        Member(**member).save()
 
 @step(r'"(.*)" member started participation the "(.*)" project in "(.*)"')
 def and_member_participation_the_project_in(step, member_name, project_name, start_participation_date):
@@ -39,10 +40,13 @@ def i_go_to_member_page(step, member_name):
     member_obj = Member.objects.get(name=member_name)
     world.browser.visit(django_url('/member/%i' % member_obj.id))
     
+@step(r'I go to the page which list all members')
+def i_go_to_all_members_page(step):
+    world.browser.visit(django_url('/members/'))
+    
 @step(u'I should see a label "(.*)" with the link to "(.*)"')
 def i_should_see_a_label_with_link(step, link_text, link_href):
     links = world.browser.find_link_by_href(link_href)
     links |should| have_at_least(1).item
     link = links[0]
     link['text'] |should| equal_to(link_text)
-

@@ -9,9 +9,8 @@ Feature: Member maintenance
       | NSI Site | The terrific site of NSI | images/projects/nsi.png | NSI     | aberto | 2010-11-10 | 2011-02-01 |
       
     And exist a member:
-      | name | currently_does | life_and_work | site | github | twitter | slideshare | lattes | photo | started_nsi_date |
-
-      | Pluck | Phd em Desenvolvimento de software, bolsista do NSI desde das trevas | Atualmente trabalha como suporte de madeira | http://www.pluck.com | pluck | pluck | pluck | http://lattes.cnpq.br/pluck | pluck_photo.png | 2000-01-01  | 
+      | name | currently_does | life_and_work | function |site | github | twitter | slideshare | lattes | photo | started_nsi_date |
+      | Pluck | Phd em Desenvolvimento de software, bolsista do NSI desde das trevas | Atualmente trabalha como suporte de madeira | bolsista | http://www.pluck.com | pluck | pluck | pluck | http://lattes.cnpq.br/pluck | pluck_photo.png | 2000-01-01  | 
        
     And "Pluck" member started participation the "NSI Site" project in "2011-01-01"
     
@@ -19,6 +18,7 @@ Feature: Member maintenance
     Then I should see "Pluck"
     And I should see "Phd em Desenvolvimento de software, bolsista do NSI desde das trevas"
     And I should see "Atualmente trabalha como suporte de madeira"
+    And I should see "bolsista"
     And I should see "Site: http://www.pluck.com"
     And I should see a label "pluck" with the link to "http://github.com/pluck"
     And I should see a label "@pluck" with the link to "http://twitter.com/pluck"
@@ -38,9 +38,8 @@ Feature: Member maintenance
         | ERP5     | Free ERP                 | images/projects/erp5.png | NSI     | aberto | 2007-01-01 | 2011-02-01 |
         
       And exist a member:
-        | name | currently_does | life_and_work | site | github | twitter | slideshare | lattes | photo | started_nsi_date |
-
-        | Pluck | Phd em Desenvolvimento de software, bolsista do NSI desde das trevas | Atualmente trabalha como suporte de madeira | http://www.pluck.com | pluck | pluck | pluck | http://lattes.cnpq.br/pluck | pluck_photo.png | 2000-01-01  |
+        | name | currently_does | life_and_work | function | site | github | twitter | slideshare | lattes | photo | started_nsi_date |
+        | Pluck | Phd em Desenvolvimento de software, bolsista do NSI desde das trevas | Atualmente trabalha como suporte de madeira | bolsista | http://www.pluck.com | pluck | pluck | pluck | http://lattes.cnpq.br/pluck | pluck_photo.png | 2000-01-01  |
         
       And "Pluck" member participated on "NSI Site" project between "2011-01-01" and "2011-01-30"
       And "Pluck" member participated on "ERP5" project between "2007-01-01" and "2011-06-06"
@@ -49,6 +48,7 @@ Feature: Member maintenance
       Then I should see "Pluck"
       And I should see "Phd em Desenvolvimento de software, bolsista do NSI desde das trevas"
       And I should see "Atualmente trabalha como suporte de madeira"
+      And I should see "bolsista"
       And I should see "Site: http://www.pluck.com"
       And I should see "Curriculo Lattes: http://lattes.cnpq.br/pluck"
       And I should see a label "pluck" with the link to "http://github.com/pluck"

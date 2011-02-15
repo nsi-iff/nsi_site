@@ -2,6 +2,14 @@ from django.db import models
 from apps.projects.models import Project
 
 
+MEMBER_FUNCTIONS = (
+    ('gerente', 'gerente'),
+    ('coordenador', 'coordenador'),
+    ('pesquisador', 'pesquisador'),
+    ('bolsista', 'bolsista'),
+    ('colaborador', 'colaborador'))
+
+
 class Participation(models.Model):
     member = models.ForeignKey('Member')
     project = models.ForeignKey(Project)
@@ -12,6 +20,7 @@ class Member(models.Model):
     name = models.CharField(max_length=100)
     currently_does = models.TextField()
     life_and_work = models.TextField()
+    function = models.CharField(max_length=100, choices=MEMBER_FUNCTIONS)
     site = models.URLField(null=True, blank=True)
     github = models.CharField(max_length=50, null=True, blank=True)
     twitter = models.CharField(max_length=50, null=True, blank=True)
