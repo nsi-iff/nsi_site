@@ -8,5 +8,6 @@ def path_to(page_name):
           'the summary page': '/summary',
           'the projects page': '/projects',
           'the teams page': '/teams',
+          'the page list all members': '/members'
         }[page_name])
 
