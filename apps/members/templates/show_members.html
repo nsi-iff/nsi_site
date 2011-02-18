@@ -1,0 +1,25 @@
+{% for member in members %}
+  <h3>{{ member.name }}</h3>
+  <p>{{ member.currently_does }}</p>
+  <p>{{ member.life_and_work }}</p>
+  <p>Site: {{ member.site }}</p>
+  <p>Github: {{ member.github }}</p>
+  <p>Twitter: {{ member.twitter }}</p>
+  <p>SlideShare: {{ member.slideshare }}</p>
+  <p>Curriculo Lattes: {{ member.lattes }}</p>
+  <img src="/site_media/{{ member.photo.url }}" alt="{{ member.name }} photo" title="{{ member.name }} photo" >
+  <p>{{ member.started_nsi_date|date:"d/m/Y" }}</p>
+  <p>Projects Membership:</p>
+  <ul>
+  {% for participation in participation_list %}
+    <li>
+      <p>{{ participation.project.name }}</p>
+      {% if participation.end_date %}
+        <p>Duração: {{ participation.start_date|date:"d/m/Y" }} a {{ participation..project.end_date|date:"d/m/Y" }}</p>
+      {% else %}
+        <p>Início: {{ participation.start_date|date:"d/m/Y" }}
+      {% endif %}
+    </li>
+  {% endfor %}
+  </ul>
+{% endfor %}
