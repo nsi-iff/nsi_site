@@ -1,3 +1,6 @@
+{% extends "base.html" %}
+
+{% block content %}
 <h1>Member</h1>
   <h3>{{ member.name }}</h3>
   <p>{{ member.currently_does }}</p>
@@ -23,4 +26,4 @@
     </li>
   {% endfor %}
   </ul>
-
+{% endblock content %}
