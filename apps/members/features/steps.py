@@ -46,3 +46,37 @@ def i_should_see_a_label_with_link(step, link_text, link_href):
     links |should| have_at_least(1).item
     link = links[0]
     link['text'] |should| equal_to(link_text)
+ 
+#@step(r'I should see an photo called "(.*)" in "(.*)" container')
+#def i_should_see_an_photo_called_in_container(step, image_name, container_name):
+#    member = Member.objects.get(name=container_name)
+#    container = world.browser.find_by_css_selector('#member%s .avatar' % member.id)
+#    container_image_name = container[0]['src'].split("/")[-1]
+#    container_image_name |should| equal_to(image_name)
+
+@step(r'I should see the following members')
+def i_should_see_the_following_members(step):
+    
+    for member_data in step.hashes:
+        member = Member.objects.get(name=member_data['name'])
+        
+        container_photo = world.browser.find_by_css_selector('#member%s .avatar' % member.id)
+        container_image_name = container_photo[0]['src'].split("/")[-1]
+        container_image_name |should| equal_to(member_data['photo'])
+        
+        title_text = world.browser.find_by_css_selector('#member%s h1' % member.id)
+        title_text[0].value |should| equal_to(member_data['name'])
+        
+        function_text = world.browser.find_by_css_selector('#member%s span' % member.id)
+        function_text[0].value |should| equal_to(member_data['function'])
+        
+        currently_does_text = world.browser.find_by_css_selector('#member%s p' % member.id)
+        currently_does_text[0].value |should| equal_to(member_data['currently_does'])
+        
+        container_links = world.browser.find_by_css_selector('#member%s .links a' % member.id)
+        container_links_href = [x['href'] for x in container_links]
+        
+        member_data['site'] |should| be_into(container_links_href)
+        member_data['github'] |should| be_into(container_links_href)
+        member_data['twitter'] |should| be_into(container_links_href)
+        member_data['slideshare'] |should| be_into(container_links_href)

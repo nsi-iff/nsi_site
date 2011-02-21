@@ -20,7 +20,7 @@ def press_button(step, name):
 def i_click(step, link):
     world.browser.find_link_by_text(link).first.click()
 
-@step(r'I should see "(.*)"')
+@step(r'I should see "(.*)"$')
 def i_should_see(step, content):
     world.browser.html |should| contain(content)
 
@@ -41,4 +41,3 @@ def i_should_see_a_link_with_label(step, link_href, link_text):
     links |should| have_at_least(1).item
     link = links[0]
     link['href'] |should| end_with(link_href)
-

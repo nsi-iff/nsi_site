@@ -80,6 +80,11 @@ Feature: Member maintenance
       And "Pedro" member started participation the "ERP5" project in "2011-01-01"
         
       When I go to "the page list all members"
-      And I should see an image called "pluck_photo.png"
-      And I should see "Pluck"
-      And I should see "bolsista"
+      Then I should see the following members: 
+      | photo | name | function | currently_does | site | lattes | github | twitter | slideshare |
+      
+      | pluck_photo.png | Pluck | bolsista | Phd em Desenvolvimento de software, bolsista do NSI desde das trevas | http://www.pluck.com | http://lattes.cnpq.br/pluck | http://github.com/pluck | http://twitter.com/pluck | http://www.slideshare.net/pluck |
+      
+      | batata_photo.png | Batata | pesquisador | Concluindo graduação | http://www.batata.com | http://lattes.cnpq.br/batata | http://github.com/batata | http://twitter.com/batata | http://www.slideshare.net/batata |
+      
+      | pedro_photo.png | Pedro | colaborador | Concluindo graduação | http://www.pedrindoidao.com | http://lattes.cnpq.br/pedrin_doidao | http://github.com/pedro | http://twitter.com/pedro | http://www.slideshare.net/pedro |

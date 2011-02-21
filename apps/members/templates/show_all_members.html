@@ -1,7 +1,7 @@
 {% block content %}
-  {% for member in members %}
-    <div id="members_content">
-      <div class="member" id="{{member.id}}">
+  <div id="members_content">
+    {% for member in members %}
+      <div class="member" id="member{{member.id}}">
         <img class="avatar" src="/{{ member.photo }}" alt="{{ member.name }}" width="90" height="90"/>
         <h1>
           {{ member.name }}
@@ -12,6 +12,11 @@
           {% if member.site %}
           <a href="{{ member.site }}" target="_blank">
             <img src="{{ MEDIA_URL }}/images/icons/icon_site.png" alt="Site"/>
+          </a>
+          {% endif %}
+          {% if member.site %}
+          <a href="{{ member.lattes }}" target="_blank">
+            <img src="{{ MEDIA_URL }}/images/icons/icon_lattes.png" alt="Lattes"/>
           </a>
           {% endif %}
           {% if member.github %}
@@ -25,12 +30,13 @@
           </a>
           {% endif %}
           {% if member.slideshare %}
-          <a href="{{ member.slideshare }}" target="_blank">
+          <a href="{{ member.slideshare_link }}" target="_blank">
             <img src="{{ MEDIA_URL }}/images/icons/icon_slideshare.png" alt="Slideshare"/>
           </a>
           {% endif %}
         </div>
       </div>
-  {% endfor %}
+    {% endfor %}
+  </div>
 {% endblock content %}
 
