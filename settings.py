@@ -59,7 +59,6 @@ TEMPLATE_DIRS = (
 
 LETTUCE_AVOID_APPS = (
     'south',
-    'apps.news',
 )
 
 INSTALLED_APPS = (
@@ -71,6 +70,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'lettuce.django',
     'south',
+    'apps.news',
     'apps.nsi_info',
     'apps.members',
     'apps.projects',

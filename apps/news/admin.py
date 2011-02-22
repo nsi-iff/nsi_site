@@ -2,6 +2,6 @@
 # encoding: utf-8
 from django.contrib.admin import site
 
-from apps.news.models import News
+from apps.news.models import New
 
-site.register(News)
+site.register(New)
