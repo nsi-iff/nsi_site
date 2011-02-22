@@ -15,5 +15,5 @@ Feature: News maintenance
     And I should see "Já está no ar o site do NSI!"
     And I should see an image called "nsi.png"
     And I should see "Postado por: rogerio"
-    And I should see "Data: 15 de Janeiro de 2011 às 20:00"
+    And I should see "Data: 15/01/2011 às 20:00"
     And I should see "Projeto: NSI Site"
