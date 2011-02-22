@@ -16,10 +16,11 @@ def exist_a_project(step):
 @step(u'And exist a new with title "(.*)", summary "(.*)", body "(.*)", image "(.*)", author "(.*)", date and time "(.*)" and project "(.*)"')
 def exist_a_new_with_title_summary_body_image_author_date_time_and_project(step, title, summary, body, image, author, date_time, project):
     author = User.objects.get(username__exact=author)
-    project = Project.objects.get(name=project)
+    project_obj = Project.objects.get(name=project)
     date, hour = date_time.split()
     day, month, year = date.split('/')
     hours, minutes = hour.split(':')
     date_time = datetime(int(year), int(month), int(day), int(hours), int(minutes))
-    New.objects.create(title=title, summary=summary, body=body, image=image, author=author, datetime=date_time, project=project)
-
+    new = New.objects.create(title=title, summary=summary, body=body, image=image, author=author, datetime=date_time)
+    new.projects_relateds.add(project_obj)
+    new.save()

@@ -10,7 +10,7 @@ class New(models.Model):
     image = models.ImageField(null=True, blank=True, upload_to='images')
     author = models.ForeignKey(User)
     datetime = models.DateTimeField()
-    project = models.ForeignKey(Project)
+    projects_relateds = models.ManyToManyField(Project, null=True, blank=True)
 
     class Meta:
         verbose_name_plural = 'News'
