@@ -2,6 +2,7 @@
 
 {% block content %}
 <h1>Member</h1>
+  <img src="/site_media/{{ member.photo.url }}" alt="{{ member.name }} photo" title="{{ member.name }} photo" >
   <h3>{{ member.name }}</h3>
   <p>{{ member.currently_does }}</p>
   <p>{{ member.life_and_work }}</p>
@@ -11,7 +12,6 @@
   <p>Twitter: <a href="{{ member.twitter_link }}" target="_blank">@{{ member.twitter }}</a></p>
   <p>SlideShare: <a href="{{ member.slideshare_link }}" target="_blank">{{ member.slideshare }}</a></p>
   <p>Curriculo Lattes: {{ member.lattes }}</p>
-  <img src="/site_media/{{ member.photo.url }}" alt="{{ member.name }} photo" title="{{ member.name }} photo" >
   <p>{{ member.started_nsi_date|date:"d/m/Y" }}</p>
   <p>Projects Participations:</p>
   <ul>

@@ -13,15 +13,15 @@ from apps.projects.models import Project
 def given_exist_a_project(step):
     for project in step.hashes:
         Project(**project).save()
-        file_name = step.hashes[0]['logo'].split('/')[-1]
-        shutil.copy2(os.path.join(settings.PROJECT_ROOT_PATH, 'apps', 'projects',
-                                  'features', 'resources', file_name),
-                     os.path.join(settings.MEDIA_ROOT, 'images', 'projects'))
 
 @step(u'exist a member:')
-def and_team_has_the_member(step):
+def exist_a_member(step):
     for member in step.hashes:
         Member(**member).save()
+        file_name = member.get('photo').split('/')[-1]
+        shutil.copy2(os.path.join(settings.PROJECT_ROOT_PATH, 'apps', 'members',
+                                  'features', 'resources', file_name),
+                     os.path.join(settings.MEDIA_ROOT, 'images', 'members'))
 
 @step(r'"(.*)" member started participation the "(.*)" project in "(.*)"')
 def and_member_participation_the_project_in(step, member_name, project_name, start_participation_date):
@@ -47,13 +47,6 @@ def i_should_see_a_label_with_link(step, link_text, link_href):
     link = links[0]
     link['text'] |should| equal_to(link_text)
  
-#@step(r'I should see an photo called "(.*)" in "(.*)" container')
-#def i_should_see_an_photo_called_in_container(step, image_name, container_name):
-#    member = Member.objects.get(name=container_name)
-#    container = world.browser.find_by_css_selector('#member%s .avatar' % member.id)
-#    container_image_name = container[0]['src'].split("/")[-1]
-#    container_image_name |should| equal_to(image_name)
-
 @step(r'I should see the following members')
 def i_should_see_the_following_members(step):
     
