@@ -10,9 +10,14 @@
         <img src="/{{ new.image }}" />
         <p>Postado por: {{ new.author }}</p>
         <p>Data: {{ new.datetime|date:"d/m/Y à\s H:i" }}</p>
-        {% for project in new.projects_relateds.all %}
-          <p>Projeto: {{ project.name }}</p>
-        {% endfor %}
+        {% if new.projects_relateds.all %}
+          <ul>
+            <p>Projeto:</p>
+            {% for project in new.projects_relateds.all %}
+              <li>{{ project.name }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
       </div>
     {% endfor %}
   </div>

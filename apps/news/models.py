@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from apps.projects.models import Project
 
 
-class New(models.Model):
+class News(models.Model):
     title = models.CharField(max_length=200)
     summary = models.CharField(max_length=200, null=True, blank=True)
     body = models.TextField()
