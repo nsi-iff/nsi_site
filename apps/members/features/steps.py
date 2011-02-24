@@ -5,6 +5,7 @@ from lettuce import step, world
 from django.conf import settings
 from lettuce.django import django_url
 from should_dsl import should
+from model_mommy import mommy
 from apps.members.models import Member
 from apps.members.models import Participation
 from apps.projects.models import Project
@@ -12,7 +13,7 @@ from apps.projects.models import Project
 @step(u'exist a project:')
 def given_exist_a_project(step):
     for project in step.hashes:
-        Project(**project).save()
+         m = mommy.make_one(Project, name=project.get('name'), logo=None)
 
 @step(u'exist a member:')
 def exist_a_member(step):

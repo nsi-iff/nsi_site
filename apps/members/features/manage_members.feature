@@ -5,8 +5,8 @@ Feature: Member maintenance
 
   Scenario: member page that just have only one project
     Given exist a project:
-      | name     | description              | logo                    | sponsor | status | start_date | end_date   |
-      | NSI Site | The terrific site of NSI | images/projects/nsi.png | NSI     | aberto | 2010-11-10 | 2011-02-01 |
+      | name     |
+      | NSI Site |
       
     And exist a member:
       | name | currently_does | life_and_work | function |site | github | twitter | slideshare | lattes | photo | started_nsi_date |
@@ -33,9 +33,9 @@ Feature: Member maintenance
     
     Scenario: member page that have two projects
       Given exist a project:
-        | name     | description              | logo                     | sponsor | status | start_date | end_date   |
-        | NSI Site | The terrific site of NSI | images/projects/nsi.png  | NSI     | aberto | 2010-11-10 | 2011-02-01 |
-        | ERP5     | Free ERP                 | images/projects/erp5.png | NSI     | aberto | 2007-01-01 | 2011-02-01 |
+        | name     |
+        | NSI Site |
+        | ERP5     |
         
       And exist a member:
         | name | currently_does | life_and_work | function | site | github | twitter | slideshare | lattes | photo | started_nsi_date |
