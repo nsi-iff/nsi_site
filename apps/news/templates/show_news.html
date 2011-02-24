@@ -7,7 +7,7 @@
         <h1>{{ new.title }}</h1>
         <h2>{{ new.summary }}</h2>
         <h3>{{ new.body }}</h3>
-        <img src="/{{ new.image }}" />
+        <img src="/site_media{{ new.image.url }}" alt="{{ new.title }} image" title="{{ new.title }} image" />
         <p>Postado por: {{ new.author }}</p>
         <p>Data: {{ new.datetime|date:"d/m/Y à\s H:i" }}</p>
         {% if new.projects_relateds.all %}

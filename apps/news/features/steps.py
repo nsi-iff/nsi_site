@@ -1,26 +1,25 @@
+# -*- coding: utf-8 -*-
 import os
 import shutil
 from lettuce import step, world
+from datetime import datetime
 from django.conf import settings
 from lettuce.django import django_url
+from model_mommy import mommy
 from django.contrib.auth.models import User
 from apps.projects.models import Project
 from apps.news.models import News
-from datetime import datetime
 
 
-@step(u'exist a author "(.*)" with email "(.*)" and password "(.*)"')
-def exist_a_author_with_email_and_password(step, name, email, password):
-    User.objects.create_user(name, email, password).save()
+@step(u'exist a author:')
+def exist_a_author(step):
+    for user in step.hashes:
+        m = mommy.make_one(User, username=user.get('name'), email='a@a.com')
 
 @step(u'exist a project:')
 def exist_a_project(step):
     for project in step.hashes:
-        Project(**project).save()
-        file_name = step.hashes[0]['logo'].split('/')[-1]
-        shutil.copy2(os.path.join(settings.PROJECT_ROOT_PATH, 'apps', 'projects',
-                                  'features', 'resources', file_name),
-                     os.path.join(settings.MEDIA_ROOT, 'images', 'projects'))
+         m = mommy.make_one(Project, name=project.get('name'), logo=None)
                      
 @step(u'the news "(.*)" is related with project "(.*)"')
 def the_news_is_related_with_project(step, news_title, project_name):
@@ -39,3 +38,7 @@ def exist_a_news(step):
         hours, minutes = hour.split(':')
         date_time = datetime(int(year), int(month), int(day), int(hours), int(minutes))
         News(title=news_hashes.get('title'), summary=news_hashes.get('summary'), body=news_hashes.get('body'), image=news_hashes.get('image'), author=author, datetime=date_time).save()
+        file_name = news_hashes.get('image').split('/')[-1]
+        shutil.copy2(os.path.join(settings.PROJECT_ROOT_PATH, 'apps', 'news',
+                                  'features', 'resources', file_name),
+                     os.path.join(settings.MEDIA_ROOT, 'images', 'news'))
