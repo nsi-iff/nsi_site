@@ -1,4 +1,5 @@
 from django.shortcuts import render_to_response
+from django.template import RequestContext
 from apps.members.models import Member
 
 
@@ -7,6 +8,7 @@ def show_all(request):
     return render_to_response(
         'show_all_members.html',
         {'members': members},
+        context_instance=RequestContext(request)
     )
 
 def show(request, member_id):
@@ -15,4 +17,5 @@ def show(request, member_id):
     return render_to_response(
         'show_member.html',
         {'member': member, 'participation_list': participation_list},
+        context_instance=RequestContext(request)
     )
