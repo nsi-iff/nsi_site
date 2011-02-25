@@ -4,7 +4,7 @@
   <div id="members_content">
     {% for member in members %}
       <div class="member" id="member{{member.id}}">
-        <img class="avatar" src="/site_media/{{ member.photo }}" alt="{{ member.name }}" width="90" height="90"/>
+        <img class="avatar" src="{{ MEDIA_URL }}/{{ member.photo }}" alt="{{ member.name }}" width="90" height="90"/>
         <h1>
           {{ member.name }}
         </h1>

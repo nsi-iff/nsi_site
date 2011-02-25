@@ -15,7 +15,7 @@
       <td>{{ document.title }}</td>
       <td>{{ document.description }}</td>
       <td>{{ document.uploaded_at|date:"d/m/Y à\s H:i" }}</td>
-      <td><a href="/site_media/{{ document.file.url }}">Download</a></td>
+      <td><a href="{{ MEDIA_URL }}/{{ document.file.url }}">Download</a></td>
     </tr>
 {% endfor %}
   </tbody>

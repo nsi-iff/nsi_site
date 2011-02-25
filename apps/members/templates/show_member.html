@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1>Member</h1>
-  <img src="/site_media/{{ member.photo.url }}" alt="{{ member.name }} photo" title="{{ member.name }} photo" >
+  <img src="{{ MEDIA_URL }}/{{ member.photo.url }}" alt="{{ member.name }} photo" title="{{ member.name }} photo" >
   <h3>{{ member.name }}</h3>
   <p>{{ member.currently_does }}</p>
   <p>{{ member.life_and_work }}</p>
