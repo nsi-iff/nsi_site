@@ -1,6 +1,5 @@
 import os
 from django.core.management import call_command
-from django.contrib.auth.models import User
 from django.conf import settings
 from selenium.firefox.firefox_profile import FirefoxProfile
 from splinter.browser import Browser
@@ -27,17 +26,12 @@ def enable_selenium_specs_to_run_offline():
 @before.each_scenario
 def clean_database(scenario):
     clean_data()
-    create_admin()
     clean_media()
 
 
 def clean_data():
     call_command('flush', interactive=False)
     call_command('loaddata', 'all')
-
-
-def create_admin():
-    User.objects.create_superuser('admin', 'admin@test.com', 'admin')
 
 
 def clean_media():
