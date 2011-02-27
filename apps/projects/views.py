@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from apps.projects.models import Project
+from apps.members.models import Participation
 
 
 def show_all(request):
@@ -13,9 +14,10 @@ def show_all(request):
 
 def show_project(request, project_id):
     project = Project.objects.get(id=project_id)
+    participations = Participation.objects.all()
     return render_to_response(
         'show_project.html',
-        {'project': project},
+        {'project': project, 'participations': participations},
         context_instance=RequestContext(request)
     )
         

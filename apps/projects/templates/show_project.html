@@ -5,19 +5,37 @@
 
 <p>{{ project.description }}</p>
 
+<p>Patrocinador: {{ project.sponsor }}</p>
+<p>Status: {{ project.status }}</p>
+{% if project.finished %}
+  <p>Duração: {{ project.start_date|date:"d/m/Y" }} a {{ project.end_date|date:"d/m/Y" }}</p>
+{% else %}
+  <p>Início: {{ project.start_date|date:"d/m/Y" }}
+{% endif %}
+<img src="{{ MEDIA_URL }}/{{ project.logo.url }}" alt="{{project.name}}" title="{{project.name}} logo"/>
+
 <table id="documents">
   <thead>
     <tr><th>Nome</th><th>Descrição</th><th>Enviado</th></tr>
   </thead>
   <tbody>
-{% for document in project.document_set.all %}
+  {% for document in project.document_set.all %}
     <tr>
       <td>{{ document.title }}</td>
       <td>{{ document.description }}</td>
       <td>{{ document.uploaded_at|date:"d/m/Y à\s H:i" }}</td>
       <td><a href="{{ MEDIA_URL }}/{{ document.file.url }}">Download</a></td>
     </tr>
-{% endfor %}
+  {% endfor %}
   </tbody>
 </table>
+
+<ul>Membros:
+{% for participation in participations %}
+  {% if participation.project.name == project.name %}
+    <li>{{ participation.member.name }}</li>
+  {% endif %}
+{% endfor %}
+</ul>
+
 {% endblock content %}
