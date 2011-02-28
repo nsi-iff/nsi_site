@@ -1,29 +1,41 @@
 {% extends "base.html" %}
-
-{% block content %}
-<h1>Member</h1>
-  <img src="{{ MEDIA_URL }}/{{ member.photo.url }}" alt="{{ member.name }} photo" title="{{ member.name }} photo" >
-  <h3>{{ member.name }}</h3>
-  <p>{{ member.currently_does }}</p>
-  <p>{{ member.life_and_work }}</p>
-  <p>Função: {{ member.function }}</p>
-  <p>Site: {{ member.site }}</p>
-  <p>Github: <a href="{{ member.github_link }}" target="_blank">{{ member.github }}</a></p>
-  <p>Twitter: <a href="{{ member.twitter_link }}" target="_blank">@{{ member.twitter }}</a></p>
-  <p>SlideShare: <a href="{{ member.slideshare_link }}" target="_blank">{{ member.slideshare }}</a></p>
-  <p>Curriculo Lattes: {{ member.lattes }}</p>
-  <p>{{ member.started_nsi_date|date:"d/m/Y" }}</p>
-  <p>Projects Participations:</p>
-  <ul>
-  {% for participation in participation_list %}
-    <li>
-      <p>{{ participation.project.name }}</p>
-      {% if participation.end_date %}
-        <p>Duração: {{ participation.start_date|date:"d/m/Y" }} a {{ participation.end_date|date:"d/m/Y" }}</p>
-      {% else %}
-        <p>Início: {{ participation.start_date|date:"d/m/Y" }}
-      {% endif %}
-    </li>
+{% block styles %}
+  {{ block.super }} <link rel="stylesheet" type="text/css" href="/site_media/css/members.css"/>
+{% endblock styles %}
+{% block navigation %}
+<ul>
+  {% for member in members %}
+  <li><a href="/member/{{ member.id }}"> {{ member.name }} </a><li>
   {% endfor %}
-  </ul>
+</ul>
+{% endblock navigation %}
+{% block content %}
+  <img class="avatar" src="{{ MEDIA_URL }}/{{ member.photo.url }}" alt="{{ member.name }} photo" title="{{ member.name }} photo" >
+  <h2>{{ member.name }}</h2>
+  <div class="data">
+    <p>{{ member.currently_does }}</p>
+    <p>{{ member.life_and_work }}</p>
+    <p><b>Função:</b> {{ member.function }}</p>
+    <p><b>Site:</b> {{ member.site }}</p>
+    <p><b>Github:</b> <a href="{{ member.github_link }}" target="_blank">{{ member.github }}</a></p>
+    <p><b>Twitter:</b> <a href="{{ member.twitter_link }}" target="_blank">@{{ member.twitter }}</a></p>
+    <p><b>SlideShare:</b> <a href="{{ member.slideshare_link }}" target="_blank">{{ member.slideshare }}</a></p>
+    <p><b>Curriculo Lattes:</b> {{ member.lattes }}</p>
+    <p><b>Membro desde:</b> {{ member.started_nsi_date|date:"d/m/Y" }}</p>
+    {% if participation_list %}
+      <p><b>Participações:</b></p>
+      <ul>
+      {% for participation in participation_list %}
+        <li>
+          <p>{{ participation.project.name }}</p>
+          {% if participation.end_date %}
+            <p>Duração: {{ participation.start_date|date:"d/m/Y" }} a {{ participation.end_date|date:"d/m/Y" }}</p>
+          {% else %}
+            <p>Início: {{ participation.start_date|date:"d/m/Y" }}
+          {% endif %}
+        </li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
 {% endblock content %}

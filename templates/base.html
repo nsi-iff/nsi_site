@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{% block title %}NSI{% endblock title %}</title>
+    <head>
+        <title>{% block title %}NSI{% endblock title %}</title>
 
-    {% block styles %}
-      <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/base.css"/>
-    {% endblock styles %}
+        {% block styles %}
+          <link rel="stylesheet" type="text/css" href="/site_media/css/base.css"/>
+        {% endblock styles %}
 
-    {% block scripts %}
-    {% endblock scripts %}
-  </head>
+        {% block scripts %}
+        {% endblock scripts %}
+    </head>
 
-  <body>
-    <div id="header">
-      {% block header %}
-      {% endblock header %}
-    </div>
-
-    <div id="menu">
-      {% block menu %}
-        <div id="menu">
-            <ul>
-                <li><a href="http://nsi.iff.edu.br"><label>Site principal</label></a></li>
-                <li><a href="http://github.com/nsi-iff"><label>Projetos</label></a></li>
-            </ul>
+    <body>
+        <div id="header">
+          {% block header %}
+            <h1>NSI - O glorioso</h1>
+          {% endblock header %}
         </div>
-      {% endblock menu %}
-    </div>
-
-    <div id="content">
-      {% block content %}
-      {% endblock content %}
-    </div>
-
+        <div id="menu">
+          {% block menu %}
+            <ul>
+                <li><a href="http://nsi.iff.edu.br">Site principal</a></li>
+                <li><a href="/projects/">Projetos</a></li>
+                <li><a href="/members">Membros</a></li>
+            </ul>
+          {% endblock menu %}
+        </div>
+        <div id="columns">
+            <div id="navigation">
+              {% block navigation %}
+              {% endblock navigation %}
+            </div>
+            <div id="content">
+              {% block content %}
+              {% endblock content %}
+            </div>
+            <div id="aside">
+              {% block aside %}
+              {% endblock aside %}
+            </div>
+        </div>
+    </body>
     <div id="footer">
       {% block footer %}
         <div id="footer">
@@ -40,6 +48,5 @@
         </div>
       {% endblock footer %}
     </div>
-  </body>
 </html>
 

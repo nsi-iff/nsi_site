@@ -14,8 +14,9 @@ def show_all(request):
 def show(request, member_id):
     member = Member.objects.get(id=member_id)
     participation_list = member.participation_set.all()
+    members = Member.objects.all()
     return render_to_response(
         'show_member.html',
-        {'member': member, 'participation_list': participation_list},
+        {'member': member, 'participation_list': participation_list, 'members': members},
         context_instance=RequestContext(request)
     )

@@ -1,0 +1,51 @@
+#content h1 {
+  font-size: 20px;
+}
+
+#content h2 {
+  padding: 20px;
+  font-size: 22px;
+}
+
+#row1 {
+  float: left;
+  width: 300px;
+}
+
+#row2 {
+  float: right;
+  width: 300px;
+}
+
+.member {
+  padding: 20px 40px 20px 20px;
+  background-color: #FFFFFF;
+  border-width: thin;
+  border-color: #9BCD9B;
+  border-style: solid;
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+}
+
+.avatar {
+  float: left;
+  margin: 0 20px 5px 5px;
+}
+
+.member_data {
+  float: right;
+  padding: 5px 18px 5px 0;
+}
+
+.links{
+  clear: left;
+  padding: 5px 0 0 0;
+}
+
+.data {
+  clear: left;
+}
+
+.data a{
+  text-decoration: none;
+}
