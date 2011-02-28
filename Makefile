@@ -17,10 +17,13 @@ deps: app_deps functional_deps unit_deps
 
 app_deps: django pil south docutils
 
-functional_deps: lettuce splinter should-dsl nose lxml
+functional_deps: selenium lettuce splinter should-dsl nose lxml
 
 unit_deps: should-dsl model_mommy specloud nosedjango
 
+selenium:
+	@$(PYTHON) -c 'import selenium' 2>/dev/null || $(PIP) install selenium==2.0a5
+	
 should-dsl:
 	@$(PYTHON) -c 'import should_dsl' 2>/dev/null || $(PIP) install http://github.com/hugobr/should-dsl/tarball/master
 
@@ -56,7 +59,6 @@ nosedjango:
  
 model_mommy:
 	@$(PYTHON) -c 'import model_mommy' 2>/dev/null || $(PIP) install http://github.com/vandersonmota/model_mommy/tarball/master
-
 
 test: functional unit
 
