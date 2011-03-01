@@ -26,7 +26,7 @@ Feature: Member maintenance
     And I should see a label "pluck" with the link to "http://www.slideshare.net/pluck"
     And I should see "Curriculo Lattes: http://lattes.cnpq.br/pluck"
     And I should see "01/01/2000"
-    And I should see "Projects Participations:"
+    And I should see "Participações:"
     And I should see "NSI Site"
     And I should see "Início: 01/01/2011"
     
@@ -56,7 +56,7 @@ Feature: Member maintenance
       And I should see a label "@pluck" with the link to "http://twitter.com/pluck"
       And I should see a label "pluck" with the link to "http://www.slideshare.net/pluck"
       And I should see "01/01/2000"
-      And I should see "Projects Participations:"
+      And I should see "Participações:"
       And I should see "NSI Site"
       And I should see "Duração: 01/01/2011 a 30/01/2011"
       And I should see "ERP5"
