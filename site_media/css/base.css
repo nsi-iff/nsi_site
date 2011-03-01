@@ -20,6 +20,7 @@ body {
   width: 100%;
   height: auto;
   min-height: 100%;
+  text-align: justify;
   font-family: Verdana,Arial,sans-serif;
   color: #000000;
   background: #F0FFF0;
