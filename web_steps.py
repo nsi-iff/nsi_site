@@ -1,4 +1,5 @@
 import datetime
+import re
 from lettuce import world, step
 from should_dsl import should, should_not
 from paths import path_to
@@ -20,14 +21,23 @@ def press_button(step, name):
 def i_click(step, link):
     world.browser.find_link_by_text(link).first.click()
 
+# a "little" help from http://love-python.blogspot.com/2008/07/strip-html-tags-using-python.html
+def remove_html_tags(data):
+    p = re.compile(r'<.*?>')
+    return p.sub('', data)
+
+def remove_extra_spaces(data):
+    p = re.compile(r'\s+')
+    return p.sub(' ', data)
+
 @step(r'I should see "(.*)"$')
 def i_should_see(step, content):
-    world.browser.html |should| contain(content)
+    page_content = remove_extra_spaces(remove_html_tags(world.browser.html))
+    page_content |should| contain(content)
 
 @step(u'I should have "(.*)" as HTML')
 def i_should_have_as_html(step, html_output):
-    # different step descriptions for intention-revealing purposes
-    step.then('I should see "%s"' % html_output)
+    world.browser.html |should| contain(html_output)
 
 @step(u'I should see an image called "(.*)"')
 def and_i_should_see_an_image_called_group1(step, image_name):
@@ -41,3 +51,4 @@ def i_should_see_a_link_with_label(step, link_href, link_text):
     links |should| have_at_least(1).item
     link = links[0]
     link['href'] |should| end_with(link_href)
+
