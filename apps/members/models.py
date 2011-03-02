@@ -15,6 +15,9 @@ class Participation(models.Model):
     project = models.ForeignKey(Project)
     start_date = models.DateField()
     end_date = models.DateField(null=True)
+    
+    def __unicode__(self):
+        return self.member.name + ' - ' + self.project.name
 
 class Member(models.Model):
     name = models.CharField(max_length=100)
@@ -41,3 +44,6 @@ class Member(models.Model):
     def slideshare_link(self):
         slideshare_site = "http://www.slideshare.net/"
         return slideshare_site + self.slideshare
+        
+    def __unicode__(self):
+        return self.name
