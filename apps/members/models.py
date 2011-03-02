@@ -32,6 +32,7 @@ class Member(models.Model):
     photo = models.ImageField(upload_to='images/members')
     started_nsi_date = models.DateField()
     desertion_nsi_date = models.DateField(null=True, blank=True)
+    is_renegade = models.BooleanField(editable=False)
     
     def github_link(self):
         github_site = "http://github.com/"
@@ -47,3 +48,11 @@ class Member(models.Model):
         
     def __unicode__(self):
         return self.name
+        
+    def save(self, *args, **kwargs):
+        if self.desertion_nsi_date is not None:
+            self.is_renegade = True
+            super(Member, self).save(*args, **kwargs)
+        else:
+            self.is_renegade = False
+            super(Member, self).save(*args, **kwargs)
