@@ -20,6 +20,8 @@ class Project(models.Model):
     def finished(self):
         return self.end_date is not None
 
+    def __unicode__(self):
+        return self.name
 
 class Document(models.Model):
     title = models.CharField(max_length=100)
@@ -28,3 +30,5 @@ class Document(models.Model):
     project = models.ForeignKey(Project)
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
+    def __unicode__(self):
+        return self.title + ' - ' + self.description
