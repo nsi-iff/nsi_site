@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
-        <title>{% block title %}NSI{% endblock title %}</title>
+        <title>{% block title %}NSI - Núcleo de Pesquisa em Sistemas de Informação{% endblock title %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ MEDIA_URL }}/images/base/favicon.ico" />
 
         {% block styles %}
-          <link rel="stylesheet" type="text/css" href="/site_media/css/base.css"/>
+            <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/base.css"/>
         {% endblock styles %}
 
         {% block scripts %}
@@ -12,41 +14,71 @@
     </head>
 
     <body>
-        <div id="header">
-          {% block header %}
-            <h1>NSI - O glorioso</h1>
-          {% endblock header %}
-        </div>
-        <div id="menu">
-          {% block menu %}
-            <ul>
-                <li><a href="http://nsi.iff.edu.br">Site principal</a></li>
-                <li><a href="/projects/">Projetos</a></li>
-                <li><a href="/members">Membros</a></li>
-            </ul>
-          {% endblock menu %}
-        </div>
-        <div id="columns">
-            <div id="navigation">
-              {% block navigation %}
-              {% endblock navigation %}
+        <div id="main">
+            <div id="header">
+                <div id="center_header">
+                    <a href="/" alt="Página inicial do site do NSI" title="Página inicial do site do NSI">
+                        <img id="logo_nsi" src="{{ MEDIA_URL }}/images/base/logo.png" alt="Núcleo de Pesquisa em Sistemas de Informação" />
+                    </a>
+                </div>
+                <div id="menu">
+                    {% block menu %}
+                        <ul>
+                            <li>
+                                <a href="/">Início</a>
+                            </li>
+                        </ul>
+
+                        <ul>
+                            <li>
+                                <a href="#">História</a>
+                            </li>
+                        </ul>
+
+                        <ul>
+                            <li><a href="#">Projetos</a>
+                                <!--<ul>
+                                    <li><a href="#">IC</a></li>
+                                    <li><a href="#">BD Renapi</a></li>
+                                    <li><a href="#">Formação Gesac</a></li>                                    
+                                </ul>-->
+                            </li>
+                        </ul>          
+            
+                        <ul>
+                            <li>
+                                <a href="#">Noticias</a>
+                            </li>
+                        </ul>
+
+                        <ul>
+                            <li><a href="#">Ferramentas</a>
+                                <!--<ul>
+                                    <li><a href="#">should-dsl</a></li>
+                                    <li><a href="#">specloud</a></li>
+                                    <li><a href="#">pyhistorian</a></li>
+                                    <li><a href="#">ludibrio</a></li>
+                                </ul>-->
+                            </li>
+                        </ul>
+
+                        <ul>
+                            <li>
+                                <a href="#">Membros</a>
+                            </li>
+                        </ul>
+                    {% endblock menu %}
+                </div>
             </div>
             <div id="content">
               {% block content %}
               {% endblock content %}
             </div>
-            <div id="aside">
-              {% block aside %}
-              {% endblock aside %}
+            <div id="footer">
+                <p>Desenvolvido por NSI - Núcleo de Pesquisa em Sistemas de Informação / IFF - Instituto Federal Fluminense</p>
+                <p>Rua Dr. Siqueira, 273 - Parque Dom Bosco - Campos dos Goytacazes, RJ - CEP 28030-130 TEL.: (22 ) 2726 2800 FAX.: (22) 2733 3079 Ramal: 2904</p>
             </div>
         </div>
     </body>
-    <div id="footer">
-      {% block footer %}
-        <div id="footer">
-            <span><a href="#">Equipe</a></span>
-        </div>
-      {% endblock footer %}
-    </div>
 </html>
 
