@@ -13,7 +13,7 @@ from apps.projects.models import Project
 @step(u'exist a project:')
 def given_exist_a_project(step):
     for project in step.hashes:
-         m = mommy.make_one(Project, name=project.get('name'), logo=None)
+        m = mommy.make_one(Project, name=project.get('name'), logo=None)
 
 @step(u'exist a member:')
 def exist_a_member(step):

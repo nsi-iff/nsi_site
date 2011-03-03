@@ -19,7 +19,7 @@ def exist_a_author(step):
 @step(u'exist a project:')
 def exist_a_project(step):
     for project in step.hashes:
-         m = mommy.make_one(Project, name=project.get('name'), logo=None)
+        m = mommy.make_one(Project, name=project.get('name'), logo=None)
                      
 @step(u'the news "(.*)" is related with project "(.*)"')
 def the_news_is_related_with_project(step, news_title, project_name):

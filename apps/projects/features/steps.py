@@ -12,16 +12,16 @@ from apps.projects.models import Project, Document
 @step(u'exist a project:')
 def exist_a_project(step):
     for project in step.hashes:
-      Project(**project).save()
-      file_name = step.hashes[0]['logo'].split('/')[-1]
-      shutil.copy2(os.path.join(settings.PROJECT_ROOT_PATH, 'apps', 'projects',
+        Project(**project).save()
+        file_name = step.hashes[0]['logo'].split('/')[-1]
+        shutil.copy2(os.path.join(settings.PROJECT_ROOT_PATH, 'apps', 'projects',
                                 'features', 'resources', file_name),
                    os.path.join(settings.MEDIA_ROOT, 'images', 'projects'))
                  
 @step(u'exist a member:')
 def exist_a_member(step):
     for member in step.hashes:
-         m = mommy.make_one(Member, name=member.get('name'), site=None, lattes=None, photo=None)
+        m = mommy.make_one(Member, name=member.get('name'), site=None, lattes=None, photo=None)
 
 @step(r'"(.*)" member started participation on "(.*)" project')
 def member_started_participation_on_project(step, member_name, project_name):
