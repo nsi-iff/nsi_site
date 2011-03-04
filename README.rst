@@ -4,10 +4,10 @@ NSI Site
 How to Install
 --------------
 
-On Debian
+On Debian like
 ~~~~~~~~~
 Just run::
-    ./setup_on_debian.sh
+    ./setup_on_debian_like.sh
 
 On Windows
 ~~~~~~~~~~
@@ -43,3 +43,4 @@ Please:
     - Fork the project and submit pull request
     - Create an issue
     - Close an issue
+
