@@ -51,6 +51,7 @@ body {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  width: 900px;
 }
 
 #header #menu ul li {
@@ -58,6 +59,12 @@ body {
   float: left;
   position: relative;
   z-index: auto !important;
+  width: 149px;
+}
+
+#header #menu ul li#last {
+  border-right: none;
+  width: 148px;
 }
 
 #header #menu ul li a {
@@ -67,7 +74,7 @@ body {
   font-weight: bold;
   height: 3.1em;
   line-height: 3.1em;
-  padding: 0 16px;
+  text-align: center;
   text-decoration: none;
 }
 
@@ -79,6 +86,13 @@ body {
 #header #menu ul li:hover a {
   background-color: #d2d2d2;
   text-decoration:none;
+}
+
+#header #menu ul li#last:hover {
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -khtml-border-bottom-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 #header #menu ul li:hover ul {
@@ -123,3 +137,4 @@ body {
   background-color: #E6E6E6;
   text-align: center;
 }
+
