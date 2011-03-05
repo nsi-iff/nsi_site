@@ -8,8 +8,8 @@ from lettuce import after, before, world
 from web_steps import *
 
 @before.harvest
-def run_time(variables):
-    world.before_all = time.time()
+def initial_run_time(variables):
+    world.time_before_harvest = time.time()
 
 @before.all
 def set_browser():
@@ -58,31 +58,31 @@ def finish_him(total_result):
     
 @after.harvest
 def run_time(results):
-    after_all = time.time()
-    before_all = world.before_all
-    result = int(after_all - before_all)
-    minutes = result / 60
-    seconds = result % 60
-    features_ran = 0
-    scenarios_ran = 0
-    scenarios_passed = 0
-    scenarios_failed = dict()
+    time_after_harvest = time.time()
+    time_before_harvest = world.time_before_harvest
+    total_time = int(time_after_harvest - time_before_harvest)
+    minutes = total_time / 60
+    seconds = total_time % 60
+    total_features_ran = 0
+    total_scenarios_ran = 0
+    total_scenarios_passed = 0
+    total_scenarios_failed = dict()
     for app in results:
-        features_ran += app.features_ran
-        scenarios_ran += app.scenarios_ran
-        scenarios_passed += app.scenarios_passed
-        for i in app.scenario_results:
-            if i.passed == False:
-                scenarios_failed.update({i.scenario.feature: i.scenario.name})
+        total_features_ran += app.features_ran
+        total_scenarios_ran += app.scenarios_ran
+        total_scenarios_passed += app.scenarios_passed
+        for result in app.scenario_results:
+            if result.passed == False:
+                total_scenarios_failed.update({result.scenario.name: result.scenario.feature})
 
     print '-------------------------------------------------'
-    print '%i features ran.' % features_ran
-    print '%i scenarios ran.' % scenarios_ran
-    print '%i scenarios passed.' % scenarios_passed
-    if scenarios_failed:
+    print '%i features ran.' % total_features_ran
+    print '%i scenarios ran.' % total_scenarios_ran
+    print '%i scenarios passed.' % total_scenarios_passed
+    if total_scenarios_failed:
         print 'Error in:'
-        for scenario in scenarios_failed.iteritems():
-            print scenario[0].name + ' ~> ' + scenario[1]
+        for scenario, feature in total_scenarios_failed.iteritems():
+            print feature.name + ' ~> ' + scenario
     else:
         print 'No errors! Congratulations!'
     print 'Everything ran in %i minute(s) and %i second(s).' % (minutes, seconds)
