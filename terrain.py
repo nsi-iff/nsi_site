@@ -75,15 +75,16 @@ def run_time(results):
             if result.passed == False:
                 total_scenarios_failed.update({result.scenario.name: result.scenario.feature})
 
-    print '-------------------------------------------------'
-    print '%i features ran.' % total_features_ran
-    print '%i scenarios ran.' % total_scenarios_ran
-    print '%i scenarios passed.' % total_scenarios_passed
+    print '\n================================================'
+    print '=========== Acceptance tests results ===========\n'
+    print '\033[32m\033[1m%i features ran.\033[0;0m' % total_features_ran
+    print '\033[32m\033[1m%i scenarios ran.\033[0;0m' % total_scenarios_ran
+    print '\033[32m\033[1m%i scenarios passed.\033[0;0m' % total_scenarios_passed
     if total_scenarios_failed:
-        print 'Error in:'
+        print '\033[31m\033[1mError in:\033[0;0m'
         for scenario, feature in total_scenarios_failed.iteritems():
-            print feature.name + ' ~> ' + scenario
+            print '\033[31m\033[1m' + feature.name + ' ~> ' + scenario + '\033[0;0m'
     else:
-        print 'No errors! Congratulations!'
+        print '\033[32m\033[1mNo errors! Congratulations!\033[0;0m'
+    print '----------------------------------------------------------------------'
     print 'Everything ran in %i minute(s) and %i second(s).' % (minutes, seconds)
-    print '-------------------------------------------------'
