@@ -35,18 +35,20 @@ def clean_data():
     call_command('loaddata', 'all')
 
 def clean_media():
-    clean_media_by_kind('images')
+    clean_media_by_kind('images', skip_dir='site_media/images/base')
     clean_media_by_kind('files')
 
-def clean_media_by_kind(kind):
+def clean_media_by_kind(kind, skip_dir=None):
     images_dir = os.path.join(settings.MEDIA_ROOT, kind)
     for file_name in os.listdir(images_dir):
-        clean_all(os.path.join(images_dir, file_name))
+        clean_all(os.path.join(images_dir, file_name), skip_dir)
 
-def clean_all(directory):
+def clean_all(directory, skip_dir=None):
     for file_name in os.listdir(directory):
         absname = os.path.join(directory, file_name)
-        if os.path.isdir(absname) and file_name not in ['.', '..']:
+        if skip_dir and skip_dir in absname:
+            pass
+        elif os.path.isdir(absname) and file_name not in ['.', '..']:
             clean_all(absname)
         elif not file_name.startswith('.'):
             os.unlink(absname)
@@ -55,7 +57,7 @@ def clean_all(directory):
 def finish_him(total_result):
     world.browser.quit()
     clean_media()
-    
+
 @after.harvest
 def run_time(results):
     time_after_harvest = time.time()
@@ -88,3 +90,4 @@ def run_time(results):
         print '\033[32m\033[1mNo errors! Congratulations!\033[0;0m'
     print '----------------------------------------------------------------------'
     print 'Everything ran in %i minute(s) and %i second(s).' % (minutes, seconds)
+
