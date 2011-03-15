@@ -1,6 +1,5 @@
 import os
 import shutil
-from datetime import datetime
 from django.conf import settings
 from lettuce import step, world
 from lettuce.django import django_url
@@ -21,7 +20,7 @@ def exist_a_project(step):
 @step(u'exist a member:')
 def exist_a_member(step):
     for member in step.hashes:
-        m = mommy.make_one(Member, name=member.get('name'), site=None, lattes=None, photo=None)
+        mommy.make_one(Member, name=member.get('name'), site=None, lattes=None, photo=None)
 
 @step(r'"(.*)" member started participation on "(.*)" project')
 def member_started_participation_on_project(step, member_name, project_name):

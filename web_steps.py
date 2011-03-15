@@ -1,7 +1,6 @@
-import datetime
 import re
 from lettuce import world, step
-from should_dsl import should, should_not
+from should_dsl import should
 from paths import path_to
 
 

@@ -1,7 +1,6 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from apps.news.models import News
-from apps.projects.models import Project
 
 
 def show_news(request):

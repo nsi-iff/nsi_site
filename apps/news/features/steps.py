@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 import os
 import shutil
-from lettuce import step, world
+from lettuce import step
 from datetime import datetime
 from django.conf import settings
-from lettuce.django import django_url
 from model_mommy import mommy
 from django.contrib.auth.models import User
 from apps.projects.models import Project
@@ -14,12 +13,12 @@ from apps.news.models import News
 @step(u'exist a author:')
 def exist_a_author(step):
     for user in step.hashes:
-        m = mommy.make_one(User, username=user.get('name'), email='a@a.com')
+        mommy.make_one(User, username=user.get('name'), email='a@a.com')
 
 @step(u'exist a project:')
 def exist_a_project(step):
     for project in step.hashes:
-        m = mommy.make_one(Project, name=project.get('name'), logo=None)
+        mommy.make_one(Project, name=project.get('name'), logo=None)
                      
 @step(u'the news "(.*)" is related with project "(.*)"')
 def the_news_is_related_with_project(step, news_title, project_name):
