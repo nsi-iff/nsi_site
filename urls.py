@@ -7,7 +7,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
-    (r'^$', direct_to_template, {"template": 'index.html'}),
+    (r'^$', 'apps.home_page.views.show_index'),
 
     (r'^news/$', 'apps.news.views.show_news'),
     (r'^history/$', 'apps.nsi_info.views.show_history'),
