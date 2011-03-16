@@ -9,3 +9,10 @@ class ProjectTest(TestCase):
         project |should_not| be_finished
         project.end_date = '2011-01-31'
         project |should| be_finished
+        
+    def test_change_status_to_finished(self):
+        project = Project(start_date='2011-01-01', end_date=None)
+        project |should_not| be_finished
+        project.end_date = '2011-01-31'
+        project.save()
+        project.status |should| equal_to('finalizado')

@@ -5,15 +5,15 @@ Feature: Project maintenance
 
   Scenario: Projects page
     Given exist a project:
-      | name     | description              | logo                    | sponsor | status | start_date | end_date   |
-      | NSI Site | The terrific site of NSI | images/projects/nsi.png | NSI     | aberto | 2010-11-10 | 2011-02-01 |
+      | name     | description              | logo                    | sponsor | status     | start_date | end_date   |
+      | NSI Site | The terrific site of NSI | images/projects/nsi.png | NSI     | finalizado | 2010-11-10 | 2011-02-01 |
       
     When I go to "the projects page"
     Then I should see "1 project"
     And I should see "NSI Site"
     And I should see "The terrific site of NSI"
     And I should see "Patrocinador: NSI"
-    And I should see "Status: aberto"
+    And I should see "Status: finalizado"
     And I should see "Duração: 10/11/2010 a 01/02/2011"
     And I should see an image called "nsi.png"
 
@@ -31,9 +31,9 @@ Feature: Project maintenance
 
   Scenario: Showing a especific project
     Given exist a project:
-      | name     | description              | logo                     | sponsor | status | start_date | end_date   |
-      | NSI Site | The terrific site of NSI | images/projects/nsi.png  | NSI     | aberto | 2010-11-10 | 2011-02-01 |
-      | ERP5     | ERP5, lek                | images/projects/erp5.png | NSI     | aberto | 2010-11-10 | 2011-02-01 |
+      | name     | description              | logo                     | sponsor | status     | start_date | end_date   |
+      | NSI Site | The terrific site of NSI | images/projects/nsi.png  | NSI     | finalizado | 2010-11-10 | 2011-02-01 |
+      | ERP5     | ERP5, lek                | images/projects/erp5.png | NSI     | finalizado | 2010-11-10 | 2011-02-01 |
       
     And exist a member:
       | name   |
@@ -49,7 +49,7 @@ Feature: Project maintenance
     And I should see "NSI Site"
     And I should see "The terrific site of NSI"
     And I should see "Patrocinador: NSI"
-    And I should see "Status: aberto"
+    And I should see "Status: finalizado"
     And I should see "Duração: 10/11/2010 a 01/02/2011"
     And I should see an image called "nsi.png"
     And I should see "Pluck"

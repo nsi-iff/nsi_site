@@ -12,6 +12,18 @@
       <div class="title_highlights" id="title_projects">
         Projetos
       </div>
+      {% for project_obj in projects %}
+      <div class="chamada">
+        {% if project_obj.logo %}
+            <div class="logo_project">
+               <a href="{{ project_obj }}" title="{{ project_obj.name  }}"><img src="{{ MEDIA_URL }}/{{ project_obj.logo.url }}" alt="{{ project_obj.name }}" width="90" height="90"/></a>
+            </div>
+        {% endif %}
+        <div class="project_name">
+           <a href="{{ project_obj }}" title="{{ project_obj.name }}">{{ project_obj.name }}</a>
+        </div>
+      </div>
+      {% endfor %}
     </div>
     <div id="news">
       <div class="title_highlights" id="title_news">
@@ -26,6 +38,9 @@
         {% endif %}
         <div class="text_news">
            <a href="{{ news_obj }}" title="{{ news_obj.title }}">{{ news_obj.title }}</a>
+           {% if news_obj.summary %}
+               <p>{{news_obj.summary}}</p>
+           {% endif %}
         </div>
       </div>
       {% endfor %}
