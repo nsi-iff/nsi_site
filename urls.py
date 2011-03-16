@@ -19,6 +19,8 @@ urlpatterns = patterns('',
     (r'^members/$', 'apps.members.views.show_all'),
     (r'^member/(?P<member_id>\d+)$', 'apps.members.views.show'),
 
+    (r'^tools/$', 'apps.tools.views.show_all'),
+
     (r'^site_media/(.*)$', 'django.views.static.serve', {"document_root": settings.MEDIA_ROOT}),
 )
 

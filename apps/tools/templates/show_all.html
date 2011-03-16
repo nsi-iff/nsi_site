@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block styles %}
+  {{ block.super }}
+{% endblock styles %}
+
+{% block content %}
+{% for tool in tools %}
+  <div class="tools_content" id="{% cycle row1,row2 %}">
+    <div class="tool" id="tool{{tool.id}}">
+      <div class="tool_data">
+        <h1>{{ tool.name }}</h1>
+        <h2>{{ tool.description }}</h2>
+        <p><span>Repositório:</span><a href="{{ tool.repository }}" title="Repositório: {{ tool.repository }}">{{ tool.repository }}</a></p>
+        <p><span>Site:</span><a href="{{ tool.site }}" title="Site: {{ tool.site }}">{{ tool.site }}</a></p>
+        {% if tool.relateds_projects.all %}
+          <p>Projetos relacionados:</p>
+          <ul>
+            {% for project in tool.relateds_projects.all %}
+              <li>{{ project.name }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endfor %}
+{% endblock content %}
+

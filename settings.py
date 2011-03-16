@@ -71,6 +71,7 @@ INSTALLED_APPS = (
     'lettuce.django',
     'south',
     'apps.home_page',
+    'apps.tools',
     'apps.projects',
     'apps.news',
     'apps.nsi_info',

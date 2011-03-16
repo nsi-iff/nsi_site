@@ -10,5 +10,6 @@ def path_to(page_name):
           'the projects page': '/projects',
           'the page list all members': '/members',
           'the news page': '/news',
+          'the tools page': '/tools',
         }[page_name])
 
