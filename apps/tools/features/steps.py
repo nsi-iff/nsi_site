@@ -3,7 +3,7 @@ from model_mommy.mommy import Mommy
 from apps.projects.models import Project
 from apps.tools.models import Tool
 
-@step(u'there exist a tool:')
+@step(u'exist a tool:')
 def there_exist_a_tool(step):
     for tool_hashes in step.hashes:
         Tool.objects.create(**tool_hashes)        

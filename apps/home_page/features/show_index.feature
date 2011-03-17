@@ -29,3 +29,16 @@ Feature: User visitor
     And I should see "NSI Site"
     And I should see "ERP5 Lek"
     And I should see "Abodorock"
+    
+  Scenario: showing a highlight Tools in index home
+    Given exist a tool:
+      | name        | highlight | 
+      | Should-dslaa  | True      |
+      | Ludibrioaa    | True      |
+      | rock-pyaa     | False     |
+      | Restful-pyaa  | True      |
+        
+    When I go to "the NSI home page"
+    And I should see "Should-dslaa "
+    And I should see "Ludibrioaa"
+    And I should see "Restful-pyaa"

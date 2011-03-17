@@ -4,7 +4,7 @@ Feature: Tool maintenance
   In order to keep tools information up to date
 
   Scenario: showing all tools
-    Given there exist a tool:
+    Given exist a tool:
       | name     | description | repository | site | highlight |
       | Should DSL| A tool to write should expectations | http://github.com/hugobr/should-dsl | http://www.should-dsl.info | True |
       | Ludibrio | A tool for mock | http://github.com/nsigustavo/ludirbio | http://www.ludibrio.info | True |
