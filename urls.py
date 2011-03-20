@@ -7,20 +7,22 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
+    
     (r'^$', 'apps.home_page.views.show_index'),
 
-    (r'^news/$', 'apps.news.views.show_news'),
-    (r'^history/$', 'apps.nsi_info.views.show_history'),
-    (r'^summary/$', 'apps.nsi_info.views.show_summary'),
+    (r'^noticias/$', 'apps.news.views.show_news'),
+    
+    (r'^historico/$', 'apps.nsi_info.views.show_history'),
+    
+    (r'^sumario/$', 'apps.nsi_info.views.show_summary'),
 
-    (r'^projects/$', 'apps.projects.views.show_all'),
-    (r'^projects/(?P<project_id>\w+)/$', 'apps.projects.views.show_project'),
+    (r'^projetos/$', 'apps.projects.views.show_all'),
+    (r'^projeto/(?P<project_id>\w+)/$', 'apps.projects.views.show_project'),
 
-    (r'^members/$', 'apps.members.views.show_all'),
-    (r'^member/(?P<member_id>\d+)$', 'apps.members.views.show'),
+    (r'^membros/$', 'apps.members.views.show_all'),
+    (r'^membro/(?P<member_id>\d+)$', 'apps.members.views.show'),
 
-    (r'^tools/$', 'apps.tools.views.show_all'),
+    (r'^ferramentas/$', 'apps.tools.views.show_all'),
 
     (r'^site_media/(.*)$', 'django.views.static.serve', {"document_root": settings.MEDIA_ROOT}),
 )
-
