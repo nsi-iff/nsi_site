@@ -1,4 +1,5 @@
 from django.db import models
+from thumbs import ImageWithThumbsField
 from apps.projects.models import Project
 
 
@@ -29,7 +30,7 @@ class Member(models.Model):
     twitter = models.CharField(max_length=50, null=True, blank=True)
     slideshare = models.CharField(max_length=50, null=True, blank=True)
     lattes = models.URLField(null=True, blank=True)
-    photo = models.ImageField(upload_to='images/members')
+    photo = ImageWithThumbsField(upload_to='images/members', sizes=((100, 100), ))
     started_nsi_date = models.DateField()
     desertion_nsi_date = models.DateField(null=True, blank=True)
     is_renegade = models.BooleanField(editable=False)

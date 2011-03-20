@@ -1,4 +1,5 @@
 from django.db import models
+from thumbs import ImageWithThumbsField
 
 
 PROJECT_STATES = (
@@ -11,7 +12,7 @@ PROJECT_STATES = (
 class Project(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
-    logo = models.ImageField(upload_to='images/projects', null=True, blank=True)
+    logo = ImageWithThumbsField(upload_to='images/projects', null=True, blank=True, sizes=((200, 200), ))
     sponsor = models.CharField(max_length=100)
     status = models.CharField(max_length=100, choices=PROJECT_STATES)
     start_date = models.DateField()
