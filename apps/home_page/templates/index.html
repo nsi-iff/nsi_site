@@ -16,11 +16,11 @@
       <div class="chamada">
         {% if project_obj.logo %}
             <div class="logo_project">
-               <a href="{{ project_obj }}" title="{{ project_obj.name  }}"><img src="{{ MEDIA_URL }}/{{ project_obj.logo.url }}" alt="{{ project_obj.name }}" width="90" height="90"/></a>
+               <a href="/projeto/{{ project_obj.id }}" title="{{ project_obj.name  }}"><img src="{{ MEDIA_URL }}/{{ project_obj.logo.url }}" alt="{{ project_obj.name }}" width="90" height="90"/></a>
             </div>
         {% endif %}
         <div class="project_name">
-           <a href="{{ project_obj }}" title="{{ project_obj.name }}">{{ project_obj.name }}</a>
+           <a href="/projeto/{{ project_obj.id }}" title="{{ project_obj.name }}">{{ project_obj.name }}</a>
         </div>
       </div>
       {% endfor %}
@@ -33,13 +33,13 @@
       <div class="chamada">
         {% if news_obj.image %}
             <div class="foto_news">
-               <a href="{{ news_obj }}" title="{{ news_obj.title  }}"><img src="{{ MEDIA_URL }}/{{ news_obj.image.url }}" alt="{{ news_obj.title }}" width="90" height="90"/></a>
+               <a href="/noticias" title="{{ news_obj.title }}"><img src="{{ MEDIA_URL }}/{{ news_obj.image.url }}" alt="{{ news_obj.title }}" width="90" height="90"/></a>
             </div>
         {% endif %}
         <div class="text_news">
-           <a href="{{ news_obj }}" title="{{ news_obj.title }}">{{ news_obj.title }}</a>
+           <a href="/noticias" title="{{ news_obj.title }}">{{ news_obj.title }}</a>
            {% if news_obj.summary %}
-               <p>{{news_obj.summary}}</p>
+               <p>{{ news_obj.summary }}</p>
            {% endif %}
         </div>
       </div>
@@ -52,7 +52,7 @@
       {% for tool_obj in tools %}
       <div class="chamada">
         <div class="tool_name">
-           <a href="{{ tool_obj }}" title="{{ tool_obj.name }}">{{ tool_obj.name }}</a>
+           <a href="/ferramentas" title="{{ tool_obj.name }}">{{ tool_obj.name }}</a>
         </div>
       </div>
       {% endfor %}
