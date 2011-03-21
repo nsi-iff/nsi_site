@@ -13,7 +13,7 @@
 {% for member in members %}
   <div class="members_content" id="{% cycle row1,row2 %}">
     <div class="member" id="member{{member.id}}">
-      <img class="avatar" src="{{ MEDIA_URL }}/{{ member.photo }}" alt="{{ member.name }}" width="90" height="90"/>
+      <img class="avatar" src="{{ MEDIA_URL }}/{{ member.photo.url_100x100 }}" alt="{{ member.name }}" width="90" height="90"/>
       <div class="member_data">
         <h1>
           {{ member.name }}

@@ -74,8 +74,8 @@ Feature: Member maintenance
       Then I should see the following members: 
       | photo | name | function | currently_does | site | lattes | github | twitter | slideshare |
       
-      | pluck_photo.png | Pluck | bolsista | Phd em Desenvolvimento de software, bolsista do NSI desde das trevas | http://www.pluck.com | http://lattes.cnpq.br/pluck | http://github.com/pluck | http://twitter.com/pluck | http://www.slideshare.net/pluck |
+      | pluck_photo.100x100.png | Pluck | bolsista | Phd em Desenvolvimento de software, bolsista do NSI desde das trevas | http://www.pluck.com | http://lattes.cnpq.br/pluck | http://github.com/pluck | http://twitter.com/pluck | http://www.slideshare.net/pluck |
       
-      | batata_photo.png | Batata | pesquisador | Concluindo graduação | http://www.batata.com | http://lattes.cnpq.br/batata | http://github.com/batata | http://twitter.com/batata | http://www.slideshare.net/batata |
+      | batata_photo.100x100.png | Batata | pesquisador | Concluindo graduação | http://www.batata.com | http://lattes.cnpq.br/batata | http://github.com/batata | http://twitter.com/batata | http://www.slideshare.net/batata |
       
-      | pedro_photo.png | Pedro | colaborador | Concluindo graduação | http://www.pedrindoidao.com | http://lattes.cnpq.br/pedrin_doidao | http://github.com/pedro | http://twitter.com/pedro | http://www.slideshare.net/pedro |
+      | pedro_photo.100x100.png | Pedro | colaborador | Concluindo graduação | http://www.pedrindoidao.com | http://lattes.cnpq.br/pedrin_doidao | http://github.com/pedro | http://twitter.com/pedro | http://www.slideshare.net/pedro |
