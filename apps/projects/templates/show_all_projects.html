@@ -15,7 +15,7 @@
     {% else %}
       <p>Início: {{ project.start_date|date:"d/m/Y" }}
     {% endif %}
-    <img src="{{ MEDIA_URL }}/{{ project.logo.url }}" alt="{{project.name}}" title="{{project.name}} logo"/>
+    <img src="{{ MEDIA_URL }}/{{ project.logo.url_200x200 }}" alt="{{project.name}}" title="{{project.name}} logo"/>
   </li>
 {% endfor %}
 
