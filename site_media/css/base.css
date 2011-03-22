@@ -59,12 +59,12 @@ body {
   float: left;
   position: relative;
   z-index: auto !important;
-  width: 149px;
+  width: 127px;
 }
 
 #header #menu ul li#last {
   border-right: none;
-  width: 148px;
+  width: 130px;
 }
 
 #header #menu ul li a {

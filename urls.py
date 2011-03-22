@@ -12,9 +12,9 @@ urlpatterns = patterns('',
 
     (r'^noticias/$', 'apps.news.views.show_news'),
     
-    (r'^historico/$', 'apps.nsi_info.views.show_history'),
+    (r'^passado/$', 'apps.nsi_info.views.show_history'),
     
-    (r'^sumario/$', 'apps.nsi_info.views.show_summary'),
+    (r'^presente/$', 'apps.nsi_info.views.show_summary'),
 
     (r'^projetos/$', 'apps.projects.views.show_all'),
     (r'^projeto/(?P<project_id>\w+)/$', 'apps.projects.views.show_project'),
