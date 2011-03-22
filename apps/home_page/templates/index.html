@@ -16,7 +16,7 @@
       <div class="chamada">
         {% if project_obj.logo %}
             <div class="logo_project">
-               <a href="/projeto/{{ project_obj.id }}" title="{{ project_obj.name  }}"><img src="{{ MEDIA_URL }}/{{ project_obj.logo.url }}" alt="{{ project_obj.name }}" width="90" height="90"/></a>
+               <a href="/projeto/{{ project_obj.id }}" title="{{ project_obj.name  }}"><img src="{{ MEDIA_URL }}/{{ project_obj.logo.url_90x90 }}" alt="{{ project_obj.name }}"/></a>
             </div>
         {% endif %}
         <div class="project_name">
@@ -33,7 +33,7 @@
       <div class="chamada">
         {% if news_obj.image %}
             <div class="foto_news">
-               <a href="/noticias" title="{{ news_obj.title }}"><img src="{{ MEDIA_URL }}/{{ news_obj.image.url }}" alt="{{ news_obj.title }}" width="90" height="90"/></a>
+               <a href="/noticias" title="{{ news_obj.title }}"><img src="{{ MEDIA_URL }}/{{ news_obj.image.url_90x90 }}" alt="{{ news_obj.title }}"/></a>
             </div>
         {% endif %}
         <div class="text_news">

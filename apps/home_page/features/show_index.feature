@@ -33,12 +33,12 @@ Feature: User visitor
   Scenario: showing a highlight Tools in index home
     Given exist a tool:
       | name        | highlight | 
-      | Should-dslaa  | True      |
-      | Ludibrioaa    | True      |
-      | rock-pyaa     | False     |
-      | Restful-pyaa  | True      |
+      | Should-dsl  | True      |
+      | Ludibrio    | True      |
+      | rock-py     | False     |
+      | Restful-py  | True      |
         
     When I go to "the NSI home page"
-    And I should see "Should-dslaa "
-    And I should see "Ludibrioaa"
-    And I should see "Restful-pyaa"
+    And I should see "Should-dsl"
+    And I should see "Ludibrio"
+    And I should see "Restful-py"

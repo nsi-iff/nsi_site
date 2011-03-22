@@ -12,7 +12,7 @@ PROJECT_STATES = (
 class Project(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
-    logo = ImageWithThumbsField(upload_to='images/projects', null=True, blank=True, sizes=((200, 200), ))
+    logo = ImageWithThumbsField(upload_to='images/projects', null=True, blank=True, sizes=((200, 200), (90, 90), ))
     sponsor = models.CharField(max_length=100)
     status = models.CharField(max_length=100, choices=PROJECT_STATES)
     start_date = models.DateField()
