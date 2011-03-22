@@ -5,7 +5,7 @@ from apps.projects.models import Project
 from apps.tools.models import Tool
 
 def show_index(request):
-    news = News.objects.all()
+    news = News.objects.all().order_by('-datetime')
     projects = Project.objects.filter(status='aberto')
     tools = Tool.objects.filter(highlight=True)
     return render_to_response(
