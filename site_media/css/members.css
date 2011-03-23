@@ -1,24 +1,10 @@
-#content h1 {
-  font-size: 20px;
-}
-
-#content h2 {
-  padding: 20px;
-  font-size: 22px;
-}
-
-#row1 {
-  float: left;
-  width: 300px;
-}
-
-#row2 {
-  float: right;
-  width: 300px;
-}
-
 .member {
-  padding: 20px 40px 20px 20px;
+  padding: 10px 0px 15px 10px;
+  float: left;
+  height: 130px;
+  width: 270px;
+  margin-right: 27px;
+  margin-bottom: 20px;
   background-color: #FFFFFF;
   border-width: thin;
   border-color: #9BCD9B;
@@ -27,25 +13,48 @@
   -moz-border-radius: 7px;
 }
 
+.row3 {
+  margin-right: 0 !important;
+  float: right !important;
+}
+
 .avatar {
   float: left;
-  margin: 0 20px 5px 5px;
+  border: none;
 }
 
 .member_data {
-  float: right;
-  padding: 5px 18px 5px 0;
+  float: left;
+  margin-left: 15px;
+  width: 145px;
+}
+
+.member_data h1 {
+  font-size: 14px;
+  margin: 0;  
+}
+
+.member_data h1 a {
+  text-decoration: none;
+}
+
+.member_data h1 a:link, .member_data h1 a:visited {
+  color: black;
+}
+
+.member_data h1 a:hover {
+  color: gray;
+}
+
+.member_data span {
+  font-style: italic;
 }
 
 .links{
   clear: left;
-  padding: 5px 0 0 0;
+  padding: 7px 0 0 0;
 }
 
-.data {
-  clear: left;
-}
-
-.data a{
-  text-decoration: none;
+.links a img {
+  border: none;
 }

@@ -1,55 +1,52 @@
 {% extends "base.html" %}
-{% block styles %}
-  {{ block.super }} <link rel="stylesheet" type="text/css" href="/site_media/css/members.css"/>
-{% endblock styles %}
-{% block navigation %}
-<ul>
-  {% for member in members %}
-  <li><a href="/member/{{ member.id }}"> {{ member.name }} </a><li>
-  {% endfor %}
-</ul>
-{% endblock navigation %}
-{% block content %}
-{% for member in members %}
-  <div class="members_content" id="{% cycle row1,row2 %}">
-    <div class="member" id="member{{member.id}}">
-      <img class="avatar" src="{{ MEDIA_URL }}/{{ member.photo.url_100x100 }}" alt="{{ member.name }}" width="90" height="90"/>
-      <div class="member_data">
-        <h1>
-          {{ member.name }}
-        </h1>
-        <span class="discret">{{ member.function }}</span>
-        <p>{{ member.currently_does }}</p>
-      </div>
-      <div class="links">
-        {% if member.site %}
-        <a href="{{ member.site }}" target="_blank">
-          <img src="{{ MEDIA_URL }}/images/icons/icon_site.png" alt="Site"/>
-        </a>
-        {% endif %}
-        {% if member.lattes %}
-        <a href="{{ member.lattes }}" target="_blank">
-          <img src="{{ MEDIA_URL }}/images/icons/icon_lattes.png" alt="Lattes"/>
-        </a>
-        {% endif %}
-        {% if member.github %}
-        <a href="{{ member.github_link }}" target="_blank">
-          <img src="{{ MEDIA_URL }}/images/icons/icon_github.png" alt="Github"/>
-        </a>
-        {% endif %}
-        {%if member.twitter %}
-        <a href="{{ member.twitter_link }}" target="_blank">
-          <img src="{{ MEDIA_URL }}/images/icons/icon_twitter.png" alt="Twitter"/>
-        </a>
-        {% endif %}
-        {% if member.slideshare %}
-        <a href="{{ member.slideshare_link }}" target="_blank">
-          <img src="{{ MEDIA_URL }}/images/icons/icon_slideshare.png" alt="Slideshare"/>
-        </a>
-        {% endif %}
-      </div>
-    </div>
-   </div>
-{% endfor %}
-{% endblock content %}
 
+{% block styles %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/members.css"/>
+{% endblock styles %}
+
+{% block content %}
+<div class="members_content">
+{% for member in members %}
+  <div class="member {% cycle row1,row2,row3 %}" id="member{{ member.id }}">
+    <a href="/membro/{{ member.id }}" title="{{ member.name }}">
+      <img class="avatar" src="{{ MEDIA_URL }}/{{ member.photo.url_100x100 }}" alt="{{ member.name }}"/>
+    </a>
+    <div class="member_data">
+      <h1>
+        <a href="/membro/{{ member.id }}" title="{{ member.name }}">{{ member.name }}</a>
+      </h1>
+      <span class="discret">{{ member.function }}</span>
+      <p>{{ member.currently_does }}</p>
+    </div>
+    <div class="links">
+      {% if member.site %}
+      <a href="{{ member.site }}" target="_blank">
+        <img src="{{ MEDIA_URL }}/images/base/icon_site.png" alt="Site"/>
+      </a>
+      {% endif %}
+      {% if member.lattes %}
+      <a href="{{ member.lattes }}" target="_blank">
+        <img src="{{ MEDIA_URL }}/images/base/icon_lattes.png" alt="Lattes"/>
+      </a>
+      {% endif %}
+      {% if member.github %}
+      <a href="{{ member.github_link }}" target="_blank">
+        <img src="{{ MEDIA_URL }}/images/base/icon_github.png" alt="Github"/>
+      </a>
+      {% endif %}
+      {%if member.twitter %}
+      <a href="{{ member.twitter_link }}" target="_blank">
+        <img src="{{ MEDIA_URL }}/images/base/icon_twitter.png" alt="Twitter"/>
+      </a>
+      {% endif %}
+      {% if member.slideshare %}
+      <a href="{{ member.slideshare_link }}" target="_blank">
+        <img src="{{ MEDIA_URL }}/images/base/icon_slideshare.png" alt="Slideshare"/>
+      </a>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}
+</div>
+{% endblock content %}

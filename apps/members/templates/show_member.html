@@ -2,15 +2,9 @@
 {% block styles %}
   {{ block.super }} <link rel="stylesheet" type="text/css" href="/site_media/css/members.css"/>
 {% endblock styles %}
-{% block navigation %}
-<ul>
-  {% for member in members %}
-  <li><a href="/member/{{ member.id }}"> {{ member.name }} </a><li>
-  {% endfor %}
-</ul>
-{% endblock navigation %}
+
 {% block content %}
-  <img class="avatar" src="{{ MEDIA_URL }}/{{ member.photo.url }}" alt="{{ member.name }} photo" title="{{ member.name }} photo" >
+  <img class="avatar" src="{{ MEDIA_URL }}/{{ member.photo.url }}" alt="{{ member.name }}" title="{{ member.name }}" >
   <h2>{{ member.name }}</h2>
   <div class="data">
     <p>{{ member.currently_does }}</p>
