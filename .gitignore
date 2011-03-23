@@ -3,3 +3,7 @@
 *.komodoproject
 .komodotools
 build/
+site_media/files
+site_media/images/members
+site_media/images/news
+site_media/images/projects
