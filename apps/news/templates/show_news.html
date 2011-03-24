@@ -9,7 +9,7 @@
         <h3>{{ new.body }}</h3>
         <img src="{{ MEDIA_URL }}/{{ new.image.url_300x300 }}" alt="{{ new.title }} image" title="{{ new.title }} image" />
         <p>Postado por: {{ new.author }}</p>
-        <p>Data: {{ new.datetime|date:"d/m/Y à\s H:i" }}</p>
+        <p>Data: {{ new.date_and_time|date:"d/m/Y à\s H:i" }}</p>
         {% if new.projects_relateds.all %}
           <ul>
             <p>Projeto:</p>

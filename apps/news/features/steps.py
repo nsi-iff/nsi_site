@@ -19,24 +19,23 @@ def exist_a_author(step):
 def exist_a_project(step):
     for project in step.hashes:
         mommy.make_one(Project, name=project.get('name'), logo=None)
-                     
+
 @step(u'the news "(.*)" is related with project "(.*)"')
 def the_news_is_related_with_project(step, news_title, project_name):
     project_obj = Project.objects.get(name=project_name)
     news_obj = News.objects.get(title=news_title)
     news_obj.projects_relateds.add(project_obj)
     news_obj.save()
-          
-          
+ 
 @step(u'exist a news:')
 def exist_a_news(step):
     for news_hashes in step.hashes:
         author = User.objects.get(username__exact=news_hashes.get('author'))
-        date, hour = news_hashes.get('datetime').split()
+        date, hour = news_hashes.get('date_and_time').split()
         day, month, year = date.split('/')
         hours, minutes = hour.split(':')
         date_time = datetime(int(year), int(month), int(day), int(hours), int(minutes))
-        News(title=news_hashes.get('title'), summary=news_hashes.get('summary'), body=news_hashes.get('body'), image=news_hashes.get('image'), author=author, datetime=date_time).save()
+        News(title=news_hashes.get('title'), summary=news_hashes.get('summary'), body=news_hashes.get('body'), image=news_hashes.get('image'), author=author, date_and_time=date_time).save()
         file_name = news_hashes.get('image').split('/')[-1]
         shutil.copy2(os.path.join(settings.PROJECT_ROOT_PATH, 'apps', 'news',
                                   'features', 'resources', file_name),
