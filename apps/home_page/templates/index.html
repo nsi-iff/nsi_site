@@ -33,14 +33,14 @@
       <div class="entry">
         {% if news_obj.image %}
             <div class="image_news">
-              <a href="/noticias" title="{{ news_obj.title }}"><img src="{{ MEDIA_URL }}/{{ news_obj.image.url_90x90 }}" alt="{{ news_obj.title }}"/></a>
+              <a href="/noticia/{{ news_obj.id }}" title="{{ news_obj.title }}"><img src="{{ MEDIA_URL }}/{{ news_obj.image.url_90x90 }}" alt="{{ news_obj.title }}"/></a>
             </div>
             <div class="news_title_with_image">
         {% else %}
           <div class="news_title_without_image">
         {% endif %}
           {{ news_obj.date_and_time|date:"d/m/Y à\s H:i" }}<br/>
-          <a href="/noticias" title="{{ news_obj.title }}">{{ news_obj.title }}</a>
+          <a href="/noticia/{{ news_obj.id }}" title="{{ news_obj.title }}">{{ news_obj.title }}</a>
         </div>
         <div class="text_news">
            {% if news_obj.summary %}

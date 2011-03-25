@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div id="news">
+    <h1>{{ news_obj.title }}</h1>
+    <h2>{{ news_obj.summary }}</h2>
+    <h3>{{ news_obj.body }}</h3>
+    <img src="{{ MEDIA_URL }}/{{ news_obj.image.url_300x300 }}" alt="{{ news_obj.title }} image" title="{{ news_obj.title }} image" />
+    <p>Postado por: {{ news_obj.author }}</p>
+    <p>Data: {{ news_obj.date_and_time|date:"d/m/Y à\s H:i" }}</p>
+    {% if news_obj.projects_relateds.all %}
+      <ul>
+        <p>Projeto:</p>
+        {% for project in news_obj.projects_relateds.all %}
+          <li>{{ project.name }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+{% endblock content %}
