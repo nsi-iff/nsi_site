@@ -8,7 +8,8 @@ from apps.projects.models import Project
 class News(models.Model):
     
     class Meta:
-        ordering = ('-date_and_time',)
+        verbose_name_plural = 'News'
+        ordering = ['-date_and_time']
     
     title = models.CharField(max_length=200)
     summary = models.CharField(max_length=200, null=True, blank=True)
@@ -17,9 +18,6 @@ class News(models.Model):
     author = models.ForeignKey(User)
     date_and_time = models.DateTimeField(default=dt.now())
     projects_relateds = models.ManyToManyField(Project, null=True, blank=True)
-
-    class Meta:
-        verbose_name_plural = 'News'
 
     def __unicode__(self):
         return self.title
