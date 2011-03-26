@@ -1,0 +1,24 @@
+.new {
+  background-color: #E6E6E6;
+  padding: 10px;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border: thin solid #9BCD9B;
+}
+
+.new p span {
+  font-weight: bold;
+}
+
+.new img {
+  float: left;
+  margin-right: 20px;
+}
+
+.new h3 {
+  text-align: justify;
+  font-weight: normal;
+}
+
