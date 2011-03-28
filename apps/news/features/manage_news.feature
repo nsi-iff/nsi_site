@@ -12,7 +12,7 @@ Feature: News maintenance
       | NSI Site |
     And exist a news:
       | title    |  summary | body | image | author | date_and_time | 
-      | Notícia sobre o NSI Site | O site do NSI está no ar | Já está no ar o site do NSI! | images/news/nsi.png | rogerio | 15/01/2011 20:00 |
+      | Notícia sobre o NSI Site | O site do NSI está no ar | Já está no ar o site do NSI! | test/images/news/nsi.png | rogerio | 15/01/2011 20:00 |
     And the news "Notícia sobre o NSI Site" is related with project "NSI Site"
     When I go to "the news page"
     Then I should see "Notícia sobre o NSI Site"
@@ -36,9 +36,9 @@ Feature: News maintenance
       
     And exist a news:
       | title    |  summary | body | image | author | date_and_time | 
-      | Notícia sobre o NSI Site | O site do NSI está no ar | Já está no ar o site do NSI! | images/news/nsi.png | rogerio | 15/01/2011 20:00 | NSI Site |
-      | Notícia sobre o ERP5 Lek | Rick Rock Sunshine Project | ERP5 Lek, muita coisa pronta | images/news/erp5.png | ronaldo | 16/01/2011 20:00 | ERP5 |
-      | Notícia sobre o ERP5 e o NSI Site | Rick Rock Sunshine Project NSI e ERP5 | NSI power site e ERP5 Lek, muita coisa pronta | images/news/x.png | herman | 16/01/2011 23:00 | ERP5 NSI Site |
+      | Notícia sobre o NSI Site | O site do NSI está no ar | Já está no ar o site do NSI! | test/images/news/nsi.png | rogerio | 15/01/2011 20:00 | NSI Site |
+      | Notícia sobre o ERP5 Lek | Rick Rock Sunshine Project | ERP5 Lek, muita coisa pronta | test/images/news/erp5.png | ronaldo | 16/01/2011 20:00 | ERP5 |
+      | Notícia sobre o ERP5 e o NSI Site | Rick Rock Sunshine Project NSI e ERP5 | NSI power site e ERP5 Lek, muita coisa pronta | test/images/news/x.png | herman | 16/01/2011 23:00 | ERP5 NSI Site |
       
     And the news "Notícia sobre o NSI Site" is related with project "NSI Site"
     And the news "Notícia sobre o ERP5 Lek" is related with project "ERP5"

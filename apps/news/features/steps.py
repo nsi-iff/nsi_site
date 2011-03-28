@@ -39,4 +39,4 @@ def exist_a_news(step):
         file_name = news_hashes.get('image').split('/')[-1]
         shutil.copy2(os.path.join(settings.PROJECT_ROOT_PATH, 'apps', 'news',
                                   'features', 'resources', file_name),
-                     os.path.join(settings.MEDIA_ROOT, 'images', 'news'))
+                     os.path.join(settings.MEDIA_ROOT, 'test', 'images', 'news'))
