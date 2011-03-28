@@ -10,7 +10,7 @@ Feature: Member maintenance
       
     And exist a member:
       | name | currently_does | life_and_work | function |site | github | twitter | slideshare | lattes | photo | started_nsi_date |
-      | Pluck | Phd em Desenvolvimento de software, bolsista do NSI desde das trevas | Atualmente trabalha como suporte de madeira | bolsista | http://www.pluck.com | pluck | pluck | pluck | http://lattes.cnpq.br/pluck |  images/members/pluck_photo.png | 2000-01-01  | 
+      | Pluck | Phd em Desenvolvimento de software, bolsista do NSI desde das trevas | Atualmente trabalha como suporte de madeira | bolsista | http://www.pluck.com | pluck | pluck | pluck | http://lattes.cnpq.br/pluck | test/images/members/pluck_photo.png | 2000-01-01  | 
        
     And "Pluck" member started participation the "NSI Site" project in "2011-01-01"
     
@@ -39,7 +39,7 @@ Feature: Member maintenance
         
       And exist a member:
         | name | currently_does | life_and_work | function | site | github | twitter | slideshare | lattes | photo | started_nsi_date |
-        | Pluck | Phd em Desenvolvimento de software, bolsista do NSI desde das trevas | Atualmente trabalha como suporte de madeira | bolsista | http://www.pluck.com | pluck | pluck | pluck | http://lattes.cnpq.br/pluck | images/members/pluck_photo.png | 2000-01-01  |
+        | Pluck | Phd em Desenvolvimento de software, bolsista do NSI desde das trevas | Atualmente trabalha como suporte de madeira | bolsista | http://www.pluck.com | pluck | pluck | pluck | http://lattes.cnpq.br/pluck | test/images/members/pluck_photo.png | 2000-01-01  |
         
       And "Pluck" member participated on "NSI Site" project between "2011-01-01" and "2011-01-30"
       And "Pluck" member participated on "ERP5" project between "2007-01-01" and "2011-06-06"
@@ -66,9 +66,9 @@ Feature: Member maintenance
     Scenario: showing all members
       Given exist a member:
         | name | currently_does | life_and_work | function | site | github | twitter | slideshare | lattes | photo | started_nsi_date |
-        | Pluck | Phd em Desenvolvimento de software, bolsista do NSI desde das trevas | Atualmente trabalha como suporte de madeira | bolsista | http://www.pluck.com | pluck | pluck | pluck | http://lattes.cnpq.br/pluck | images/members/pluck_photo.png | 2000-01-01  |
-        | Batata | Concluindo graduação | Atualmente está todo enrolado | pesquisador | http://www.batata.com | batata | batata | batata | http://lattes.cnpq.br/batata | images/members/batata_photo.png | 2008-01-01 |
-        | Pedro | Concluindo graduação | Atualmente está todo enrolado | colaborador |http://www.pedrindoidao.com | pedro | pedro | pedro | http://lattes.cnpq.br/pedrin_doidao | images/members/pedro_photo.png | 2010-01-01 |
+        | Pluck | Phd em Desenvolvimento de software, bolsista do NSI desde das trevas | Atualmente trabalha como suporte de madeira | bolsista | http://www.pluck.com | pluck | pluck | pluck | http://lattes.cnpq.br/pluck | test/images/members/pluck_photo.png | 2000-01-01  |
+        | Batata | Concluindo graduação | Atualmente está todo enrolado | pesquisador | http://www.batata.com | batata | batata | batata | http://lattes.cnpq.br/batata | test/images/members/batata_photo.png | 2008-01-01 |
+        | Pedro | Concluindo graduação | Atualmente está todo enrolado | colaborador |http://www.pedrindoidao.com | pedro | pedro | pedro | http://lattes.cnpq.br/pedrin_doidao | test/images/members/pedro_photo.png | 2010-01-01 |
         
       When I go to "the page list all members"
       Then I should see the following members: 

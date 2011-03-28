@@ -35,13 +35,13 @@ def clean_data():
     call_command('loaddata', 'all')
 
 def clean_media():
-    clean_media_by_kind('images', skip_dir='site_media/images/base')
+    clean_media_by_kind('images')
     clean_media_by_kind('files')
 
 def clean_media_by_kind(kind, skip_dir=None):
-    images_dir = os.path.join(settings.MEDIA_ROOT, kind)
+    images_dir = os.path.join(settings.MEDIA_ROOT, 'test', kind)
     for file_name in os.listdir(images_dir):
-        clean_all(os.path.join(images_dir, file_name), skip_dir)
+        clean_all(os.path.join(images_dir, file_name))
 
 def clean_all(directory, skip_dir=None):
     for file_name in os.listdir(directory):
