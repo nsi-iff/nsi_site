@@ -1,5 +1,6 @@
 import os
 import time
+import shutil
 from django.core.management import call_command
 from django.conf import settings
 from selenium.firefox.firefox_profile import FirefoxProfile
@@ -7,10 +8,23 @@ from splinter.browser import Browser
 from lettuce import after, before, world
 from web_steps import *
 
+
+PROJECT_ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
+
 @before.harvest
 def initial_run_time(variables):
     world.time_before_harvest = time.time()
-
+    test_directories_list = [
+        os.path.join(PROJECT_ROOT_PATH, 'site_media', 'test', 'files', 'projects'),
+        os.path.join(PROJECT_ROOT_PATH, 'site_media', 'test', 'images', 'members'),
+        os.path.join(PROJECT_ROOT_PATH, 'site_media', 'test', 'images', 'news'),
+        os.path.join(PROJECT_ROOT_PATH, 'site_media', 'test', 'images', 'projects'),
+    ]
+    
+    for directory in test_directories_list:
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+            
 @before.all
 def set_browser():
     enable_selenium_specs_to_run_offline()
@@ -60,6 +74,7 @@ def finish_him(total_result):
 
 @after.harvest
 def run_time(results):
+    shutil.rmtree(os.path.join(PROJECT_ROOT_PATH, 'site_media', 'test'))  
     time_after_harvest = time.time()
     time_before_harvest = world.time_before_harvest
     total_time = int(time_after_harvest - time_before_harvest)
