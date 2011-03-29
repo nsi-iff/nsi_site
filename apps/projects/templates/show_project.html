@@ -12,7 +12,9 @@
 {% else %}
   <p>Início: {{ project.start_date|date:"d/m/Y" }}
 {% endif %}
-<img src="{{ MEDIA_URL }}/{{ project.logo.url }}" alt="{{project.name}}" title="{{project.name}} logo"/>
+{% if project.logo %}
+  <img src="{{ MEDIA_URL }}/{{ project.logo.url }}" alt="{{project.name}}" title="{{project.name}} logo"/>
+{% endif %}
 
 <table id="documents">
   <thead>
