@@ -1,0 +1,25 @@
+.tool {
+  background-color: #E6E6E6;
+  padding: 10px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border: thin solid #9BCD9B;
+}
+
+.tool h1 {
+  margin: 0;
+}
+
+.tool p {
+  font-size: 12px;
+}
+
+.tool p span {
+  font-weight: bold;
+}
+
+.tool a:link, .tool a:visited {
+  color: black;
+}
