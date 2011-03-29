@@ -1,23 +1,29 @@
 {% extends "base.html" %}
 
+{% block scripts %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/projects.css"/>
+{% endblock scripts %}
+
 {% block content %}
-<h1>Projects</h1>
 
-<ul>
+{% if project_count == 1 %}
+  <h1>{{ project_count }} projeto</h1>
+{% else %}
+  <h1>{{ project_count }} projetos</h1>
+{% endif %}
+
+<div id="projects">
 {% for project in projects %}
-  <li>
-    <h3><a href="/projeto/{{ project.id }}">{{ project.name }}</a></h3>
-    <p>{{ project.description }}</p>
-    <p>Patrocinador: {{ project.sponsor }}</p>
-    <p>Status: {{ project.status }}</p>
-    {% if project.finished %}
-      <p>Duração: {{ project.start_date|date:"d/m/Y" }} a {{ project.end_date|date:"d/m/Y" }}</p>
-    {% else %}
-      <p>Início: {{ project.start_date|date:"d/m/Y" }}
+  <div class="project">
+    {% if project.logo %}
+      <a href="/projeto/{{ project.id }}" title="{{ project.name }}"><img src="{{ MEDIA_URL }}/{{ project.logo.url }}" alt="{{ project.name }}" title="{{ project.name }}"/></a>
     {% endif %}
-    <img src="{{ MEDIA_URL }}/{{ project.logo.url_200x200 }}" alt="{{project.name}}" title="{{project.name}} logo"/>
-  </li>
+    <h2><a href="/projeto/{{ project.id }}">{{ project.name }}</a></h2>
+    <p>{{ project.description|slice:"250"}} ... </p>
+    <a id="know_more"href="/projeto/{{ project.id }}" title="Saiba mais">Saiba mais <span>+</span></a>
+  </div>  
 {% endfor %}
+</div>
 
-{{ project_count }} projects
 {% endblock content %}

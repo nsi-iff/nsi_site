@@ -1,0 +1,48 @@
+.project {
+  background-color: #E6E6E6;
+  padding: 10px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border: thin solid #9BCD9B;
+}
+
+.project h2 {
+  margin: 0;
+}
+
+.project h2 a:link, .project h2 a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+.project h2 a:hover {
+  text-decoration: underline;
+}
+
+.project img {
+  float: left;
+  margin-right: 20px;
+  border: 3px solid white;
+}
+
+.project p {
+  font-size: 12px;
+  text-align: justify;
+}
+
+.project #know_more:link, .project #know_more:visited {
+  float: right;
+  color: black;
+  text-decoration: none;
+}
+
+.project #know_more:hover {
+  text-decoration: underline;
+}
+
+.project #know_more span {
+  font-size: 18px;
+  color: green;
+}
