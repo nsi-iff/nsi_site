@@ -4,7 +4,7 @@ from apps.members.models import Member
 
 
 def show_all(request):
-    members = Member.objects.all()
+    members = Member.objects.all().order_by('function', 'started_nsi_date')
     return render_to_response(
         'show_all_members.html',
         {'members': members},

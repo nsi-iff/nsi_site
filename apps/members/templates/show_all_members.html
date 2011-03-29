@@ -16,7 +16,7 @@
       <h1>
         <a href="/membro/{{ member.id }}" title="{{ member.name }}">{{ member.name }}</a>
       </h1>
-      <span class="discret">{{ member.function }}</span>
+      <span class="discret">{{ member.get_function_display }}</span>
       <p>{{ member.currently_does }}</p>
     </div>
     <div class="links">

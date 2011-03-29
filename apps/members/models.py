@@ -4,11 +4,11 @@ from apps.projects.models import Project
 
 
 MEMBER_FUNCTIONS = (
-    ('gerente', 'gerente'),
-    ('coordenador', 'coordenador'),
-    ('pesquisador', 'pesquisador'),
-    ('bolsista', 'bolsista'),
-    ('colaborador', 'colaborador'))
+    ('0', 'gerente'),
+    ('1', 'coordenador'),
+    ('2', 'pesquisador'),
+    ('3', 'bolsista'),
+    ('4', 'colaborador'))
 
 
 class Participation(models.Model):
