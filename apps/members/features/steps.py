@@ -22,7 +22,7 @@ def exist_a_member(step):
         file_name = member.get('photo').split('/')[-1]
         shutil.copy2(os.path.join(settings.PROJECT_ROOT_PATH, 'apps', 'members',
                                   'features', 'resources', file_name),
-                     os.path.join(settings.MEDIA_ROOT, 'images', 'members'))
+                     os.path.join(settings.MEDIA_ROOT, 'test', 'images', 'members'))
 
 @step(r'"(.*)" member started participation the "(.*)" project in "(.*)"')
 def and_member_participation_the_project_in(step, member_name, project_name, start_participation_date):

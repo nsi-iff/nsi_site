@@ -15,7 +15,7 @@ def exist_a_project(step):
         file_name = step.hashes[0]['logo'].split('/')[-1]
         shutil.copy2(os.path.join(settings.PROJECT_ROOT_PATH, 'apps', 'projects',
                                 'features', 'resources', file_name),
-                   os.path.join(settings.MEDIA_ROOT, 'images', 'projects'))
+                   os.path.join(settings.MEDIA_ROOT, 'test', 'images', 'projects'))
                  
 @step(u'exist a member:')
 def exist_a_member(step):
