@@ -15,7 +15,7 @@ Feature: Member maintenance
     And "Pluck" member started participation the "NSI Site" project in "2011-01-01"
     
     When I go to the "Pluck" member page 
-    Then I should see an image called "pluck_photo.png"
+    Then I should see an image called "pluck_photo.100x100.png"
     And I should see "Pluck"
     And I should see "Phd em Desenvolvimento de software, bolsista do NSI desde das trevas"
     And I should see "Atualmente trabalha como suporte de madeira"
@@ -45,7 +45,7 @@ Feature: Member maintenance
       And "Pluck" member participated on "ERP5" project between "2007-01-01" and "2011-06-06"
       
       When I go to the "Pluck" member page
-      Then I should see an image called "pluck_photo.png"
+      Then I should see an image called "pluck_photo.100x100.png"
       And I should see "Pluck"
       And I should see "Phd em Desenvolvimento de software, bolsista do NSI desde das trevas"
       And I should see "Atualmente trabalha como suporte de madeira"

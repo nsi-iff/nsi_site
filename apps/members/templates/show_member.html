@@ -21,25 +21,25 @@
           {% if member.lattes %}
           <a href="{{ member.lattes }}" target="_blank">
             <img src="{{ MEDIA_URL }}/images/base/icon_lattes.png" alt="Lattes" title="Lattes"/>
-            <h3>Curriculo Lattes:</h3> {{ member.lattes }}
+            <h3>Curriculo Lattes:</h3> <span>{{ member.lattes }}</span>
           </a>
           {% endif %}
           {% if member.github %}
           <a href="{{ member.github_link }}" target="_blank">
             <img src="{{ MEDIA_URL }}/images/base/icon_github.png" alt="Github" title="Github"/>
-            <h3>Github:</h3> {{ member.github }}
+            <h3>Github:</h3> <span>{{ member.github }}</span>
           </a>
           {% endif %}
           {%if member.twitter %}
           <a href="{{ member.twitter_link }}" target="_blank">
             <img src="{{ MEDIA_URL }}/images/base/icon_twitter.png" alt="Twitter" title="Twitter"/>
-            <h3>Twitter:</h3> @{{ member.twitter }}
+            <h3>Twitter:</h3> <span>@{{ member.twitter }}</span>
           </a>
           {% endif %}
           {% if member.slideshare %}
           <a href="{{ member.slideshare_link }}" target="_blank">
             <img src="{{ MEDIA_URL }}/images/base/icon_slideshare.png" alt="Slideshare" title="Slideshare"/>
-            <h3>SlideShare:</h3> {{ member.slideshare }}
+            <h3>SlideShare:</h3> <span>{{ member.slideshare }}</span>
           </a>
           {% endif %}
         </div>       
