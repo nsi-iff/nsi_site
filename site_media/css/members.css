@@ -21,6 +21,7 @@
 .avatar {
   float: left;
   border: none;
+  border: 2px solid white;
 }
 
 .member_data {
@@ -58,3 +59,68 @@
 .links a img {
   border: none;
 }
+
+.member_details {
+  background-color: #E6E6E6;
+  padding: 10px;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border: thin solid #9BCD9B;
+}
+
+.member_details p span {
+  font-weight: bold;
+}
+
+.member_details h2 {
+  text-align: justify;
+}
+.member_details h3 {
+  display: inline;
+}
+
+.member_details img {
+  float: left;
+  margin: 0 10px 0 0;
+  position: relative;
+  top: -4px;
+}
+
+.member_details a {
+  display: block;
+  clear: both;
+  text-decoration: none;
+  color: black;
+}
+
+.member_details a h3 {
+  display: inline;
+  margin-left: -6px;
+}
+
+.member_details .data{
+  margin-left: 150px;
+}
+
+.member_details a img {
+    margin-bottom: 4px;
+    position: relative;
+    top: -8px;
+    border: none
+}
+
+.member_details .avatar {
+  float: left;
+  border: 2px solid white;
+  margin-left: 15px;
+  margin-top: 20px;
+}
+
+.member_links {
+  margin-left: -2px;
+  margin-top: 15px;
+  overflow: hidden;
+}
+

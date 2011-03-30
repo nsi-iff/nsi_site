@@ -4,32 +4,61 @@
 {% endblock styles %}
 
 {% block content %}
-  <img class="avatar" src="{{ MEDIA_URL }}/{{ member.photo.url }}" alt="{{ member.name }}" title="{{ member.name }}" >
-  <h2>{{ member.name }}</h2>
-  <div class="data">
-    <p>{{ member.currently_does }}</p>
-    <p>{{ member.life_and_work }}</p>
-    <p><b>Função:</b> {{ member.function }}</p>
-    <p><b>Site:</b> {{ member.site }}</p>
-    <p><b>Github:</b> <a href="{{ member.github_link }}" target="_blank">{{ member.github }}</a></p>
-    <p><b>Twitter:</b> <a href="{{ member.twitter_link }}" target="_blank">@{{ member.twitter }}</a></p>
-    <p><b>SlideShare:</b> <a href="{{ member.slideshare_link }}" target="_blank">{{ member.slideshare }}</a></p>
-    <p><b>Curriculo Lattes:</b> {{ member.lattes }}</p>
-    <p><b>Membro desde:</b> {{ member.started_nsi_date|date:"d/m/Y" }}</p>
-    {% if participation_list %}
-      <p><b>Participações:</b></p>
-      <ul>
-      {% for participation in participation_list %}
-        <li>
-          <p>{{ participation.project.name }}</p>
-          {% if participation.end_date %}
-            <p>Duração: {{ participation.start_date|date:"d/m/Y" }} a {{ participation.end_date|date:"d/m/Y" }}</p>
-          {% else %}
-            <p>Início: {{ participation.start_date|date:"d/m/Y" }}
+  <div class="member_details">
+      <img class="avatar" src="{{ MEDIA_URL }}/{{ member.photo.url_100x100 }}" alt="{{ member.name }}" title="{{ member.name }}" >
+      <div class="data">
+        <h1>{{ member.name }}</h1>
+        <h3>{{ member.currently_does }}</h3>
+        <p>{{ member.life_and_work }}</p>
+        <h3>Função:</h3> <span>{{ member.function }}</span>
+        <div class="member_links">
+          {% if member.site %}
+          <a href="{{ member.site }}" target="_blank">
+            <img src="{{ MEDIA_URL }}/images/base/icon_site.png" alt="Site" title="Site"/>
+            <h3>Site:</h3> {{ member.site }}
+          </a>
           {% endif %}
-        </li>
-      {% endfor %}
-      </ul>
-    {% endif %}
+          {% if member.lattes %}
+          <a href="{{ member.lattes }}" target="_blank">
+            <img src="{{ MEDIA_URL }}/images/base/icon_lattes.png" alt="Lattes" title="Lattes"/>
+            <h3>Curriculo Lattes:</h3> {{ member.lattes }}
+          </a>
+          {% endif %}
+          {% if member.github %}
+          <a href="{{ member.github_link }}" target="_blank">
+            <img src="{{ MEDIA_URL }}/images/base/icon_github.png" alt="Github" title="Github"/>
+            <h3>Github:</h3> {{ member.github }}
+          </a>
+          {% endif %}
+          {%if member.twitter %}
+          <a href="{{ member.twitter_link }}" target="_blank">
+            <img src="{{ MEDIA_URL }}/images/base/icon_twitter.png" alt="Twitter" title="Twitter"/>
+            <h3>Twitter:</h3> @{{ member.twitter }}
+          </a>
+          {% endif %}
+          {% if member.slideshare %}
+          <a href="{{ member.slideshare_link }}" target="_blank">
+            <img src="{{ MEDIA_URL }}/images/base/icon_slideshare.png" alt="Slideshare" title="Slideshare"/>
+            <h3>SlideShare:</h3> {{ member.slideshare }}
+          </a>
+          {% endif %}
+        </div>       
+        <h3>Membro desde:</h3> <span>{{ member.started_nsi_date|date:"d/m/Y" }}</span>
+        {% if participation_list %}
+          <h3>Participações:</h3>
+          <ul>
+          {% for participation in participation_list %}
+            <li>
+              <p>{{ participation.project.name }}</p>
+              {% if participation.end_date %}
+                <p>Duração: {{ participation.start_date|date:"d/m/Y" }} a {{ participation.end_date|date:"d/m/Y" }}</p>
+              {% else %}
+                <p>Início: {{ participation.start_date|date:"d/m/Y" }}
+              {% endif %}
+            </li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
   </div>
 {% endblock content %}
