@@ -14,13 +14,9 @@
       </div>
       {% for project_obj in projects %}
       <div class="entry">
-        {% if project_obj.logo %}
-            <div class="logo_project">
-              <a href="/projeto/{{ project_obj.id }}" title="{{ project_obj.name  }}"><img src="{{ MEDIA_URL }}{{ project_obj.logo.url_90x90 }}" alt="{{ project_obj.name }}"/></a>
-            </div>
-        {% endif %}
-        <div class="project_name">
-           <a href="/projeto/{{ project_obj.id }}" title="{{ project_obj.name }}">{{ project_obj.name }}</a>
+        <img src="{{ MEDIA_URL }}/images/base/projects.32x32.png">
+        <div class="text_entry">
+          <a href="/projeto/{{ project_obj.id }}" title="{{ project_obj.name }}">{{ project_obj.name }}</a>
         </div>
       </div>
       {% endfor %}

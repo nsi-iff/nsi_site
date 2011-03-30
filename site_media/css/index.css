@@ -36,8 +36,37 @@
 }
 
 #content #highlights #projects #title_projects {
-    background: transparent url("/site_media/images/base/Home_projects.png") no-repeat;
+    background: transparent url("/site_media/images/base/projects.png") no-repeat;
     margin-bottom: 15px;
+}
+
+#content #highlights #projects .entry {
+    margin-bottom: 10px;
+}
+
+#content #highlights #projects img {
+    float: left;
+    margin-right: 10px; 
+}
+
+#content #highlights #projects .text_entry {
+    height: 32px;
+    display: table-cell;
+    vertical-align: middle;    
+}
+
+#content #highlights #projects .text_entry a {
+    font-size: 14px;
+}
+
+#content #highlights #projects .text_entry a:link, #content #highlights #projects .text_entry a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+#content #highlights #projects .text_entry a:hover {
+    color: gray;
+    text-decoration: underline;
 }
 
 #content #highlights #news #title_news {
