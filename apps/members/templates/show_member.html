@@ -10,7 +10,7 @@
         <h1>{{ member.name }}</h1>
         <h3>{{ member.currently_does }}</h3>
         <p>{{ member.life_and_work }}</p>
-        <h3>Função:</h3> <span>{{ member.function }}</span>
+        <p><h3>Função:</h3> <span>{{ member.function }}</span></p>
         <div class="member_links">
           {% if member.site %}
           <a href="{{ member.site }}" target="_blank">
@@ -43,8 +43,9 @@
           </a>
           {% endif %}
         </div>       
-        <h3>Membro desde:</h3> <span>{{ member.started_nsi_date|date:"d/m/Y" }}</span>
+        <p><h3>Membro desde:</h3> <span>{{ member.started_nsi_date|date:"d/m/Y" }}</span></p>
         {% if participation_list %}
+        <p>
           <h3>Participações:</h3>
           <ul>
           {% for participation in participation_list %}
@@ -58,6 +59,7 @@
             </li>
           {% endfor %}
           </ul>
+        </p>
         {% endif %}
       </div>
   </div>

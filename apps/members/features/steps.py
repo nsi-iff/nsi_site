@@ -45,8 +45,9 @@ def i_go_to_member_page(step, member_name):
 def i_should_see_a_label_with_link(step, link_text, link_href):
     links = world.browser.find_link_by_href(link_href)
     links |should| have_at_least(1).item
-    link = links[0]
-    link['text'] |should| equal_to(link_text)
+    link_value = links[0].value
+    link_label, link_value_text = link_value.split(': ')
+    link_value_text |should| equal_to(link_text)
  
 @step(r'I should see the following members')
 def i_should_see_the_following_members(step):
