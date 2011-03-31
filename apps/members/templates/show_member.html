@@ -15,31 +15,31 @@
           {% if member.site %}
           <a href="{{ member.site }}" target="_blank">
             <img src="{{ MEDIA_URL }}/images/base/icon_site.png" alt="Site" title="Site"/>
-            <h3>Site:</h3> {{ member.site }}
+            <span class="link_text">Site:</span> <span>{{ member.site }}</span>
           </a>
           {% endif %}
           {% if member.lattes %}
           <a href="{{ member.lattes }}" target="_blank">
             <img src="{{ MEDIA_URL }}/images/base/icon_lattes.png" alt="Lattes" title="Lattes"/>
-            <h3>Curriculo Lattes:</h3> <span>{{ member.lattes }}</span>
+            <span class="link_text">Curriculo Lattes:</span> <span>{{ member.lattes }}</span>
           </a>
           {% endif %}
           {% if member.github %}
           <a href="{{ member.github_link }}" target="_blank">
             <img src="{{ MEDIA_URL }}/images/base/icon_github.png" alt="Github" title="Github"/>
-            <h3>Github:</h3> <span>{{ member.github }}</span>
+            <span class="link_text">Github:</span> <span>{{ member.github }}</span>
           </a>
           {% endif %}
           {%if member.twitter %}
           <a href="{{ member.twitter_link }}" target="_blank">
             <img src="{{ MEDIA_URL }}/images/base/icon_twitter.png" alt="Twitter" title="Twitter"/>
-            <h3>Twitter:</h3> <span>@{{ member.twitter }}</span>
+            <span class="link_text">Twitter:</span> <span>@{{ member.twitter }}</span>
           </a>
           {% endif %}
           {% if member.slideshare %}
           <a href="{{ member.slideshare_link }}" target="_blank">
             <img src="{{ MEDIA_URL }}/images/base/icon_slideshare.png" alt="Slideshare" title="Slideshare"/>
-            <h3>SlideShare:</h3> <span>{{ member.slideshare }}</span>
+            <span class="link_text">SlideShare:</span> <span>{{ member.slideshare }}</span>
           </a>
           {% endif %}
         </div>       

@@ -120,6 +120,8 @@
   padding-top: 15px;
   overflow: hidden;
 }
-.member_details h3 {
- display: inline;
+
+.member_details .link_text {
+  font-size: 12px;
+  font-weight: bold;
 }
