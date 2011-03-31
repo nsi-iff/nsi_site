@@ -46,3 +46,53 @@
   font-size: 18px;
   color: green;
 }
+
+#project_details {
+  background-color: #E6E6E6;
+  padding: 10px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  overflow: hidden;
+  border: thin solid #9BCD9B;
+}
+
+#project_details img {
+  border: 3px solid white;
+  float: left;
+  margin-right: 20px;
+}
+
+#project_details #data {
+  float: left;
+}
+
+#project_details #data h1 {
+  margin: 0;
+}
+
+#project_details #data .text_highlight {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+#project_details #data #documents {
+  border: 1px solid #BDBDBD;
+  border-collapse: collapse;
+}
+
+#project_details #data #documents tr th, #project_details #documents tr td {
+  padding: 5px;
+}
+
+#project_details #data #documents tr th, #project_details #documents tr td {
+  border: 1px solid #BDBDBD;
+}
+
+#project_details #data ul li a:link, #project_details #data ul li a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+#project_details #data ul li a:hover {
+  text-decoration: underline;
+}

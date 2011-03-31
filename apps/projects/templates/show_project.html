@@ -1,43 +1,57 @@
 {% extends "base.html" %}
 
+{% block scripts %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="/site_media/css/projects.css"/>
+{% endblock scripts %}
+
 {% block content %}
-<h1>{{ project.name }}</h1>
-
-<p>{{ project.description }}</p>
-
-<p>Patrocinador: {{ project.sponsor }}</p>
-<p>Status: {{ project.status }}</p>
-{% if project.finished %}
-  <p>Duração: {{ project.start_date|date:"d/m/Y" }} a {{ project.end_date|date:"d/m/Y" }}</p>
-{% else %}
-  <p>Início: {{ project.start_date|date:"d/m/Y" }}
-{% endif %}
-{% if project.logo %}
-  <img src="{{ MEDIA_URL }}/{{ project.logo.url }}" alt="{{project.name}}" title="{{project.name}} logo"/>
-{% endif %}
-
-<table id="documents">
-  <thead>
-    <tr><th>Nome</th><th>Descrição</th><th>Enviado</th></tr>
-  </thead>
-  <tbody>
-  {% for document in project.document_set.all %}
-    <tr>
-      <td>{{ document.title }}</td>
-      <td>{{ document.description }}</td>
-      <td>{{ document.uploaded_at|date:"d/m/Y à\s H:i" }}</td>
-      <td><a href="{{ MEDIA_URL }}/{{ document.file.url }}">Download</a></td>
-    </tr>
-  {% endfor %}
-  </tbody>
-</table>
-
-<ul>Membros:
-{% for participation in participations %}
-  {% if participation.project.name == project.name %}
-    <li>{{ participation.member.name }}</li>
+<div id="project_details">
+  {% if project.logo %}
+    <img src="{{ MEDIA_URL }}{{ project.logo.url }}" alt="{{ project.name }}" title="{{ project.name }}"/>
   {% endif %}
-{% endfor %}
-</ul>
+  <div id="data">
+    <h1>{{ project.name }}</h1>
 
+    <h3>{{ project.description }}</h3>
+
+    <p><span class="text_highlight">Patrocinador:</span> <span>{{ project.sponsor }}</span></p>
+    <p><span class="text_highlight">Status:</span> <span>{{ project.status }}</span></p>
+    {% if project.finished %}
+      <p><span class="text_highlight">Duração:</span> <span>{{ project.start_date|date:"d/m/Y" }} a {{ project.end_date|date:"d/m/Y" }}</span></p>
+    {% else %}
+      <p><span class="text_highlight">Início:</span> <span>{{ project.start_date|date:"d/m/Y" }}</span>
+    {% endif %}
+    
+    {% if project.document_set.all %}
+      <p><span class="text_highlight">Documentos relacionados:</span></p>
+      <table id="documents">
+        <thead>
+          <tr><th>Nome</th><th>Descrição</th><th>Enviado</th></tr>
+        </thead>
+        <tbody>
+        {% for document in project.document_set.all %}
+          <tr>
+            <td>{{ document.title }}</td>
+            <td>{{ document.description }}</td>
+            <td>{{ document.uploaded_at|date:"d/m/Y à\s H:i" }}</td>
+            <td><a href="{{ MEDIA_URL }}/{{ document.file.url }}">Download</a></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+    
+    {% if participations %}
+    <p><span class="text_highlight">Membros:</span></p>
+    <ul>
+      {% for participation in participations %}
+        {% if participation.project.name == project.name %}
+          <li><a href="/membro/{{ participation.member.id }}">{{ participation.member.name }}</a></li>
+        {% endif %}
+      {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+</div>
 {% endblock content %}
