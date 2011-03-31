@@ -10,7 +10,7 @@
         <h1>{{ member.name }}</h1>
         <h3>{{ member.currently_does }}</h3>
         <p>{{ member.life_and_work }}</p>
-        <p><h3>Função:</h3> <span>{{ member.function }}</span></p>
+        <p><h3>Função:</h3> <span>{{ member.get_function_display }}</span></p>
         <div class="member_links">
           {% if member.site %}
           <a href="{{ member.site }}" target="_blank">
