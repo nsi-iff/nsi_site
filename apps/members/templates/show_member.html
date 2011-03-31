@@ -10,40 +10,40 @@
         <h1>{{ member.name }}</h1>
         <h3>{{ member.currently_does }}</h3>
         <p>{{ member.life_and_work }}</p>
-        <p><h3>Função:</h3> <span>{{ member.get_function_display }}</span></p>
+        <p><span class="text_highlight">Função:</span> <span>{{ member.get_function_display }}</span></p>
         <div class="member_links">
           {% if member.site %}
           <a href="{{ member.site }}" target="_blank">
             <img src="{{ MEDIA_URL }}/images/base/icon_site.png" alt="Site" title="Site"/>
-            <span class="link_text">Site:</span> <span>{{ member.site }}</span>
+            <span class="text_highlight">Site:</span> <span>{{ member.site }}</span>
           </a>
           {% endif %}
           {% if member.lattes %}
           <a href="{{ member.lattes }}" target="_blank">
             <img src="{{ MEDIA_URL }}/images/base/icon_lattes.png" alt="Lattes" title="Lattes"/>
-            <span class="link_text">Curriculo Lattes:</span> <span>{{ member.lattes }}</span>
+            <span class="text_highlight">Curriculo Lattes:</span> <span>{{ member.lattes }}</span>
           </a>
           {% endif %}
           {% if member.github %}
           <a href="{{ member.github_link }}" target="_blank">
             <img src="{{ MEDIA_URL }}/images/base/icon_github.png" alt="Github" title="Github"/>
-            <span class="link_text">Github:</span> <span>{{ member.github }}</span>
+            <span class="text_highlight">Github:</span> <span>{{ member.github }}</span>
           </a>
           {% endif %}
           {%if member.twitter %}
           <a href="{{ member.twitter_link }}" target="_blank">
             <img src="{{ MEDIA_URL }}/images/base/icon_twitter.png" alt="Twitter" title="Twitter"/>
-            <span class="link_text">Twitter:</span> <span>@{{ member.twitter }}</span>
+            <span class="text_highlight">Twitter:</span> <span>@{{ member.twitter }}</span>
           </a>
           {% endif %}
           {% if member.slideshare %}
           <a href="{{ member.slideshare_link }}" target="_blank">
             <img src="{{ MEDIA_URL }}/images/base/icon_slideshare.png" alt="Slideshare" title="Slideshare"/>
-            <span class="link_text">SlideShare:</span> <span>{{ member.slideshare }}</span>
+            <span class="text_highlight">SlideShare:</span> <span>{{ member.slideshare }}</span>
           </a>
           {% endif %}
         </div>       
-        <p><h3>Membro desde:</h3> <span>{{ member.started_nsi_date|date:"d/m/Y" }}</span></p>
+        <span class="text_highlight">Membro desde:</span> <span>{{ member.started_nsi_date|date:"d/m/Y" }}</span>
         {% if participation_list %}
         <p>
           <h3>Participações:</h3>

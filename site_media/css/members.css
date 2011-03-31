@@ -70,10 +70,6 @@
   border: thin solid #9BCD9B;
 }
 
-.member_details p span {
-  font-weight: bold;
-}
-
 .member_details h2 {
   text-align: justify;
 }
@@ -121,7 +117,7 @@
   overflow: hidden;
 }
 
-.member_details .link_text {
+.member_details .text_highlight {
   font-size: 12px;
   font-weight: bold;
 }
