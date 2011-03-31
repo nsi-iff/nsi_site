@@ -15,7 +15,7 @@ class Participation(models.Model):
     member = models.ForeignKey('Member')
     project = models.ForeignKey(Project)
     start_date = models.DateField()
-    end_date = models.DateField(null=True)
+    end_date = models.DateField(null=True, blank=True)
     
     def __unicode__(self):
         return self.member.name + ' - ' + self.project.name
