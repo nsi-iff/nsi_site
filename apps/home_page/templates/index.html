@@ -21,6 +21,7 @@
       </div>
       {% endfor %}
     </div>
+    
     <div id="news">
       <div class="title_highlights" id="title_news">
         Noticias
@@ -35,14 +36,16 @@
         {% else %}
           <div class="news_title_without_image">
         {% endif %}
-          <p>{{ news_obj.date_and_time|date:"d/m/Y à\s H:i" }}</p>
-          <a href="/noticia/{{ news_obj.id }}" title="{{ news_obj.title }}">{{ news_obj.title }}</a>
+<!--          <p>{{ news_obj.date_and_time|date:"d/m/Y à\s H:i" }}</p>-->
+          <a href="/noticia/{{ news_obj.id }}" title="{{ news_obj.title }}"><p>{{ news_obj.title }}</p></a>
         </div>
-        <div class="text_news">
-           {% if news_obj.summary %}
-               <p>{{ news_obj.summary }}</p>
-           {% endif %}
-        </div>
+<!--        <div class="text_news">-->
+<!--           {% if news_obj.summary %}-->
+<!--               <p>{{ news_obj.summary }}</p>-->
+<!--           {% endif %}-->
+<!--        </div>-->
+      <span class="text_highlight">Postado por: </span>{{ news_obj.author }}
+      <span class="text_data">{{ news_obj.date_and_time|date:"d/m/Y" }}</span>
       </div>
       {% endfor %}
       <div id="read_more">
