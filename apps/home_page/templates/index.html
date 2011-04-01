@@ -49,17 +49,20 @@
         <a href="/noticias"><p>Leia mais <span>+</span></p></a>
       </div>
     </div>
+    
     <div id="tools">
       <div class="title_highlights" id="title_tools">
         Ferramentas
       </div>
       {% for tool_obj in tools %}
       <div class="entry">
-        <div class="tool_name">
+        <img src="{{ MEDIA_URL }}/images/base/tools.32x32.png">
+        <div class="text_entry">
            <a href="/ferramentas" title="{{ tool_obj.name }}">{{ tool_obj.name }}</a>
         </div>
       </div>
       {% endfor %}
     </div>
+    
   </div>  
 {% endblock content %}
