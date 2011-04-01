@@ -1,9 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h3>Núcleo de Pesquisa em Sistemas de Informação (NSI)</h3>
 
 <p>{{ nsi_info.history_as_html|safe }}</p>
 
-<p class="datetime-info">Última alteração: {{ nsi_info.updated_at|date:"d/m/Y à\s H:i" }}.</p>
 {% endblock content %}
