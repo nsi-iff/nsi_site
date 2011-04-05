@@ -18,10 +18,9 @@ Feature: News maintenance
     Then I should see "Notícia sobre o NSI Site"
     And I should see "O site do NSI está no ar"
     And I should see "Já está no ar o site do NSI!"
-    And I should see an image called "nsi.300x300.png"
+    And I should see an image called "nsi.150x150.png"
     And I should see "Postado por: rogerio"
     And I should see "Data: 15/01/2011 às 20:00"
-    And I should have "<li>NSI Site</li>" as HTML
     
   Scenario: showing many news 
     Given exist a author:
@@ -48,27 +47,23 @@ Feature: News maintenance
     Then I should see "Notícia sobre o NSI Site"
     And I should see "O site do NSI está no ar"
     And I should see "Já está no ar o site do NSI!"
-    And I should see an image called "nsi.300x300.png"
+    And I should see an image called "nsi.150x150.png"
     And I should see "Postado por: rogerio"
     And I should see "Data: 15/01/2011 às 20:00"
-    And I should see "NSI Site"
     
     And I should see "Notícia sobre o ERP5 Lek"
     And I should see "Rick Rock Sunshine Project"
     And I should see "ERP5 Lek, muita coisa pronta"
-    And I should see an image called "erp5.300x300.png"
+    And I should see an image called "erp5.150x150.png"
     And I should see "Postado por: ronaldo"
     And I should see "Data: 16/01/2011 às 20:00"
-    And I should see "ERP5"
     
     And I should see "Notícia sobre o ERP5 e o NSI Site"
     And I should see "Rick Rock Sunshine Project NSI e ERP5"
     And I should see "NSI power site e ERP5 Lek, muita coisa pronta"
-    And I should see an image called "x.300x300.png"
+    And I should see an image called "x.150x150.png"
     And I should see "Postado por: herman"
     And I should see "Data: 16/01/2011 às 23:00"
-    And I should have "<li>ERP5</li>" as HTML
-    And I should have "<li>NSI Site</li>" as HTML
     
   Scenario: showing a especific news
     Given exist a author:
@@ -89,7 +84,7 @@ Feature: News maintenance
     Then I should see "Notícia sobre o NSI Site"
     And I should see "O site do NSI está no ar"
     And I should see "Já está no ar o site do NSI!"
-    And I should see an image called "nsi.300x300.png"
+    And I should see an image called "nsi.150x150.png"
     And I should see "Postado por: herman"
     And I should see "Data: 15/01/2011 às 20:00"
-    And I should see "NSI Site"
+    And I should have "<li>NSI Site</li>" as HTML

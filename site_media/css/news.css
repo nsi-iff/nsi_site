@@ -1,20 +1,49 @@
 .new {
   background-color: #E6E6E6;
   padding: 10px;
-  border-radius: 15px;
-  -moz-border-radius: 15px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
   margin-bottom: 20px;
   overflow: hidden;
   border: thin solid #9BCD9B;
+}
+
+.new img {
+  float: left;
+  margin-right: 20px;
+}
+
+.new h1 a, .new h1 a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+.new h1 a:hover {
+  text-decoration: underline;
 }
 
 .new p span {
   font-weight: bold;
 }
 
-.new img {
-  float: left;
-  margin-right: 20px;
+.new p a {
+  float: right;
+}
+
+.new p a, .new p a:visited {
+  color: black;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.new p a:hover {
+  text-decoration: underline;
+}
+
+.new p a span {
+  color: green;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .new h3 {
