@@ -23,7 +23,7 @@ Feature: News maintenance
     And I should see "Data: 15/01/2011 às 20:00"
     And I should have "<li>NSI Site</li>" as HTML
     
-    Scenario: showing many news 
+  Scenario: showing many news 
     Given exist a author:
       | name |
       | rogerio |
@@ -69,3 +69,27 @@ Feature: News maintenance
     And I should see "Data: 16/01/2011 às 23:00"
     And I should have "<li>ERP5</li>" as HTML
     And I should have "<li>NSI Site</li>" as HTML
+    
+  Scenario: showing a especific news
+    Given exist a author:
+      | name    |
+      | herman  |
+      
+    And exist a project:
+      | name     |
+      | NSI Site |      
+      
+    And exist a news:
+      | title    |  summary | body | image | author | date_and_time | 
+      | Notícia sobre o NSI Site | O site do NSI está no ar | Já está no ar o site do NSI! | test/images/news/nsi.png | herman | 15/01/2011 20:00 |
+      
+    And the news "Notícia sobre o NSI Site" is related with project "NSI Site"
+    When I go to "the news page"
+    And I click "Notícia sobre o NSI Site"
+    Then I should see "Notícia sobre o NSI Site"
+    And I should see "O site do NSI está no ar"
+    And I should see "Já está no ar o site do NSI!"
+    And I should see an image called "nsi.300x300.png"
+    And I should see "Postado por: herman"
+    And I should see "Data: 15/01/2011 às 20:00"
+    And I should see "NSI Site"
