@@ -87,4 +87,4 @@ Feature: News maintenance
     And I should see an image called "nsi.150x150.png"
     And I should see "Postado por: herman"
     And I should see "Data: 15/01/2011 às 20:00"
-    And I should have "<li>NSI Site</li>" as HTML
+    And I should see "NSI Site"
