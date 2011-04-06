@@ -31,7 +31,7 @@ django:
 	@$(PYTHON) -c 'import django' 2>/dev/null || $(PIP) install django
 
 splinter:
-	@$(PYTHON) -c 'import splinter' 2>/dev/null || $(PIP) install splinter
+	@$(PYTHON) -c 'import splinter' 2>/dev/null || $(PIP) install splinter==0.0.2
 
 pil:
 	@$(PYTHON) -c 'import pil' 2>/dev/null || $(PIP) install PIL
