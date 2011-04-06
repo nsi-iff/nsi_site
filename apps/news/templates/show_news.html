@@ -10,7 +10,9 @@
     {% for new in news %}
       <div class="new">
         {% if new.image %}
-          <img src="{{ MEDIA_URL }}/{{ new.image.url_150x150 }}" alt="{{ new.title }}" title="{{ new.title }}" />
+          <a href="/noticia/{{ new.id }}" title="{{ new.title }}">
+            <img src="{{ MEDIA_URL }}/{{ new.image.url_150x150 }}" alt="{{ new.title }}" title="{{ new.title }}" />
+          </a>
         {% endif %}
         <h1><a href="/noticia/{{ new.id }}" title="{{ new.title }}">{{ new.title }}</a></h1>
         <h2>{{ new.summary }}</h2>

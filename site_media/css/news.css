@@ -11,6 +11,11 @@
 .new img {
   float: left;
   margin-right: 20px;
+  border: 3px solid white;
+}
+
+.new h1 {
+  margin: 0;
 }
 
 .new h1 a, .new h1 a:visited {
@@ -26,13 +31,21 @@
   font-weight: bold;
 }
 
+.new ul li a, .new ul li a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+.new ul li a:hover {
+  text-decoration: underline;
+}
+
 .new p a {
   float: right;
 }
 
 .new p a, .new p a:visited {
   color: black;
-  font-size: 14px;
   text-decoration: none;
 }
 
