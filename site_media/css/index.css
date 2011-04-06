@@ -149,6 +149,10 @@
     font-size: 18px;
 }
 
+#content #highlights #tools .entry {
+    margin-bottom: 10px;
+}
+
 #content #highlights #tools .entry img {
     float: left;
     margin-right: 10px;

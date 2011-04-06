@@ -10,20 +10,20 @@ body {
 }
 
 #header {
-  height: 150px;
+  height: 100px;
   background-color: #E6E6E6;
   font-family: "trebuchet ms",arial,sans-serif;
 }
 
 #header #center_header {
   background: url("/site_media/images/base/background_head.jpg") repeat scroll 0px 0px transparent;
-  height: 150px;
+  height: 100px;
   width: 900px;
   margin: 0 auto;
 }
 
 #header #center_header #logo_nsi {
-  margin-top: 40px;
+  margin-top: 17px;
   margin-left: 10px;
   border: none;
 }
