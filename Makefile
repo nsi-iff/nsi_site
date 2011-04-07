@@ -15,7 +15,7 @@ test_database:
 
 deps: app_deps functional_deps unit_deps
 
-app_deps: django pil south docutils
+app_deps: django pil south docutils django-pagination
 
 functional_deps: selenium lettuce splinter should-dsl nose lxml
 
@@ -60,6 +60,9 @@ nosedjango:
 model_mommy:
 	@$(PYTHON) -c 'import model_mommy' 2>/dev/null || $(PIP) install http://github.com/vandersonmota/model_mommy/tarball/master
 
+django-pagination:
+	@$(PYTHON) -c 'import pagination' 2>/dev/null || $(PIP) install -e git+https://github.com/tiagosc/django-pagination.git#egg=pagination
+
 test: functional unit
 
 functional: functional_deps deps
@@ -73,4 +76,3 @@ unit: unit_deps deps
 	@echo ============ Running unit specs ==============
 	@specloud --with-django
 	@echo
-

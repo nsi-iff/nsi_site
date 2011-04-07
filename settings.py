@@ -42,6 +42,14 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.Loader',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.core.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.request"
+)
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -49,6 +57,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfResponseMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'pagination.middleware.PaginationMiddleware',
 )
 
 ROOT_URLCONF = 'urls'
@@ -59,6 +68,7 @@ TEMPLATE_DIRS = (
 
 LETTUCE_AVOID_APPS = (
     'south',
+    'pagination',
 )
 
 INSTALLED_APPS = (
@@ -70,6 +80,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'lettuce.django',
     'south',
+    'pagination',
     'apps.home_page',
     'apps.nsi_info',
     'apps.projects',
@@ -77,4 +88,3 @@ INSTALLED_APPS = (
     'apps.tools',
     'apps.members',
 )
-
