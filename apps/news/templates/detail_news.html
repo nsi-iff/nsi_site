@@ -8,7 +8,9 @@
 {% block content %}
   <div class="new">
     {% if news_obj.image %}
-      <img src="{{ MEDIA_URL }}/{{ news_obj.image.url_150x150 }}" alt="{{ news_obj.title }}" title="{{ news_obj.title }}" />
+      <div id="new_image">
+        <img src="{{ MEDIA_URL }}/{{ news_obj.image.url_150x150 }}" alt="{{ news_obj.title }}" title="{{ news_obj.title }}" />
+      </div>
     {% endif %}
     <h1>{{ news_obj.title }}</h1>
     <h2>{{ news_obj.summary }}</h2>
