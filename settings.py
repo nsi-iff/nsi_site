@@ -88,3 +88,5 @@ INSTALLED_APPS = (
     'apps.tools',
     'apps.members',
 )
+
+PAGINATION_DEFAULT_WINDOW = 1

@@ -69,3 +69,17 @@
   font-weight: normal;
 }
 
+.pagination {
+  text-align: center;
+}
+
+.pagination .current {
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  background-color: lightGrey;
+  padding: 3px;
+}
+
+.pagination a, .pagination a:visited {
+  color: black;
+}
