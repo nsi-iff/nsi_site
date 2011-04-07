@@ -60,10 +60,16 @@
   border: 3px solid white;
   float: left;
   margin-right: 20px;
+  margin-bottom: 10px;
 }
 
-#project_details #data {
+#project_details #project_logo {
   float: left;
+}
+
+#project_details #data p {
+  text-align: justify;
+  font-size: 1.2em;
 }
 
 #project_details #data h1 {

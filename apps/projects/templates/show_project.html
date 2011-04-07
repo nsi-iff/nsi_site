@@ -8,12 +8,14 @@
 {% block content %}
 <div id="project_details">
   {% if project.logo %}
-    <img src="{{ MEDIA_URL }}{{ project.logo.url }}" alt="{{ project.name }}" title="{{ project.name }}"/>
+    <div id="project_logo">
+      <img src="{{ MEDIA_URL }}{{ project.logo.url }}" alt="{{ project.name }}" title="{{ project.name }}"/>
+    </div>
   {% endif %}
   <div id="data">
     <h1>{{ project.name }}</h1>
 
-    <h3>{{ project.description }}</h3>
+    <p>{{ project.description }}</p>
 
     <p><span class="text_highlight">Patrocinador:</span> <span>{{ project.sponsor }}</span></p>
     <p><span class="text_highlight">Status:</span> <span>{{ project.status }}</span></p>
