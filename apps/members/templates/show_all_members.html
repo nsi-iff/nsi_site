@@ -19,34 +19,45 @@
       <span class="discret">{{ member.get_function_display }}</span>
       <p>{{ member.currently_does }}</p>
     </div>
-    <div class="links">
+    <ul class="links">
       {% if member.site %}
-      <a href="{{ member.site }}" target="_blank">
-        <img src="{{ MEDIA_URL }}/images/base/icon_site.png" alt="Site" title="Site"/>
-      </a>
+      <li>
+        <a href="{{ member.site }}" target="_blank">
+          <img src="{{ MEDIA_URL }}/images/base/icon_site.png" alt="Site" title="Site"/>
+        </a>
+      </li>
       {% endif %}
       {% if member.lattes %}
-      <a href="{{ member.lattes }}" target="_blank">
-        <img src="{{ MEDIA_URL }}/images/base/icon_lattes.png" alt="Lattes" title="Lattes"/>
-      </a>
+      <li>
+        <a href="{{ member.lattes }}" target="_blank">
+          <img src="{{ MEDIA_URL }}/images/base/icon_lattes.png" alt="Lattes" title="Lattes"/>
+        </a>
+      </li>
       {% endif %}
       {% if member.github %}
-      <a href="{{ member.github_link }}" target="_blank">
-        <img src="{{ MEDIA_URL }}/images/base/icon_github.png" alt="Github" title="Github"/>
-      </a>
+      <li>
+        <a href="{{ member.github_link }}" target="_blank">
+          <img src="{{ MEDIA_URL }}/images/base/icon_github.png" alt="Github" title="Github"/>
+        </a>
+      </li>
       {% endif %}
       {%if member.twitter %}
-      <a href="{{ member.twitter_link }}" target="_blank">
-        <img src="{{ MEDIA_URL }}/images/base/icon_twitter.png" alt="Twitter" title="Twitter"/>
-      </a>
+      <li>
+        <a href="{{ member.twitter_link }}" target="_blank">
+          <img src="{{ MEDIA_URL }}/images/base/icon_twitter.png" alt="Twitter" title="Twitter"/>
+        </a>
+      </li>
       {% endif %}
       {% if member.slideshare %}
-      <a href="{{ member.slideshare_link }}" target="_blank">
-        <img src="{{ MEDIA_URL }}/images/base/icon_slideshare.png" alt="Slideshare" title="Slideshare"/>
-      </a>
+      <li>
+        <a href="{{ member.slideshare_link }}" target="_blank">
+          <img src="{{ MEDIA_URL }}/images/base/icon_slideshare.png" alt="Slideshare" title="Slideshare"/>
+        </a>
+      </li>
       {% endif %}
     </div>
   </div>
 {% endfor %}
 </div>
 {% endblock content %}
+

@@ -32,7 +32,7 @@
 
 .member_data h1 {
   font-size: 14px;
-  margin: 0;  
+  margin: 0;
 }
 
 .member_data h1 a {
@@ -54,6 +54,18 @@
 .links{
   clear: left;
   padding: 7px 0 0 0;
+
+  position: absolute;
+  margin-top: 110px;
+  list-style: none;
+}
+
+.links li {
+  display: inline;
+}
+
+.links a img {
+  border: none;
 }
 
 .links a img {
@@ -121,3 +133,4 @@
   font-size: 12px;
   font-weight: bold;
 }
+
