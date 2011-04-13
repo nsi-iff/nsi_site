@@ -9,22 +9,19 @@
 {% for tool in tools %}
   <div id="tools">
     <div class="tool">
-      <h1>{{ tool.name }}</h1>
-      <p>{{ tool.description }}</p>
-      <p><span>Repositório: </span>
-        <a href="{{ tool.repository }}" title="Repositório: {{ tool.repository }}" target="_blank">{{ tool.repository }}</a>
-      </p>
-      <p><span>Site: </span>
-        <a href="{{ tool.site }}" title="Site: {{ tool.site }}" target="_blank">{{ tool.site }}</a>
-      </p>
-      {% if tool.relateds_projects.all %}
-        <p><span>Projetos relacionados:</span></p>
-        <ul>
-          {% for project in tool.relateds_projects.all %}
-            <li><a href="/projeto/{{ project.id }}">{{ project.name }}</a></li>
-          {% endfor %}
-        </ul>
-      {% endif %}
+      {% if tool.logo %}
+        <a href="/ferramenta/{{ tool.id }}" title="{{ tool.name }}">
+          <img src="{{ MEDIA_URL }}{{ tool.logo.url }}" alt="{{ tool.name }}" title="{{ tool.name }}"/>
+        </a>  
+      {% endif %} 
+      <div id="data"> 
+        <h1>{{ tool.name }}</h1>
+        <p>{{ tool.short_description }}</p>
+        <p><span class="text_highlight">Status: </span>
+          <a href="{{ tool.status }}" title="Status: {{ tool.status }}" target="_blank">{{ tool.status }}</a>
+        </p>
+        <p class="more_info"><a href="/ferramenta/{{ tool.id }}">Leia mais <span>+</span></a></p>
+      </div>
     </div>
   </div>
 {% endfor %}

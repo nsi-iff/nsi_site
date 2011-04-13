@@ -12,7 +12,7 @@ from apps.projects.models import Project, Document
 def exist_a_project(step):
     for project in step.hashes:
         Project(**project).save()
-        file_name = step.hashes[0]['logo'].split('/')[-1]
+        file_name = project['logo'].split('/')[-1]
         shutil.copy2(os.path.join(settings.PROJECT_ROOT_PATH, 'apps', 'projects',
                                 'features', 'resources', file_name),
                    os.path.join(settings.MEDIA_ROOT, 'test', 'images', 'projects'))

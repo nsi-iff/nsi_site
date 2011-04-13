@@ -19,6 +19,7 @@ def initial_run_time(variables):
         os.path.join(PROJECT_ROOT_PATH, 'site_media', 'test', 'images', 'members'),
         os.path.join(PROJECT_ROOT_PATH, 'site_media', 'test', 'images', 'news'),
         os.path.join(PROJECT_ROOT_PATH, 'site_media', 'test', 'images', 'projects'),
+        os.path.join(PROJECT_ROOT_PATH, 'site_media', 'test', 'images', 'tools'),
     ]
     
     for directory in test_directories_list:

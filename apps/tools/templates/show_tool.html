@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block scripts %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="/site_media/css/tools.css"/>
+{% endblock scripts %}
+
+{% block content %}
+<div class="tool" id="tool_details">
+  {% if tool.logo %}
+    <img src="{{ MEDIA_URL }}{{ tool.logo.url }}" alt="{{ tool.name }}" title="{{ tool.name }}"/>
+  {% endif %}
+  <div id="data">
+    <h1>{{ tool.name }}</h1>
+
+    <h3>{{ tool.description }}</h3>
+   
+    <p><span class="text_highlight">Repositório: </span>
+        <a href="{{ tool.repository }}" title="Repositório: {{ tool.repository }}" target="_blank">{{ tool.repository }}</a>
+    </p>
+    <p><span class="text_highlight">Site: </span>
+      <a href="{{ tool.site }}" title="Site: {{ tool.site }}" target="_blank">{{ tool.site }}</a>
+    </p>
+    <p><span class="text_highlight">Status: </span>
+      <a href="{{ tool.status }}" title="Status: {{ tool.status }}" target="_blank">{{ tool.status }}</a>
+    </p>
+    {% if tool.relateds_projects.all %}
+      <p><span>Projetos relacionados:</span></p>
+      <ul>
+        {% for project in tool.relateds_projects.all %}
+          <li><a href="/projeto/{{ project.id }}">{{ project.name }}</a></li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+</div>
+{% endblock content %}
