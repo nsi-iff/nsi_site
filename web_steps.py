@@ -45,9 +45,13 @@ def and_i_should_see_an_image_called_group1(step, image_name):
     found_image |should| have_at_least(1).image
 
 @step(u'I should see a link to "(.*)" with label "(.*)"')
-def i_should_see_a_link_with_label(step, link_href, link_text):
+def i_should_see_a_link_to_with_label(step, link_href, link_text):
     links = world.browser.find_link_by_text(link_text)
     links |should| have_at_least(1).item
     link = links[0]
     link['href'] |should| end_with(link_href)
+
+@step(u'I should see a link with text "(.*)"')
+def i_should_see_a_link_with_text(step, link_text):
+    world.browser.find_link_by_text(link_text) |should| have(1).item
 

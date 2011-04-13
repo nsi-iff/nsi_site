@@ -14,7 +14,7 @@
     {% endif %}
     <h1>{{ news_obj.title }}</h1>
     <h2>{{ news_obj.summary }}</h2>
-    <h3>{{ news_obj.body }}</h3>
+    <h3>{{ news_obj.body_as_html|safe }}</h3>
     <p><span class="text_highlight">Postado por:</span> {{ news_obj.author }}</p>
     <p><span class="text_highlight">Data:</span> {{ news_obj.date_and_time|date:"d/m/Y à\s H:i" }}</p>
     {% if news_obj.projects_relateds.all %}
@@ -27,3 +27,4 @@
     {% endif %}
   </div>
 {% endblock content %}
+
