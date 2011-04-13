@@ -12,7 +12,7 @@ def show_tool(request, tool_id):
     )
 
 def show_all(request):
-    tools = Tool.objects.all()
+    tools = Tool.objects.all().order_by('status')
     return render_to_response(
         'show_all.html',
         {'tools': tools},
