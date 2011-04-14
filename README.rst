@@ -5,8 +5,9 @@ How to Install
 --------------
 
 On Debian like
-~~~~~~~~~
+~~~~~~~~~~~~~~
 Just run::
+
     ./setup_on_debian_like.sh
 
 On Windows
@@ -17,14 +18,17 @@ I don't know, sorry.
 Python dependencies
 ~~~~~~~~~~~~~~~~~~~
 Run::
+
     make deps
 
 How to create the databases
 ---------------------------
 Just run::
+
     make database
 
-For test database, run:
+For test database, run::
+
     make test_database
 
 Note: after you run functional tests, the admin user on test database will be "admin" with password "admin".
