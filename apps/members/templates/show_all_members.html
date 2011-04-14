@@ -8,7 +8,7 @@
 {% block content %}
 <div class="members_content">
 {% for member in members %}
-  <div class="member {% cycle row1,row2,row3 %}" id="member{{ member.id }}">
+  <div class="member" id="member{{ member.id }}">
     <a href="/membro/{{ member.id }}" title="{{ member.name }}">
       <img class="avatar" src="{{ MEDIA_URL }}/{{ member.photo.url_100x100 }}" alt="{{ member.name }}"/>
     </a>
@@ -55,7 +55,7 @@
         </a>
       </li>
       {% endif %}
-    </div>
+    </ul>
   </div>
 {% endfor %}
 </div>

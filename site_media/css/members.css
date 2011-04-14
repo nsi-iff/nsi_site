@@ -3,8 +3,9 @@
   float: left;
   height: 140px;
   width: 270px;
-  margin-right: 27px;
-  margin-bottom: 20px;
+  margin-right: 9px;
+  margin-left: 9px;
+  margin-bottom: 15px;
   background-color: #E6E6E6;
   border-width: thin;
   border-color: #9BCD9B;
@@ -13,9 +14,11 @@
   -moz-border-radius: 7px;
 }
 
-.row3 {
-  margin-right: 0 !important;
-  float: right !important;
+
+.members_content {
+  display: table;
+  border-collapse: collapse;
+  table-layout:fixed;
 }
 
 .avatar {
@@ -73,7 +76,6 @@
 }
 
 .member_details {
-  background-color: #E6E6E6;
   padding: 10px;
   border-radius: 15px;
   -moz-border-radius: 15px;
