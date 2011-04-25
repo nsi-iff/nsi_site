@@ -5,7 +5,7 @@ from apps.members.models import Participation
 
 
 def show_all(request):
-    projects = Project.objects.all()
+    projects = Project.objects.all().order_by('status', 'start_date')
     return render_to_response(
         'show_all_projects.html',
         {'projects': projects, 'project_count': len(projects)},

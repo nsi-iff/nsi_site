@@ -18,7 +18,7 @@
     <p>{{ project.description }}</p>
 
     <p><span class="text_highlight">Patrocinador:</span> <span>{{ project.sponsor }}</span></p>
-    <p><span class="text_highlight">Status:</span> <span>{{ project.status }}</span></p>
+    <p><span class="text_highlight">Status:</span> <span>{{ project.get_status_display }}</span></p>
     {% if project.finished %}
       <p><span class="text_highlight">Duração:</span> <span>{{ project.start_date|date:"d/m/Y" }} a {{ project.end_date|date:"d/m/Y" }}</span></p>
     {% else %}

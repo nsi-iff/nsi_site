@@ -3,10 +3,10 @@ from thumbs import ImageWithThumbsField
 
 
 PROJECT_STATES = (
-    ('aberto', 'aberto'),
-    ('cancelado', 'cancelado'),
-    ('finalizado', 'finalizado'),
-    ('paralisado', 'paralisado'))
+    ('0', 'aberto'),
+    ('1', 'finalizado'),
+    ('2', 'paralisado'),
+    ('3', 'cancelado'))
 
 
 class Project(models.Model):
