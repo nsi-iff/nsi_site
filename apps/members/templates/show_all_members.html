@@ -9,12 +9,12 @@
 <div class="members_content">
 {% for member in members %}
   <div class="member" id="member{{ member.id }}">
-    <a href="/membro/{{ member.id }}" title="{{ member.name }}">
+    <a href="/membro/{{ member.slug }}" title="{{ member.name }}">
       <img class="avatar" src="{{ MEDIA_URL }}/{{ member.photo.url_100x100 }}" alt="{{ member.name }}"/>
     </a>
     <div class="member_data">
       <h1>
-        <a href="/membro/{{ member.id }}" title="{{ member.name }}">{{ member.name }}</a>
+        <a href="/membro/{{ member.slug }}" title="{{ member.name }}">{{ member.name }}</a>
       </h1>
       <span class="discret">{{ member.get_function_display }}</span>
       <p>{{ member.currently_does }}</p>

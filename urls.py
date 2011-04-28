@@ -21,7 +21,7 @@ urlpatterns = patterns('',
     (r'^projeto/(?P<project_id>\w+)/$', 'apps.projects.views.show_project'),
 
     (r'^membros/$', 'apps.members.views.show_all'),
-    (r'^membro/(?P<member_id>\d+)$', 'apps.members.views.show'),
+    (r'^membro/(?P<slug>[\w_-]+)$', 'apps.members.views.show'),
 
     (r'^ferramentas/$', 'apps.tools.views.show_all'),
     (r'^ferramenta/(?P<tool_id>\d+)$', 'apps.tools.views.show_tool'),

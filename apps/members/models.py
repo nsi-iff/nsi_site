@@ -1,4 +1,5 @@
 from django.db import models
+from django.template.defaultfilters import slugify
 from thumbs import ImageWithThumbsField
 from apps.projects.models import Project
 
@@ -34,7 +35,8 @@ class Member(models.Model):
     started_nsi_date = models.DateField()
     desertion_nsi_date = models.DateField(null=True, blank=True)
     is_renegade = models.BooleanField(editable=False)
-    
+    slug = models.SlugField(max_length=100, blank=True, unique=True)
+         
     def github_link(self):
         github_site = "http://github.com/"
         return github_site + self.github 
@@ -51,6 +53,7 @@ class Member(models.Model):
         return self.name
         
     def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
         if self.desertion_nsi_date is not None:
             self.is_renegade = True
             super(Member, self).save(*args, **kwargs)

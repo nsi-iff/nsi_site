@@ -11,8 +11,8 @@ def show_all(request):
         context_instance=RequestContext(request)
     )
 
-def show(request, member_id):
-    member = Member.objects.get(id=member_id)
+def show(request, slug):
+    member = Member.objects.get(slug=slug)
     participation_list = member.participation_set.all()
     members = Member.objects.all()
     return render_to_response(
