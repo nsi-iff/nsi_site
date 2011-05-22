@@ -35,7 +35,7 @@ class Member(models.Model):
     started_nsi_date = models.DateField()
     desertion_nsi_date = models.DateField(null=True, blank=True)
     is_renegade = models.BooleanField(editable=False)
-    slug = models.SlugField(max_length=100, blank=True, unique=True)
+    slug = models.SlugField(max_length=100, blank=True)
          
     def github_link(self):
         github_site = "http://github.com/"
