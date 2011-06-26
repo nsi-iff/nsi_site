@@ -20,12 +20,11 @@ def exist_a_author(step):
 def exist_a_news(step):
     for news_hashes in step.hashes:
         author = User.objects.get(username__exact=news_hashes.get('author'))
-        mom = mommy.Mommy(News, False)
         date, hour = news_hashes.get('date_and_time').split()
         day, month, year = date.split('/')
         hours, minutes = hour.split(':')
         date_time = datetime(int(year), int(month), int(day), int(hours), int(minutes))
-        news = mom.make_one(title=news_hashes.get('title'), image=news_hashes.get('image'), author=author, date_and_time=date_time).save()
+        news = mommy.make_one(News, title=news_hashes.get('title'), image=news_hashes.get('image'), author=author, date_and_time=date_time).save()
         file_name = news_hashes.get('image').split('/')[-1]
         shutil.copy2(os.path.join(settings.PROJECT_ROOT_PATH, 'apps', 'home_page',
                                   'features', 'resources', file_name),
@@ -34,11 +33,10 @@ def exist_a_news(step):
 @step(u'exist a project:')
 def exist_a_project(step):
     for project_hashes in step.hashes:
-        mom = mommy.Mommy(Project, False)
-        project = mom.make_one(name=project_hashes.get('name'), status=project_hashes.get('status'))
-        
+        project = mommy.make_one(Project, name=project_hashes.get('name'), status=project_hashes.get('status'))
+
 @step(u'exist a tool:')
 def exist_a_tool(step):
     for tool_hashes in step.hashes:
-        mom = mommy.Mommy(Tool, False)
-        tool = mom.make_one(name=tool_hashes.get('name'), highlight=tool_hashes.get('highlight'))
+        tool = mommy.make_one(Tool, name=tool_hashes.get('name'), highlight=tool_hashes.get('highlight'))
+
