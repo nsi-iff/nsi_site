@@ -55,20 +55,20 @@ def i_should_see_the_following_members(step):
     for member_data in step.hashes:
         member = Member.objects.get(name=member_data['name'])
         
-        container_photo = world.browser.find_by_css_selector('#member%s .avatar' % member.id)
+        container_photo = world.browser.find_by_css('#member%s .avatar' % member.id)
         container_image_name = container_photo[0]['src'].split("/")[-1]
         container_image_name |should| equal_to(member_data['photo'])
         
-        title_text = world.browser.find_by_css_selector('#member%s h1' % member.id)
+        title_text = world.browser.find_by_css('#member%s h1' % member.id)
         title_text[0].value |should| equal_to(member_data['name'])
         
-        function_text = world.browser.find_by_css_selector('#member%s span' % member.id)
+        function_text = world.browser.find_by_css('#member%s span' % member.id)
         function_text[0].value |should| equal_to(member_data['function'])
         
-        currently_does_text = world.browser.find_by_css_selector('#member%s p' % member.id)
+        currently_does_text = world.browser.find_by_css('#member%s p' % member.id)
         currently_does_text[0].value |should| equal_to(member_data['currently_does'])
         
-        container_links = world.browser.find_by_css_selector('#member%s .links a' % member.id)
+        container_links = world.browser.find_by_css('#member%s .links a' % member.id)
         container_links_href = [x['href'] for x in container_links]
         
         member_data['site'] |should| be_into(container_links_href)
