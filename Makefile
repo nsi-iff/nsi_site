@@ -22,8 +22,8 @@ functional_deps: selenium lettuce splinter should-dsl nose lxml
 unit_deps: should-dsl model_mommy specloud nosedjango
 
 selenium:
-	@$(PYTHON) -c 'import selenium' 2>/dev/null || $(PIP) install selenium==2.0a5
-	
+	@$(PYTHON) -c 'import selenium' 2>/dev/null || $(PIP) install selenium==2.0rc3
+
 should-dsl:
 	@$(PYTHON) -c 'import should_dsl' 2>/dev/null || $(PIP) install http://github.com/hugobr/should-dsl/tarball/master
 
@@ -31,7 +31,7 @@ django:
 	@$(PYTHON) -c 'import django' 2>/dev/null || $(PIP) install django
 
 splinter:
-	@$(PYTHON) -c 'import splinter' 2>/dev/null || $(PIP) install splinter==0.0.2
+	@$(PYTHON) -c 'import splinter' 2>/dev/null || $(PIP) install http://github.com/cobrateam/splinter/tarball/master
 
 pil:
 	@$(PYTHON) -c 'import pil' 2>/dev/null || $(PIP) install PIL
@@ -55,8 +55,8 @@ specloud:
 	@$(PYTHON) -c 'import specloud' 2>/dev/null || $(PIP) install specloud --no-deps -r http://github.com/hugobr/specloud/raw/master/requirements.txt
 
 nosedjango:
-	@$(PYTHON) -c 'import nosedjango' 2>/dev/null || $(PIP) install nosedjango	
- 
+	@$(PYTHON) -c 'import nosedjango' 2>/dev/null || $(PIP) install nosedjango
+
 model_mommy:
 	@$(PYTHON) -c 'import model_mommy' 2>/dev/null || $(PIP) install http://github.com/vandersonmota/model_mommy/tarball/master
 
@@ -76,3 +76,4 @@ unit: unit_deps deps
 	@echo ============ Running unit specs ==============
 	@specloud --with-django
 	@echo
+
