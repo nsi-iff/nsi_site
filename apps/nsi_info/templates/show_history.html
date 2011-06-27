@@ -1,7 +1,11 @@
 {% extends "base.html" %}
-
+{% block styles %}
+  {{ block.super }} <link rel="stylesheet" type="text/css" href="/site_media/css/nsi_info.css"/>
+{% endblock styles %}
 {% block content %}
 
-<p>{{ nsi_info.history_as_html|safe }}</p>
+<div class="nsi_info">
+  <p>{{ nsi_info.history_as_html|safe }}</p>
+</div>
 
 {% endblock content %}
