@@ -55,7 +55,7 @@ specloud:
 	@$(PYTHON) -c 'import specloud' 2>/dev/null || $(PIP) install specloud --no-deps -r http://github.com/hugobr/specloud/raw/master/requirements.txt
 
 nosedjango:
-	@$(PYTHON) -c 'import nosedjango' 2>/dev/null || $(PIP) install nosedjango
+	@$(PYTHON) -c 'import nosedjango' 2>/dev/null || $(PIP) install -U nosedjango nose
 
 model_mommy:
 	@$(PYTHON) -c 'import model_mommy' 2>/dev/null || $(PIP) install http://github.com/vandersonmota/model_mommy/tarball/master
