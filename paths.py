@@ -5,8 +5,7 @@ def path_to(page_name):
     return django_url(
         {
           'the NSI home page': '/', 
-          'the history page': '/passado',
-          'the summary page': '/presente',
+          'the about page': '/sobre',
           'the projects page': '/projetos',
           'the page list all members': '/membros',
           'the news page': '/noticias',

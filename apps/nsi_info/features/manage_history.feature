@@ -10,8 +10,7 @@ Feature: NSI info maintenance
 
     Examples:
       | field   |
-      | history |
-      | summary |
+      | about   |
 
   Scenario Outline: Accepts restructuredText format input
     Given current <field> is "*NSI* rules!"
@@ -20,6 +19,4 @@ Feature: NSI info maintenance
 
     Examples:
       | field   |
-      | history |
-      | summary |
-
+      | about   |
