@@ -7,19 +7,18 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        
+
         # Adding model 'NSIInfo'
         db.create_table('nsi_info_nsiinfo', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('history', self.gf('django.db.models.fields.TextField')()),
-            ('summary', self.gf('django.db.models.fields.TextField')()),
+            ('about', self.gf('django.db.models.fields.TextField')()),
             ('updated_at', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
         ))
         db.send_create_signal('nsi_info', ['NSIInfo'])
 
 
     def backwards(self, orm):
-        
+
         # Deleting model 'NSIInfo'
         db.delete_table('nsi_info_nsiinfo')
 
@@ -27,9 +26,8 @@ class Migration(SchemaMigration):
     models = {
         'nsi_info.nsiinfo': {
             'Meta': {'object_name': 'NSIInfo'},
-            'history': ('django.db.models.fields.TextField', [], {}),
+            'about': ('django.db.models.fields.TextField', [], {}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'summary': ('django.db.models.fields.TextField', [], {}),
             'updated_at': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'})
         }
     }
