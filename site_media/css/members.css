@@ -67,6 +67,10 @@
   display: inline;
 }
 
+ul.links li a {
+  text-decoration: none;
+}
+
 .links a img {
   border: none;
   width: 22px;
