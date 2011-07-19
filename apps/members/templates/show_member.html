@@ -8,6 +8,9 @@
       <img class="avatar" src="{{ MEDIA_URL }}/{{ member.photo.url_100x100 }}" alt="{{ member.name }}" title="{{ member.name }}" >
       <div class="data">
         <h1>{{ member.name }}</h1>
+        {% if member.nickname %}
+        <br> ({{ member.nickname }})
+        {% endif %}
         <h3>{{ member.currently_does }}</h3>
         <p>{{ member.life_and_work }}</p>
         <p><span class="text_highlight">Função:</span> <span>{{ member.get_function_display }}</span></p>

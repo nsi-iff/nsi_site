@@ -23,6 +23,7 @@ class Participation(models.Model):
 
 class Member(models.Model):
     name = models.CharField(max_length=100)
+    nickname = models.CharField(max_length=100, null=True, blank=True)
     currently_does = models.TextField()
     life_and_work = models.TextField()
     function = models.CharField(max_length=100, choices=MEMBER_FUNCTIONS)
