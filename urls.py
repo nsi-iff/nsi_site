@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     (r'^$', 'apps.home_page.views.show_index'),
 
     (r'^noticias/$', 'apps.news.views.show_news'),
-    (r'^noticia/(?P<news_id>\d+)$', 'apps.news.views.detail_news'),
+    (r'^noticia/(?P<news_slug>[\w_-]+)$', 'apps.news.views.detail_news'),
 
     (r'^sobre/$', 'apps.nsi_info.views.show_about'),
 

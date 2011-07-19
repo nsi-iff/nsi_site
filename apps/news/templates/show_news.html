@@ -13,16 +13,16 @@
     {% for new in news %}
       <div class="new">
         {% if new.image %}
-          <a href="/noticia/{{ new.id }}" title="{{ new.title }}">
+          <a href="/noticia/{{ new.slug }}" title="{{ new.title }}">
             <img src="{{ MEDIA_URL }}/{{ new.image.url_150x150 }}" alt="{{ new.title }}" title="{{ new.title }}" />
           </a>
         {% endif %}
-        <h1><a href="/noticia/{{ new.id }}" title="{{ new.title }}">{{ new.title }}</a></h1>
+        <h1><a href="/noticia/{{ new.slug }}" title="{{ new.title }}">{{ new.title }}</a></h1>
         <h2>{{ new.summary }}</h2>
         <h3>{{ new.body|slice:"200" }} ...</h3>
         <p>
           <span>Data:</span> {{ new.date_and_time|date:"d/m/Y à\s H:i" }} - <span>Postado por:</span> {{ new.author }}
-          <a href="/noticia/{{ new.id }}">Leia mais <span>+</span></a>
+          <a href="/noticia/{{ new.slug }}">Leia mais <span>+</span></a>
         </p>
       </div>
     {% endfor %}

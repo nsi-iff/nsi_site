@@ -11,8 +11,8 @@ def show_news(request):
         context_instance=RequestContext(request)
     )
 
-def detail_news(request, news_id):
-    news_obj = News.objects.get(id=news_id)
+def detail_news(request, news_slug):
+    news_obj = News.objects.get(slug=news_slug)
     return render_to_response(
         'detail_news.html',
         {'news_obj':news_obj},
