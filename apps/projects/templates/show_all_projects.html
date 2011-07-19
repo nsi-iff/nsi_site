@@ -17,11 +17,11 @@
 {% for project in projects %}
   <div class="project">
     {% if project.logo %}
-      <a href="/projeto/{{ project.id }}" title="{{ project.name }}"><img src="{{ MEDIA_URL }}/{{ project.logo.url }}" alt="{{ project.name }}" title="{{ project.name }}"/></a>
+      <a href="/projeto/{{ project.slug }}" title="{{ project.name }}"><img src="{{ MEDIA_URL }}/{{ project.logo.url }}" alt="{{ project.name }}" title="{{ project.name }}"/></a>
     {% endif %}
-    <h2><a href="/projeto/{{ project.id }}">{{ project.name }}</a></h2>
+    <h2><a href="/projeto/{{ project.slug }}">{{ project.name }}</a></h2>
     <p>{{ project.description|slice:"250"}} ... </p>
-    <a id="know_more"href="/projeto/{{ project.id }}" title="Saiba mais">Saiba mais <span>+</span></a>
+    <a id="know_more"href="/projeto/{{ project.slug }}" title="Saiba mais">Saiba mais <span>+</span></a>
   </div>  
 {% endfor %}
 </div>

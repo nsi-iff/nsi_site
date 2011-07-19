@@ -21,7 +21,7 @@
     <p><span class="text_highlight">Projetos relacionados:</span></p>
       <ul>
         {% for project in news_obj.projects_relateds.all %}
-          <li><a href="/projeto/{{ project.id }}">{{ project.name }}</a></li>
+          <li><a href="/projeto/{{ project.slug }}">{{ project.name }}</a></li>
         {% endfor %}
       </ul>
     {% endif %}

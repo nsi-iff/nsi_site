@@ -28,7 +28,7 @@
       <p><span>Projetos relacionados:</span></p>
       <ul>
         {% for project in tool.relateds_projects.all %}
-          <li><a href="/projeto/{{ project.id }}">{{ project.name }}</a></li>
+          <li><a href="/projeto/{{ project.slug }}">{{ project.name }}</a></li>
         {% endfor %}
       </ul>
     {% endif %}

@@ -12,8 +12,8 @@ def show_all(request):
         context_instance=RequestContext(request)
     )
 
-def show_project(request, project_id):
-    project = Project.objects.get(id=project_id)
+def show_project(request, project_slug):
+    project = Project.objects.get(slug=project_slug)
     participations = Participation.objects.all()
     return render_to_response(
         'show_project.html',

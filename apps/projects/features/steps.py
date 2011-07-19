@@ -31,7 +31,7 @@ def member_started_participation_on_project(step, member_name, project_name):
 @step(r'I go to the "(.+)" project page')
 def i_go_to_project_page(step, project_name):
     project_obj = Project.objects.get(name=project_name)
-    world.browser.visit(django_url('/projeto/%i' % project_obj.id))
+    world.browser.visit(django_url('/projeto/%s' % project_obj.slug))
 
 @step(u'"(.*)" project has attached the following documents:')
 def project_has_attached_the_following_documents(step, project_name):

@@ -16,7 +16,7 @@ urlpatterns = patterns('',
     (r'^sobre/$', 'apps.nsi_info.views.show_about'),
 
     (r'^projetos/$', 'apps.projects.views.show_all'),
-    (r'^projeto/(?P<project_id>\w+)/$', 'apps.projects.views.show_project'),
+    (r'^projeto/(?P<project_slug>[\w_-]+)/$', 'apps.projects.views.show_project'),
 
     (r'^membros/$', 'apps.members.views.show_all'),
     (r'^membro/(?P<slug>[\w_-]+)$', 'apps.members.views.show'),
