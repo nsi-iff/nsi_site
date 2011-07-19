@@ -17,7 +17,7 @@ class Participation(models.Model):
     project = models.ForeignKey(Project)
     start_date = models.DateField()
     end_date = models.DateField(null=True, blank=True)
-    
+
     def __unicode__(self):
         return self.member.name + ' - ' + self.project.name
 
@@ -36,22 +36,22 @@ class Member(models.Model):
     desertion_nsi_date = models.DateField(null=True, blank=True)
     is_renegade = models.BooleanField(editable=False)
     slug = models.SlugField(max_length=100, blank=True)
-         
+
     def github_link(self):
         github_site = "http://github.com/"
         return github_site + self.github 
-            
+
     def twitter_link(self):
         twitter_site = "http://twitter.com/"
         return twitter_site + self.twitter 
-    
+
     def slideshare_link(self):
         slideshare_site = "http://www.slideshare.net/"
         return slideshare_site + self.slideshare
-        
+
     def __unicode__(self):
         return self.name
-        
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
         if self.desertion_nsi_date is not None:
