@@ -1,5 +1,6 @@
 from datetime import datetime as dt
 from django.db import models
+from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 from thumbs import ImageWithThumbsField
 from docutils.core import publish_parts
@@ -19,6 +20,7 @@ class News(models.Model):
     author = models.ForeignKey(User)
     date_and_time = models.DateTimeField(default=dt.now())
     projects_relateds = models.ManyToManyField(Project, null=True, blank=True)
+    slug = models.SlugField(max_length=200, blank=True)
 
     def __unicode__(self):
         return self.title
@@ -26,4 +28,8 @@ class News(models.Model):
     def body_as_html(self):
         parts = publish_parts(source=self.body, writer_name="html4css1")
         return parts['fragment']
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(News, self).save(*args, **kwargs)
 
