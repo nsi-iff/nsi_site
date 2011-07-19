@@ -33,5 +33,5 @@ def and_tool_has_related_projects(step, tool_name):
 @step(r'I go to the "(.+)" tool page')
 def i_go_to_tool_page(step, tool_name):
     tool_obj = Tool.objects.get(name=tool_name)
-    world.browser.visit(django_url('/ferramenta/%i' % tool_obj.id))
+    world.browser.visit(django_url('/ferramenta/%s' % tool_obj.slug))
 

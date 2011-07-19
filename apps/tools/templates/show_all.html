@@ -10,7 +10,7 @@
   <div id="tools">
     <div class="tool">
       {% if tool.logo %}
-        <a href="/ferramenta/{{ tool.id }}" title="{{ tool.name }}">
+        <a href="/ferramenta/{{ tool.slug }}" title="{{ tool.name }}">
           <img src="{{ MEDIA_URL }}{{ tool.logo.url }}" alt="{{ tool.name }}" title="{{ tool.name }}"/>
         </a>  
       {% endif %} 
@@ -20,7 +20,7 @@
         <p><span class="text_highlight">Status: </span>
           <a href="{{ tool.status }}" title="Status: {{ tool.status }}" target="_blank">{{ tool.status }}</a>
         </p>
-        <p class="more_info"><a href="/ferramenta/{{ tool.id }}">Leia mais <span>+</span></a></p>
+        <p class="more_info"><a href="/ferramenta/{{ tool.slug }}">Leia mais <span>+</span></a></p>
       </div>
     </div>
   </div>

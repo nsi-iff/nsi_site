@@ -3,8 +3,8 @@ from django.template import RequestContext
 from apps.tools.models import Tool
 
 
-def show_tool(request, tool_id):
-    tool = Tool.objects.get(id=tool_id)
+def show_tool(request, tool_slug):
+    tool = Tool.objects.get(slug=tool_slug)
     return render_to_response(
         'show_tool.html',
         {'tool': tool},

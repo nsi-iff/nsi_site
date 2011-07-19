@@ -1,4 +1,5 @@
 from django.db import models
+from django.template.defaultfilters import slugify
 from apps.projects.models import Project
 
 
@@ -16,6 +17,12 @@ class Tool(models.Model):
     status = models.CharField(max_length=100, choices=TOOLS_STATES)
     highlight = models.BooleanField()
     relateds_projects = models.ManyToManyField(Project, null=True, blank=True)
-    
+    slug = models.SlugField(max_length=100, blank=True)
+
     def __unicode__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Tool, self).save(*args, **kwargs)
+
