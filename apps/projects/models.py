@@ -1,4 +1,5 @@
 from django.db import models
+from django.template.defaultfilters import slugify
 from thumbs import ImageWithThumbsField
 
 
@@ -17,6 +18,7 @@ class Project(models.Model):
     status = models.CharField(max_length=100, choices=PROJECT_STATES)
     start_date = models.DateField()
     end_date = models.DateField(null=True, blank=True)
+    slug = models.SlugField(max_length=100, blank=True)
 
     def finished(self):
         return self.end_date is not None
@@ -25,6 +27,7 @@ class Project(models.Model):
         return self.name
         
     def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
         if self.finished():
             self.status = 'finalizado'
             super(Project, self).save(*args, **kwargs)
