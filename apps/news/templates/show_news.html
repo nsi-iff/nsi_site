@@ -14,7 +14,7 @@
       <div class="new">
         {% if new.image %}
           <a href="/noticia/{{ new.slug }}" title="{{ new.title }}">
-            <img src="{{ MEDIA_URL }}/{{ new.image.url_150x150 }}" alt="{{ new.title }}" title="{{ new.title }}" />
+            <img class="floated_image" src="{{ MEDIA_URL }}/{{ new.image.url }}" alt="{{ new.title }}" title="{{ new.title }}" />
           </a>
         {% endif %}
         <h1><a href="/noticia/{{ new.slug }}" title="{{ new.title }}">{{ new.title }}</a></h1>

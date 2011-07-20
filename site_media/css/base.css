@@ -138,3 +138,8 @@ body {
   text-align: center;
 }
 
+.floated_image {
+  max-width: 100px;
+  max-height: 100px;
+}
+

@@ -15,17 +15,17 @@ Feature: User visitor
         
     When I go to "the NSI home page"
     And I should see "Notícia sobre o NSI Site"
-    And I should see an image called "nsi.90x90.png"
+    And I should see an image called "nsi.png"
     And I should see "Postado por: herman"
     And I should see "15/01/2011"
 
     And I should see "Notícia sobre o ERP5 Lek"
-    And I should see an image called "erp5.90x90.png"
+    And I should see an image called "erp5.png"
     And I should see "Postado por: herman"
     And I should see "05/04/2011"
 
     And I should see "Notícia sobre o ERP5 e o NSI Site"
-    And I should see an image called "x.90x90.png"
+    And I should see an image called "x.png"
     And I should see "Postado por: ronaldo"
     And I should see "01/01/2010"
     
