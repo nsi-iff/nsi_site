@@ -7,7 +7,7 @@ def path_to(page_name):
           'the NSI home page': '/', 
           'the about page': '/sobre',
           'the projects page': '/projetos',
-          'the page list all members': '/membros',
+          'the page list all current members': '/membros',
           'the news page': '/noticias',
           'the tools page': '/ferramentas',
           'the tool page': '/ferramenta',
