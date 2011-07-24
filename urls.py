@@ -18,6 +18,8 @@ urlpatterns = patterns('',
     (r'^projetos/$', 'apps.projects.views.show_all'),
     (r'^projeto/(?P<project_slug>[\w_-]+)/$', 'apps.projects.views.show_project'),
 
+    (r'^ex-membros/$', 'apps.members.views.show_all_former_members'),
+
     (r'^membros/$', 'apps.members.views.show_all'),
     (r'^membro/(?P<slug>[\w_-]+)$', 'apps.members.views.show'),
 

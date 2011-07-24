@@ -20,3 +20,11 @@ def show(request, slug):
         {'member': member, 'participation_list': participation_list, 'members': members},
         context_instance=RequestContext(request)
     )
+
+def show_all_former_members(request):
+    members = Member.objects.filter(is_renegade=True)
+    return render_to_response(
+        'show_all_members.html',
+        {'members': members},
+        context_instance=RequestContext(request)
+    )
