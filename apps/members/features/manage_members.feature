@@ -97,3 +97,33 @@ Feature: Member maintenance
     And I should see "Pedro"
     And I should see "Concluindo graduação"
     And I should see "pesquisador"
+
+
+  Scenario: former member page
+    Given exist a project:
+      | name     |
+      | NSI Site |
+    And exist a member:
+      | name | nickname | currently_does | life_and_work | function | site | github | twitter | slideshare | lattes | photo | started_nsi_date | desertion_nsi_date
+      | Pluck | Plunk | Phd em Desenvolvimento de software, bolsista do NSI desde das trevas | Atualmente trabalha como suporte de madeira | bolsista | http://www.pluck.com | pluck | pluck | pluck | http://lattes.cnpq.br/pluck | test/images/members/pluck_photo.png | 2000-01-01 | 2011-01-01 |
+    And "Pluck" member started participation the "NSI Site" project in "2008-01-01"
+
+    When I go to the "Pluck" former member page
+
+    Then I should see an image called "pluck_photo.100x100.png"
+    And I should see "Pluck"
+    And I should see "Plunk"
+    And I should see "Phd em Desenvolvimento de software, bolsista do NSI desde das trevas"
+    And I should see "Atualmente trabalha como suporte de madeira"
+    And I should see "Função: bolsista"
+    And I should see "Site: http://www.pluck.com"
+    And I should see a label "pluck" with the link to "http://github.com/pluck"
+    And I should see a label "@pluck" with the link to "http://twitter.com/pluck"
+    And I should see a label "pluck" with the link to "http://www.slideshare.net/pluck"
+    And I should see "Curriculo Lattes: http://lattes.cnpq.br/pluck"
+    And I should see "01/01/2000"
+    And I should see "Participações:"
+    And I should see "NSI Site"
+    And I should see "Início: 01/01/2008"
+    And I should see "Data de início no NSI: 01/01/2000"
+    And I should see "Data de saída do NSI: 01/01/2011"

@@ -45,8 +45,14 @@
             <span class="text_highlight">SlideShare:</span> <span>{{ member.slideshare }}</span>
           </a>
           {% endif %}
-        </div>       
-        <span class="text_highlight">Membro desde:</span> <span>{{ member.started_nsi_date|date:"d/m/Y" }}</span>
+        </div>
+        {% if member.desertion_nsi_date %}
+          <span class="text_highlight">Data de início no NSI:</span> <span>{{ member.started_nsi_date|date:"d/m/Y" }}</span>
+          <br/>
+          <span class="text_highlight">Data de saída do NSI:</span> <span>{{ member.desertion_nsi_date|date:"d/m/Y" }}</span>
+        {% else %}
+          <span class="text_highlight">Membro desde:</span> <span>{{ member.started_nsi_date|date:"d/m/Y" }}</span>
+        {% endif %}
         {% if participation_list %}
         <p>
           <h3>Participações:</h3>
