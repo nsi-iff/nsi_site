@@ -1,75 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-    <head>
-        <title>{% block title %}NSI - Núcleo de Pesquisa em Sistemas de Informação{% endblock title %}</title>
-        <link rel="icon" type="image/x-icon" href="{{ MEDIA_URL }}/images/base/favicon.ico" />
+  <head>
+    <title>{% block title %}NSI - Núcleo de Pesquisa em Sistemas de Informação{% endblock title %}</title>
+    <link rel="icon" type="image/x-icon" href="{{ MEDIA_URL }}/images/base/favicon.ico" />
 
-        {% block styles %}
-            <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/base.css"/>
-        {% endblock styles %}
+    {% block styles %}
+      <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/base.css"/>
+    {% endblock styles %}
 
-        {% block scripts %}
-        {% endblock scripts %}
-    </head>
+    {% block scripts %}
+    {% endblock scripts %}
+  </head>
 
-    <body>
-        <div id="main">
-            <div id="header">
-                <div id="center_header">
-                    <a href="/" alt="Página inicial do site do NSI" title="Página inicial do site do NSI">
-                        <img id="logo_nsi" src="{{ MEDIA_URL }}/images/base/logo.png" alt="Núcleo de Pesquisa em Sistemas de Informação" />
-                    </a>
-                </div>
-                <div id="menu">
-                    {% block menu %}
-                        <ul>
-                            <li>
-                                <a href="/">Início</a>
-                            </li>
-                        </ul>
-
-                        <ul>
-                            <li>
-                                <a href="/sobre">Sobre</a>
-                            </li>
-                        </ul>
-
-                        <ul>
-                            <li>
-                                <a href="/projetos">Projetos</a>
-                            </li>
-                        </ul>
-
-                        <ul>
-                            <li>
-                                <a href="/noticias">Noticias</a>
-                            </li>
-                        </ul>
-
-                        <ul>
-                            <li>
-                                <a href="/ferramentas">Ferramentas</a>
-                            </li>
-                        </ul>
-
-                        <ul>
-                            <li id="last">
-                                <a href="/membros">Membros</a>
-                            </li>
-                        </ul>
-                    {% endblock menu %}
-                </div>
-            </div>
-            <div id="content">
-              {% block content %}
-              {% endblock content %}
-            </div>
-            <div id="footer">
-                <p>Desenvolvido por NSI - Núcleo de Pesquisa em Sistemas de Informação / IFF - Instituto Federal Fluminense</p>
-                <p>Rua Dr. Siqueira, 273 - Parque Dom Bosco - Campos dos Goytacazes, RJ - CEP 28030-130 TEL.: (22 ) 2726 2800 FAX.: (22) 2733 3079 Ramal: 2904</p>
-            </div>
+  <body>
+    <div id="main">
+      <div id="header">
+        <div id="center_header">
+          <a href="/" alt="Página inicial do site do NSI" title="Página inicial do site do NSI">
+            <img id="logo_nsi" src="{{ MEDIA_URL }}/images/base/logo.png" alt="Núcleo de Pesquisa em Sistemas de Informação" />
+          </a>
         </div>
-    </body>
-</html>
+        <div id="menu">
+          {% block menu %}
+            <ul>
+              <li>
+                <a href="/">Início</a>
+              </li>
 
+              <li>
+                <a href="/sobre">Sobre</a>
+              </li>
+
+              <li>
+                <a href="/projetos">Projetos</a>
+              </li>
+
+              <li>
+                <a href="/noticias">Noticias</a>
+              </li>
+
+              <li>
+                <a href="/ferramentas">Ferramentas</a>
+              </li>
+
+              <li id="last">
+                Membros
+                <ul class="dropdown-menu">
+                  <li><a href="/membros">Membros atuais</a></li>
+                  <li><a href="/ex-membros">Ex-membros</a></li>
+                </ul>
+              </li>
+            </ul>
+          {% endblock menu %}
+        </div>
+      </div>
+      <div id="content">
+        {% block content %}
+        {% endblock content %}
+      </div>
+      <div id="footer">
+        <p>Desenvolvido por NSI - Núcleo de Pesquisa em Sistemas de Informação / IFF - Instituto Federal Fluminense</p>
+        <p>Rua Dr. Siqueira, 273 - Parque Dom Bosco - Campos dos Goytacazes, RJ - CEP 28030-130 TEL.: (22 ) 2726 2800 FAX.: (22) 2733 3079 Ramal: 2904</p>
+      </div>
+    </div>
+  </body>
+</html>
