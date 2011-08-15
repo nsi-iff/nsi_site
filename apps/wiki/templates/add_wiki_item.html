@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block styles %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/wiki.css"/>
+{% endblock styles %}
+
+{% block content %}
+
+<form method="POST" action="">
+  {{ wiki_item_form.as_p }}
+  <input type="submit" value="Enviar" name="enviar">
+</form>
+
+{% endblock content %}
+

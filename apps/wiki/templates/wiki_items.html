@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block styles %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/wiki.css"/>
+{% endblock styles %}
+
+{% block content %}
+
+  <a href="/wiki/novo_item/">Adicionar um ítem</a>
+
+{% endblock content %}
+

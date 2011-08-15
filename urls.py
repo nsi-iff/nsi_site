@@ -27,5 +27,10 @@ urlpatterns = patterns('',
     (r'^ferramentas/$', 'apps.tools.views.show_all'),
     (r'^ferramenta/(?P<tool_slug>[\w_-]+)$', 'apps.tools.views.show_tool'),
 
+    (r'^wiki/$', 'apps.wiki.views.show_all_wiki_items'),
+    (r'^wiki/novo_item/$', 'apps.wiki.views.add_an_wiki_item'),
+    (r'^wiki/novo_item/adicionado_com_sucesso/$',
+        direct_to_template, {'template': 'wiki_item_successfully_added.html'}),
+
     (r'^site_media/(.*)$', 'django.views.static.serve', {"document_root": settings.MEDIA_ROOT}),
 )
