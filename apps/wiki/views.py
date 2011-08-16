@@ -20,12 +20,7 @@ def add_an_wiki_item(request):
         wiki_item_form = WikiItemForm(request.POST)
         if wiki_item_form.is_valid():
             wiki_item_form.save()
-            return render_to_response(
-                'wiki_item_successfully_added.html',
-                {},
-                context_instance=RequestContext(request)
-            )
-#            return HttpResponseRedirect('/wiki/novo_item/adicionado_com_sucesso/')
+            return HttpResponseRedirect('/wiki/novo_item/adicionado_com_sucesso/')
 
     return render_to_response(
         'add_wiki_item.html',

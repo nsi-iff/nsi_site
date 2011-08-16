@@ -7,7 +7,32 @@
 
 {% block content %}
 
-  <a href="/wiki/novo_item/">Adicionar um ítem</a>
+  <a href="/wiki/novo_item/">
+    <img src="{{ MEDIA_URL }}/images/wiki/add.png">Adicionar um ítem
+  </a>
+
+  <table>
+    <th>
+      <td>ID</td>
+      <td>Título</td>
+    </th>
+    {% for wiki_item in wiki_items %}
+    <tr>
+      <td>{{ wiki_item.id }}</td>
+      <td><a href="/wiki/{{ wiki_item.id }}">{{ wiki_item.title }}</a></td>
+      <td>
+        <a href="/wiki/{{ wiki_item.id }}/editar">
+          <img src="{{ MEDIA_URL }}/images/wiki/edit.png" />
+        </a>
+      </td>
+      <td>
+        <a href="/wiki/{{ wiki_item.id }}/excluir">
+          <img src="{{ MEDIA_URL }}/images/wiki/delete.png" />
+        </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
 
 {% endblock content %}
 
