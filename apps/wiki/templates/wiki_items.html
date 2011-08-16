@@ -21,14 +21,10 @@
       <td>{{ wiki_item.id }}</td>
       <td><a href="/wiki/{{ wiki_item.id }}">{{ wiki_item.title }}</a></td>
       <td>
-        <a href="/wiki/{{ wiki_item.id }}/editar">
-          <img src="{{ MEDIA_URL }}/images/wiki/edit.png" />
-        </a>
+        <a class="edit" href="/wiki/{{ wiki_item.id }}/editar">&nbsp;</a>
       </td>
       <td>
-        <a href="/wiki/{{ wiki_item.id }}/excluir">
-          <img src="{{ MEDIA_URL }}/images/wiki/delete.png" />
-        </a>
+        <a class="delete" href="/wiki/{{ wiki_item.id }}/excluir">&nbsp;</a>
       </td>
     </tr>
     {% endfor %}

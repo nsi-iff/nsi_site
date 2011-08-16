@@ -1,0 +1,23 @@
+.edit {
+  background-image: url("/site_media/images/wiki/edit.png");
+  display: block;
+  width: 24px;
+  height: 24px;
+  text-decoration: none;
+}
+
+.edit:hover {
+  background-image: url("/site_media/images/wiki/edit_hover.png");
+}
+
+.delete {
+  background-image: url("/site_media/images/wiki/delete.png");
+  display: block;
+  width: 24px;
+  height: 24px;
+  text-decoration: none;
+}
+
+.delete:hover {
+  background-image: url("/site_media/images/wiki/delete_hover.png");
+}
