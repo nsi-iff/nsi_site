@@ -46,3 +46,20 @@ Feature: Wiki maintenance
 
     Then I should see "Adding a Plone Site"
     And I should see "Just click in 'Add Plone Site'"
+
+
+  Scenario: editing some wiki item
+
+    Given exist a wiki item:
+      | id | title               | content                        |
+      |  1 | Adding a Plone Site | Just click in 'Add Plone Site' |
+
+    When I go to "the NSI home page"
+    And I click "Wiki"
+    And I click on link that ends in "1/editar/"
+    And I fill in "title" with "How to install django"
+    And I fill in "content" with "Run: pip install django"
+    And I press "enviar"
+
+    Then I should see "Ítem salvo com sucesso"
+    And I should see a link with text "Voltar para a wiki"
