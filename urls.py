@@ -28,7 +28,8 @@ urlpatterns = patterns('',
     (r'^ferramenta/(?P<tool_slug>[\w_-]+)$', 'apps.tools.views.show_tool'),
 
     (r'^wiki/$', 'apps.wiki.views.show_all_wiki_items'),
-    (r'^wiki/novo_item/$', 'apps.wiki.views.add_an_wiki_item'),
+    (r'^wiki/(?P<wiki_item_id>\d+)/$', 'apps.wiki.views.view_wiki_item'),
+    (r'^wiki/novo_item/$', 'apps.wiki.views.add_wiki_item'),
     (r'^wiki/novo_item/adicionado_com_sucesso/$',
         direct_to_template, {'template': 'wiki_item_successfully_added.html'}),
 
