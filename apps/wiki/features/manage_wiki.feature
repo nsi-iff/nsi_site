@@ -30,7 +30,7 @@ Feature: Wiki maintenance
     And I fill in "title" with "Teste"
     And I fill in "content" with "Conteúdo do teste"
     And I press "enviar"
-    Then I should see "Ítem salvo com sucesso"
+    Then I should see "Ítem salvo com sucesso!"
     And I should see a link with text "Voltar para a wiki"
 
 
@@ -61,7 +61,7 @@ Feature: Wiki maintenance
     And I fill in "content" with "Run: pip install django"
     And I press "enviar"
 
-    Then I should see "Ítem salvo com sucesso"
+    Then I should see "Ítem editado com sucesso!"
     And I should see a link with text "Voltar para a wiki"
 
 
