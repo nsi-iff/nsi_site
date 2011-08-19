@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import *
 from django.views.generic.simple import direct_to_template
-from django.views.generic.create_update import update_object
+from django.views.generic.create_update import update_object, delete_object
 from django.conf import settings
 from django.contrib import admin
 
@@ -33,9 +33,14 @@ urlpatterns = patterns('',
 
     (r'^wiki/$', 'apps.wiki.views.show_all_wiki_items'),
     (r'^wiki/(?P<wiki_item_id>\d+)/$', 'apps.wiki.views.view_wiki_item'),
-    (r'^wiki/(?P<object_id>\d+)/editar/$', update_object, 
+    (r'^wiki/(?P<object_id>\d+)/editar/$', update_object,
         {'model': WikiItem, 'template_name': 'edit_wiki_item.html',
         'post_save_redirect': '/wiki/novo_item/adicionado_com_sucesso/'}),
+    (r'^wiki/(?P<object_id>\d+)/excluir/$', delete_object,
+        {'model': WikiItem, 'template_name': 'delete_wiki_item.html',
+        'post_delete_redirect': '/wiki/item_excluido_com_sucesso/'}),
+    (r'^wiki/item_excluido_com_sucesso/$', 
+        direct_to_template, {'template': 'wiki_item_successfully_deleted.html'}),
     (r'^wiki/novo_item/$', 'apps.wiki.views.add_wiki_item'),
     (r'^wiki/novo_item/adicionado_com_sucesso/$',
         direct_to_template, {'template': 'wiki_item_successfully_added.html'}),

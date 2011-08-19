@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block styles %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/wiki.css"/>
+{% endblock styles %}
+
+{% block content %}
+
+  <h1>Deseja excluir o ítem {{ object.id }}?</h1>
+  <form method="post" action="">
+    <input type="submit" name="sim" value="Sim" />
+  </form>
+
+{% endblock content %}
+

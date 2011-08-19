@@ -63,3 +63,19 @@ Feature: Wiki maintenance
 
     Then I should see "Ítem salvo com sucesso"
     And I should see a link with text "Voltar para a wiki"
+
+
+  Scenario: deleting some wiki item
+
+    Given exist a wiki item:
+      | id | title               | content                        |
+      |  1 | Adding a Plone Site | Just click in 'Add Plone Site' |
+
+    When I go to "the NSI home page"
+    And I click "Wiki"
+    And I click on link that ends in "1/excluir/"
+    And I should see "Deseja excluir o ítem 1?"
+    And I press "sim"
+
+    Then I should see "Ítem excluído com sucesso!"
+    And I should see a link with text "Voltar para a wiki"

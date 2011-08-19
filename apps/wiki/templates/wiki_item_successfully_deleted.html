@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block styles %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/wiki.css"/>
+{% endblock styles %}
+
+{% block content %}
+
+  <h1>Ítem excluído com sucesso!</h1>
+
+  <a href="/wiki">Voltar para a wiki</a>
+
+{% endblock content %}
+
