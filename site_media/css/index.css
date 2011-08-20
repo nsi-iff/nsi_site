@@ -103,7 +103,8 @@
     margin-right: 20px; 
 }
 
-#content #highlights #planetaNSI #feed, #github {
+#content #highlights #planetaNSI #feed, 
+#content #highlights #planetaNSI #github {
     height: 32px;
     vertical-align: middle;    
 }
