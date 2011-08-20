@@ -8,6 +8,6 @@
 {% block content %}
 
   {{ wiki_item.title }}
-  {{ wiki_item.content }}
+  {{ wiki_item.content|safe }}
 
 {% endblock content %}
