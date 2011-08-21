@@ -74,6 +74,6 @@ functional: functional_deps deps
 unit: unit_deps deps
 	@echo ==============================================
 	@echo ============ Running unit specs ==============
-	@specloud --with-django
+	@specloud --with-django --nocapture
 	@echo
 
