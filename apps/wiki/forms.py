@@ -7,3 +7,4 @@ class WikiItemForm(ModelForm):
 
     class Meta:
         model = WikiItem
+        exclude = ('slug', )
