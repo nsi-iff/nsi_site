@@ -23,3 +23,9 @@ class WikiModelsTests(TestCase):
             content='Run "pip install django".',
         )
         self.wiki_item.full_clean() |should_not| throw('ValidationError')
+
+    def test_it_fills_slug_with_title_when_pre_save_wiki_item(self):
+        self.wiki_item = WikiItem(
+            title='Add Plone Site', content='Click on "Add Plone Site"').save()
+        self.wiki_item = WikiItem.objects.get(title='Add Plone Site')
+        self.wiki_item.slug |should| equal_to('add-plone-site')
