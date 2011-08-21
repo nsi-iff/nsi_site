@@ -24,7 +24,16 @@
 {% block content %}
 
 <form method="POST" action="">
-  {{ form.as_p }}
+  <p>
+    {{ form.title.errors }}
+    <label>Título:</label>
+    {{ form.title }}
+  </p>
+  <p>
+    {{ form.title.errors }}
+    <label>Conteúdo:</label>
+    {{ form.content }}
+  </p>
   <input type="submit" value="Enviar" name="enviar">
 </form>
 
