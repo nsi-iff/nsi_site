@@ -29,3 +29,13 @@ class WikiModelsTests(TestCase):
             title='Add Plone Site', content='Click on "Add Plone Site"').save()
         self.wiki_item = WikiItem.objects.get(title='Add Plone Site')
         self.wiki_item.slug |should| equal_to('add-plone-site')
+
+    def test_it_can_adds_many_wiki_items_with_same_title(self):
+        self.first_wiki_item = WikiItem(
+            id=1, title='Add Plone Site', content='Click on "Add Plone Site"').save()
+        self.first_wiki_item = WikiItem.objects.get(id=1)
+        self.first_wiki_item.slug |should| equal_to('add-plone-site')
+        self.second_wiki_item = WikiItem(
+            id=2, title='Add Plone Site', content='Second way to add Plone Site').save()
+        self.second_wiki_item = WikiItem.objects.get(id=2)
+        self.second_wiki_item.slug |should| equal_to('add-plone-site-1')
