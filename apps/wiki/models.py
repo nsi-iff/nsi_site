@@ -1,11 +1,13 @@
+# coding: utf-8
+
 from django.db import models
 from django.db.models import signals
 from django.template.defaultfilters import slugify
 
 
 class WikiItem(models.Model):
-    title = models.CharField(max_length=100)
-    content = models.TextField()
+    title = models.CharField(verbose_name='Título',max_length=100)
+    content = models.TextField(verbose_name='Conteúdo')
     slug = models.SlugField(max_length=100, blank=True, unique=True)
 
 
