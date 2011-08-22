@@ -19,12 +19,12 @@
     {% for wiki_item in wiki_items %}
     <tr>
       <td>{{ wiki_item.id }}</td>
-      <td><a href="/wiki/{{ wiki_item.id }}/">{{ wiki_item.title }}</a></td>
+      <td><a href="/wiki/{{ wiki_item.slug }}/">{{ wiki_item.title }}</a></td>
       <td>
-        <a class="edit" href="/wiki/{{ wiki_item.id }}/editar/">&nbsp;</a>
+        <a class="edit" href="/wiki/{{ wiki_item.slug }}/editar/">&nbsp;</a>
       </td>
       <td>
-        <a class="delete" href="/wiki/{{ wiki_item.id }}/excluir/">&nbsp;</a>
+        <a class="delete" href="/wiki/{{ wiki_item.slug }}/excluir/">&nbsp;</a>
       </td>
     </tr>
     {% endfor %}

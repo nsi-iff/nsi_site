@@ -15,11 +15,11 @@ Feature: Wiki maintenance
     And I click "Wiki"
 
     Then I should see a link with text "Adding a Plone Site"
-    And I should have a link that ends in "1/editar/"
-    And I should have a link that ends in "1/excluir/"
+    And I should have a link that ends in "adding-a-plone-site/editar/"
+    And I should have a link that ends in "adding-a-plone-site/excluir/"
     And I should see a link with text "Installing Plone 4"
-    And I should have a link that ends in "2/editar/"
-    And I should have a link that ends in "2/excluir/"
+    And I should have a link that ends in "installing-plone-4/editar/"
+    And I should have a link that ends in "installing-plone-4/excluir/"
 
 
   Scenario: adding some item to the wiki
@@ -42,6 +42,7 @@ Feature: Wiki maintenance
 
     When I go to "the NSI home page"
     And I click "Wiki"
+    And I should have a link that ends in "adding-a-plone-site/"
     And I click "Adding a Plone Site"
 
     Then I should see "Adding a Plone Site"
@@ -56,7 +57,7 @@ Feature: Wiki maintenance
 
     When I go to "the NSI home page"
     And I click "Wiki"
-    And I click on link that ends in "1/editar/"
+    And I click on link that ends in "adding-a-plone-site/editar/"
     And I fill in "title" with "How to install django"
     And I fill in "nicEdit-main" with "Run: pip install django"
     And I press "enviar"
@@ -73,7 +74,7 @@ Feature: Wiki maintenance
 
     When I go to "the NSI home page"
     And I click "Wiki"
-    And I click on link that ends in "1/excluir/"
+    And I click on link that ends in "adding-a-plone-site/excluir/"
     And I should see "Deseja excluir o ítem 1?"
     And I press "sim"
 
@@ -89,10 +90,10 @@ Scenario: giving up of deleting some wiki item
 
     When I go to "the NSI home page"
     And I click "Wiki"
-    And I click on link that ends in "1/excluir/"
+    And I click on link that ends in "adding-a-plone-site/excluir/"
     And I should see "Deseja excluir o ítem 1?"
     And I press "nao"
 
     Then I should see a link with text "Adding a Plone Site"
-    And I should have a link that ends in "1/editar/"
-    And I should have a link that ends in "1/excluir/"
+    And I should have a link that ends in "adding-a-plone-site/editar/"
+    And I should have a link that ends in "adding-a-plone-site/excluir/"

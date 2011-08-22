@@ -30,7 +30,7 @@ class WikiViewsTests(TestCase):
 
     def test_it_can_view_a_wiki_item(self):
         wiki_item = WikiItem(id=3, title='Add Plone Site', content='Click on "Add Plone Site"').save()
-        response = self.client.get('/wiki/3/')
+        response = self.client.get('/wiki/add-plone-site/')
         response.status_code |should| equal_to(200)
         response.template[0].name |should| equal_to('wiki_item.html')
         response.context[0].has_key('wiki_item') |should| be(True)
@@ -38,7 +38,7 @@ class WikiViewsTests(TestCase):
     def test_it_can_edit_a_wiki_item(self):
         WikiItem(id=3, title='Add Plone Site', content='Click on "Add Plone Site"').save()
         wiki_item = WikiItem.objects.get(pk=3)
-        response = self.client.get('/wiki/3/editar/')
+        response = self.client.get('/wiki/add-plone-site/editar/')
         response.status_code |should| equal_to(200)
         response.template[0].name |should| equal_to('edit_wiki_item.html')
         response.context[0].has_key('form') |should| be(True)
@@ -46,7 +46,7 @@ class WikiViewsTests(TestCase):
     def test_it_can_delete_a_wiki_item(self):
         WikiItem(id=3, title='Add Plone Site', content='Click on "Add Plone Site"').save()
         wiki_item = WikiItem.objects.get(pk=3)
-        response = self.client.get('/wiki/3/excluir/')
+        response = self.client.get('/wiki/add-plone-site/excluir/')
         response.status_code |should| equal_to(200)
         response.template[0].name |should| equal_to('delete_wiki_item.html')
         response.context[0].has_key('object') |should| be(True)

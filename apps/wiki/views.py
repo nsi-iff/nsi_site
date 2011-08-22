@@ -29,8 +29,8 @@ def add_wiki_item(request):
         context_instance=RequestContext(request)
     )
 
-def view_wiki_item(request, wiki_item_id):
-    wiki_item = get_object_or_404(WikiItem, id=wiki_item_id)
+def view_wiki_item(request, wiki_item_slug):
+    wiki_item = get_object_or_404(WikiItem, slug=wiki_item_slug)
 
     return render_to_response(
         'wiki_item.html',
