@@ -3,11 +3,6 @@
 {% block styles %}
   {{ block.super }}
   <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/wiki.css"/>
-  <style type="text/css">
-    textarea, input[type=text] {
-      width: 900px;
-    }
-  </style>
 {% endblock styles %}
 
 {% block scripts %}
@@ -25,7 +20,7 @@
 
 <form method="POST" action="">
   {{ wiki_item_form.as_p }}
-  <input type="submit" value="Enviar" name="enviar">
+  <input type="submit" value="Enviar" name="send">
 </form>
 
 {% endblock content %}

@@ -7,28 +7,26 @@
 
 {% block content %}
 
-  <a href="/wiki/novo_item/">
-    <img src="{{ MEDIA_URL }}/images/wiki/add.png">Adicionar um ítem
-  </a>
+  <div id="new_item">
+      <div id="new_item_image">
+        <a href="/wiki/novo_item/" title="Adicionar um ítem">&nbsp;</a>
+      </div>
+      <div id="new_item_text">
+        <a href="/wiki/novo_item/" title="Adicionar um ítem">
+          <span>Adicionar um ítem</span>
+        </a>
+      </div>
+    </a>
+  </div>
 
-  <table>
-    <th>
-      <td>ID</td>
-      <td>Título</td>
-    </th>
-    {% for wiki_item in wiki_items %}
-    <tr>
-      <td>{{ wiki_item.id }}</td>
-      <td><a href="/wiki/{{ wiki_item.slug }}/">{{ wiki_item.title }}</a></td>
-      <td>
-        <a class="edit" href="/wiki/{{ wiki_item.slug }}/editar/">&nbsp;</a>
-      </td>
-      <td>
-        <a class="delete" href="/wiki/{{ wiki_item.slug }}/excluir/">&nbsp;</a>
-      </td>
-    </tr>
-    {% endfor %}
-  </table>
+  {% for wiki_item in wiki_items %}
+    <div class="wiki_item">
+      <a class="wiki_item_title" href="/wiki/{{ wiki_item.slug }}/" title="Visualizar &quot;{{ wiki_item.title }}&quot;">{{ wiki_item.title }}</a>
+      <div class="manage_wiki_item">
+        <a class="edit" href="/wiki/{{ wiki_item.slug }}/editar/" title="Editar &quot;{{ wiki_item.title }}&quot;">&nbsp;</a>
+        <a class="delete" href="/wiki/{{ wiki_item.slug }}/excluir/" title="Excluir &quot;{{ wiki_item.title }}&quot;">&nbsp;</a>
+      </div>
+    </div>
+  {% endfor %}
 
 {% endblock content %}
-

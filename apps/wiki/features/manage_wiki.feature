@@ -29,7 +29,7 @@ Feature: Wiki maintenance
     And I click "Adicionar um ítem"
     And I fill in "title" with "Teste"
     And I fill in "nicEdit-main" with "Conteúdo do teste"
-    And I press "enviar"
+    And I press "send"
     Then I should see "Ítem salvo com sucesso!"
     And I should see a link with text "Voltar para a wiki"
 
@@ -60,7 +60,7 @@ Feature: Wiki maintenance
     And I click on link that ends in "adding-a-plone-site/editar/"
     And I fill in "title" with "How to install django"
     And I fill in "nicEdit-main" with "Run: pip install django"
-    And I press "enviar"
+    And I press "send"
 
     Then I should see "Ítem editado com sucesso!"
     And I should see a link with text "Voltar para a wiki"
@@ -76,7 +76,7 @@ Feature: Wiki maintenance
     And I click "Wiki"
     And I click on link that ends in "adding-a-plone-site/excluir/"
     And I should see "Deseja excluir o ítem 1?"
-    And I press "sim"
+    And I press "yes"
 
     Then I should see "Ítem excluído com sucesso!"
     And I should see a link with text "Voltar para a wiki"
@@ -92,7 +92,7 @@ Scenario: giving up of deleting some wiki item
     And I click "Wiki"
     And I click on link that ends in "adding-a-plone-site/excluir/"
     And I should see "Deseja excluir o ítem 1?"
-    And I press "nao"
+    And I press "no"
 
     Then I should see a link with text "Adding a Plone Site"
     And I should have a link that ends in "adding-a-plone-site/editar/"
