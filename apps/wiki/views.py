@@ -1,6 +1,7 @@
 from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 
 from models import WikiItem
 from forms import WikiItemForm
@@ -15,6 +16,7 @@ def show_all_wiki_items(request):
         context_instance=RequestContext(request)
     )
 
+@login_required
 def add_wiki_item(request):
     wiki_item_form = WikiItemForm()
     if request.method == 'POST':
