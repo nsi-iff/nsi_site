@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from django.contrib.auth.models import User
+
 from lettuce import step, world
 from lettuce.django import django_url
 from should_dsl import should
@@ -24,3 +26,13 @@ def i_click_on_link_that_ends_in(step, url):
     end_link = [end_link for end_link in links if end_link['href'].endswith(url)]
     end_link |should| have(1).end_link
     end_link[0].click()
+
+@step(u"that i'm logged in")
+def that_i_m_logged_in(step):
+    user = User.objects.create_user('test', 'test@test.com', 'test')
+    user.is_staff = True
+    user.save()
+    world.browser.visit(django_url('/admin'))
+    world.browser.fill('username', 'test')
+    world.browser.fill('password', 'test')
+    world.browser.find_by_value('Acessar').first.click()

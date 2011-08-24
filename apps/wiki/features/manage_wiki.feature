@@ -4,12 +4,27 @@ Feature: Wiki maintenance
   In order to learn more about Plone
 
 
-  Scenario: listing all wiki items
+  Scenario: listing all wiki items without be logged in
 
     Given exist a wiki item:
       | id | title               | content                        |
       |  1 | Adding a Plone Site | Just click in 'Add Plone Site' |
       |  2 | Installing Plone 4  | Run "install.sh"               |
+
+    When I go to "the NSI home page"
+    And I click "Wiki"
+
+    Then I should see a link with text "Adding a Plone Site"
+    And I should see a link with text "Installing Plone 4"
+
+
+  Scenario: listing all wiki items logged in
+
+    Given exist a wiki item:
+      | id | title               | content                        |
+      |  1 | Adding a Plone Site | Just click in 'Add Plone Site' |
+      |  2 | Installing Plone 4  | Run "install.sh"               |
+    And that i'm logged in
 
     When I go to "the NSI home page"
     And I click "Wiki"
@@ -23,6 +38,8 @@ Feature: Wiki maintenance
 
 
   Scenario: adding some item to the wiki
+
+    Given that i'm logged in
 
     When I go to "the NSI home page"
     And I click "Wiki"
@@ -54,6 +71,7 @@ Feature: Wiki maintenance
     Given exist a wiki item:
       | id | title               | content                        |
       |  1 | Adding a Plone Site | Just click in 'Add Plone Site' |
+    And that i'm logged in
 
     When I go to "the NSI home page"
     And I click "Wiki"
@@ -71,6 +89,7 @@ Feature: Wiki maintenance
     Given exist a wiki item:
       | id | title               | content                        |
       |  1 | Adding a Plone Site | Just click in 'Add Plone Site' |
+    And that i'm logged in
 
     When I go to "the NSI home page"
     And I click "Wiki"
@@ -82,11 +101,12 @@ Feature: Wiki maintenance
     And I should see a link with text "Voltar para a wiki"
 
 
-Scenario: giving up of deleting some wiki item
+  Scenario: giving up of deleting some wiki item
 
     Given exist a wiki item:
       | id | title               | content                        |
       |  1 | Adding a Plone Site | Just click in 'Add Plone Site' |
+    And that i'm logged in
 
     When I go to "the NSI home page"
     And I click "Wiki"
