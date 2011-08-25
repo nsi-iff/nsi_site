@@ -7,7 +7,22 @@
 
 {% block content %}
 
-  <h1> {{ wiki_item.title }} </h1>
-  {{ wiki_item.content|safe }}
+    <div id="back_to_wiki_page">
+        <div id="back_to_wiki_page_image">
+          <a href="/wiki/" title="Voltar para página anterior">&nbsp;</a>
+        </div>
+        <div id="back_to_wiki_page_text">
+          <a href="/wiki/" title="Voltar para página anterior">
+            <span>Voltar para página anterior</span>
+          </a>
+        </div>
+      </a>
+    </div>
+  <br /><br /><br />
+  <div id="wiki_item_page">
+    <h1> {{ wiki_item.title }} </h1>
+    
+    {{ wiki_item.content|safe }}
+  </div>
 
 {% endblock content %}
