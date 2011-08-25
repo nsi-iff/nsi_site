@@ -103,3 +103,47 @@ textarea {
   width: 900px;
   height: 300px;
 }
+
+#back_to_wiki_page {
+  float: right;
+}
+
+#back_to_wiki_page a {
+  text-decoration: none;
+  color: black;
+}
+
+#back_to_wiki_page a:hover {
+  text-decoration: underline;
+}
+
+#back_to_wiki_page_image {
+  float: left;
+  margin-right: 5px;
+}
+
+#back_to_wiki_page_image a {
+  background-image: url("/site_media/images/wiki/back.png");
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+#back_to_wiki_page_text {
+  display: table-cell;
+  font-size: 1.5em;
+  height: 24px;
+  vertical-align: middle;
+  width: 200px;
+}
+
+#wiki_item_page {
+  text-align: justify;
+  font-size: 1.2em;
+  background-color: #E6E6E6;
+  padding: 10px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  overflow: hidden;
+  border: thin solid #9BCD9B;
+}
