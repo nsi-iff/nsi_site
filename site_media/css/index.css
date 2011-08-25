@@ -94,13 +94,14 @@
 }
 
 #content #highlights #planetaNSI #title_planetaNSI {
-    background: transparent url("/site_media/images/base/planetaNSI.png") no-repeat;
+    background: transparent url("/site_media/images/base/planetaNSI.png") no-repeat; 
+
     margin-bottom: 15px;
 }
 
-#content #highlights #planetaNSI img {
+#content #highlights #planetaNSI .entry img {
     float: left;
-    margin-right: 20px; 
+    margin-right: 10px; 
 }
 
 #content #highlights #planetaNSI #feed, 
