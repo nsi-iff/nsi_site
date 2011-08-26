@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load pagination_tags %}
+
 {% block styles %}
   {{ block.super }}
   <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/wiki.css"/>
@@ -21,6 +23,7 @@
     </div>
   {% endif %}
 
+  {% autopaginate wiki_items 5 %}
   {% for wiki_item in wiki_items %}
     <div class="wiki_item">
       <a class="wiki_item_title" href="/wiki/{{ wiki_item.slug }}/" title="Visualizar &quot;{{ wiki_item.title }}&quot;">{{ wiki_item.title }}</a>
@@ -32,5 +35,6 @@
       {% endif %}
     </div>
   {% endfor %}
+  {% paginate %}
 
 {% endblock content %}
