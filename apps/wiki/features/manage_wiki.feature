@@ -43,11 +43,11 @@ Feature: Wiki maintenance
 
     When I go to "the NSI home page"
     And I click "Wiki"
-    And I click "Adicionar um ítem"
+    And I click "Adicionar um item"
     And I fill in "title" with "Teste"
     And I fill in "nicEdit-main" with "Conteúdo do teste"
     And I press "send"
-    Then I should see "Ítem salvo com sucesso!"
+    Then I should see "Item salvo com sucesso!"
     And I should see a link with text "Voltar para a wiki"
 
 
@@ -80,7 +80,7 @@ Feature: Wiki maintenance
     And I fill in "nicEdit-main" with "Run: pip install django"
     And I press "send"
 
-    Then I should see "Ítem editado com sucesso!"
+    Then I should see "Item editado com sucesso!"
     And I should see a link with text "Voltar para a wiki"
 
 
@@ -97,7 +97,7 @@ Feature: Wiki maintenance
     And I should see "Deseja excluir o ítem 1?"
     And I press "yes"
 
-    Then I should see "Ítem excluído com sucesso!"
+    Then I should see "Item excluído com sucesso!"
     And I should see a link with text "Voltar para a wiki"
 
 
