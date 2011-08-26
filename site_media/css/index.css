@@ -12,7 +12,8 @@
 
 #content #highlights #projects,
 #content #highlights #news,
-#content #highlights #tools {
+#content #highlights #tools,
+#content #highlights #planetaNSI {
     float: left;
     margin-left: 5px;
     margin-right: 5px;
@@ -33,6 +34,10 @@
     width: 430px;
 }
 #content #highlights #tools {
+    width: 187px;
+}
+
+#content #highlights #planetaNSI {
     width: 187px;
 }
 
@@ -86,6 +91,23 @@
     margin-bottom: 20px;
     overflow: hidden;
     
+}
+
+#content #highlights #planetaNSI #title_planetaNSI {
+    background: transparent url("/site_media/images/base/planetaNSI.png") no-repeat; 
+
+    margin-bottom: 15px;
+}
+
+#content #highlights #planetaNSI .entry img {
+    float: left;
+    margin-right: 10px; 
+}
+
+#content #highlights #planetaNSI #feed, 
+#content #highlights #planetaNSI #github {
+    height: 32px;
+    vertical-align: middle;    
 }
 
 #content #highlights #news .entry .image_news {

@@ -56,10 +56,29 @@
       <div class="entry">
         <img src="{{ MEDIA_URL }}/images/base/tools.32x32.png">
         <div class="text_entry">
-           <a href="/ferramentas" title="{{ tool_obj.name }}">{{ tool_obj.name }}</a>
+           <a href="/ferramenta/{{ tool_obj.slug }}" title="{{ tool_obj.name }}">{{ tool_obj.name }}</a>
         </div>
       </div>
       {% endfor %}
+    </div>
+
+    <div id="planetaNSI">
+      <div class="title_highlights" id="title_planetaNSI">
+        Planeta NSI
+      </div>
+      <div class="entry">
+          <img src="{{ MEDIA_URL }}/images/base/feed.32x32.png">
+        <div class="text_entry" id="feed">
+          <a href="http://planetansi.heroku.com/feeds"> Feeds </a>
+        </div>
+      </div>
+      <div class="entry">
+          <img src="{{ MEDIA_URL }}/images/base/github.32x32.png">
+        <div class="text_entry" id="github">
+          <a href="http://planetansi.heroku.com/feeds/githubs"> GitHub </a>
+        </div>
+      </div> 
+      </div>
     </div>
     
   </div>  
