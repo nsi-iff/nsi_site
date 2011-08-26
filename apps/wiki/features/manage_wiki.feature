@@ -94,7 +94,7 @@ Feature: Wiki maintenance
     When I go to "the NSI home page"
     And I click "Wiki"
     And I click on link that ends in "adding-a-plone-site/excluir/"
-    And I should see "Deseja excluir o ítem 1?"
+    And I should see "Deseja excluir o item 'Adding a Plone Site'?"
     And I press "yes"
 
     Then I should see "Item excluído com sucesso!"
@@ -111,7 +111,7 @@ Feature: Wiki maintenance
     When I go to "the NSI home page"
     And I click "Wiki"
     And I click on link that ends in "adding-a-plone-site/excluir/"
-    And I should see "Deseja excluir o ítem 1?"
+    And I should see "Deseja excluir o item 'Adding a Plone Site'?"
     And I press "no"
 
     Then I should see a link with text "Adding a Plone Site"
