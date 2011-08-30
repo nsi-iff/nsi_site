@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load pagination_tags %}
+
 {% block scripts %}
   {{ block.super }}
   <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/projects.css"/>
@@ -14,6 +16,7 @@
 {% endif %}
 
 <div id="projects">
+{% autopaginate projects 5 %}
 {% for project in projects %}
   <div class="project">
     {% if project.logo %}
@@ -25,5 +28,5 @@
   </div>  
 {% endfor %}
 </div>
-
+{% paginate %}
 {% endblock content %}
