@@ -9,11 +9,7 @@
 
 {% block content %}
 
-{% if project_count == 1 %}
-  <h1>{{ project_count }} projeto</h1>
-{% else %}
-  <h1>{{ project_count }} projetos</h1>
-{% endif %}
+<h1>{{ project_count }} projeto{{ project_count|pluralize }}</h1>
 
 <div id="projects">
 {% autopaginate projects 5 %}
