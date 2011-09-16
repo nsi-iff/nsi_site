@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load pagination_tags %}
+
 {% block scripts %}
   {{ block.super }}
   <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/projects.css"/>
@@ -7,13 +9,10 @@
 
 {% block content %}
 
-{% if project_count == 1 %}
-  <h1>{{ project_count }} projeto</h1>
-{% else %}
-  <h1>{{ project_count }} projetos</h1>
-{% endif %}
+<h1>{{ project_count }} projeto{{ project_count|pluralize }}</h1>
 
 <div id="projects">
+{% autopaginate projects 5 %}
 {% for project in projects %}
   <div class="project">
     {% if project.logo %}
@@ -25,5 +24,5 @@
   </div>  
 {% endfor %}
 </div>
-
+{% paginate %}
 {% endblock content %}

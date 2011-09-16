@@ -10,22 +10,15 @@ urlpatterns = patterns('',
 
     (r'^$', 'apps.home_page.views.show_index'),
 
-    (r'^noticias/$', 'apps.news.views.show_news'),
-    (r'^noticia/(?P<news_slug>[\w_-]+)$', 'apps.news.views.detail_news'),
+    url(r'^', include('apps.news.urls')),
 
     (r'^sobre/$', 'apps.nsi_info.views.show_about'),
 
-    (r'^projetos/$', 'apps.projects.views.show_all'),
-    (r'^projeto/(?P<project_slug>[\w_-]+)/$', 'apps.projects.views.show_project'),
+    url(r'^', include('apps.projects.urls')),
 
-    (r'^membros/$', 'apps.members.views.show_all_current_members'),
-    (r'^membro/(?P<slug>[\w_-]+)$', 'apps.members.views.show_member'),
+    url(r'^', include('apps.members.urls')),
 
-    (r'^ex-membros/$', 'apps.members.views.show_all_former_members'),
-    (r'^ex-membro/(?P<slug>[\w_-]+)$', 'apps.members.views.show_member'),
-
-    (r'^ferramentas/$', 'apps.tools.views.show_all'),
-    (r'^ferramenta/(?P<tool_slug>[\w_-]+)$', 'apps.tools.views.show_tool'),
+    url(r'^', include('apps.tools.urls')),
 
     (r'^site_media/(.*)$', 'django.views.static.serve', {"document_root": settings.MEDIA_ROOT}),
 )

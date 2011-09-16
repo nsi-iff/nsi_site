@@ -1,29 +1,33 @@
 {% extends "base.html" %}
 
+{% load pagination_tags %}
+
 {% block styles %}
   {{ block.super }}
   <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/tools.css">
 {% endblock styles %}
 
 {% block content %}
-{% for tool in tools %}
-  <div id="tools">
-    <div class="tool">
-      {% if tool.logo %}
-        <a href="/ferramenta/{{ tool.slug }}" title="{{ tool.name }}">
-          <img src="{{ MEDIA_URL }}{{ tool.logo.url }}" alt="{{ tool.name }}" title="{{ tool.name }}"/>
-        </a>  
-      {% endif %} 
-      <div id="data"> 
-        <h1>{{ tool.name }}</h1>
-        <p>{{ tool.short_description }}</p>
-        <p><span class="text_highlight">Status: </span>
-          <a href="{{ tool.status }}" title="Status: {{ tool.status }}" target="_blank">{{ tool.status }}</a>
-        </p>
-        <p class="more_info"><a href="/ferramenta/{{ tool.slug }}">Leia mais <span>+</span></a></p>
+  {% autopaginate tools 5 %}
+  {% for tool in tools %}
+    <div id="tools">
+      <div class="tool">
+        {% if tool.logo %}
+          <a href="/ferramenta/{{ tool.slug }}" title="{{ tool.name }}">
+            <img src="{{ MEDIA_URL }}{{ tool.logo.url }}" alt="{{ tool.name }}" title="{{ tool.name }}"/>
+          </a>  
+        {% endif %} 
+        <div id="data"> 
+          <h1>{{ tool.name }}</h1>
+          <p>{{ tool.short_description }}</p>
+          <p><span class="text_highlight">Status: </span>
+            <a href="{{ tool.status }}" title="Status: {{ tool.status }}" target="_blank">{{ tool.status }}</a>
+          </p>
+          <p class="more_info"><a href="/ferramenta/{{ tool.slug }}">Leia mais <span>+</span></a></p>
+        </div>
       </div>
     </div>
-  </div>
-{% endfor %}
+  {% endfor %}
+  {% paginate %}
 {% endblock content %}
 

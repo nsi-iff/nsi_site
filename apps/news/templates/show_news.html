@@ -9,7 +9,7 @@
 
 {% block content %}
   <div id="news">
-    {% autopaginate news 3 %}
+    {% autopaginate news 5 %}
     {% for new in news %}
       <div class="new">
         {% if new.image %}
