@@ -3,7 +3,7 @@ import os
 
 PROJECT_ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -57,7 +57,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfResponseMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'pagination.middleware.PaginationMiddleware',
+    'linaro_django_pagination.middleware.PaginationMiddleware',
 )
 
 ROOT_URLCONF = 'urls'
@@ -68,7 +68,7 @@ TEMPLATE_DIRS = (
 
 LETTUCE_AVOID_APPS = (
     'south',
-    'pagination',
+    'linaro_django_pagination',
 )
 
 INSTALLED_APPS = (
@@ -80,14 +80,14 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'lettuce.django',
     'south',
-    'pagination',
+    'linaro_django_pagination',
     'apps.home_page',
     'apps.nsi_info',
     'apps.projects',
     'apps.news',
     'apps.tools',
     'apps.members',
+    'apps.wiki',
 )
 
 PAGINATION_DEFAULT_WINDOW = 1
-

@@ -1,0 +1,164 @@
+.edit {
+  background-image: url("/site_media/images/wiki/edit.png");
+  display: block;
+  width: 24px;
+  height: 24px;
+  float: left;
+  text-decoration: none;
+}
+
+.edit:hover {
+  background-image: url("/site_media/images/wiki/edit_hover.png");
+}
+
+.delete {
+  background-image: url("/site_media/images/wiki/delete.png");
+  display: block;
+  width: 24px;
+  height: 24px;
+  float: left;
+  text-decoration: none;
+}
+
+.delete:hover {
+  background-image: url("/site_media/images/wiki/delete_hover.png");
+}
+
+.wiki_item {
+  clear: both;
+  background-color: #ECECEC;
+  height: 30px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: black 1px 1px 1px;
+}
+
+.wiki_item .wiki_item_title {
+  color: black;
+  font-size: 2em;
+  font-weight: bold;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+.wiki_item .wiki_item_title:hover {
+  text-decoration: underline;
+}
+
+.manage_wiki_item {
+  float: right;
+  margin-top: 4px;
+  margin-right: 5px;
+}
+
+#new_item {
+  float: right;
+  margin-bottom: 20px;
+}
+
+#new_item a {
+  text-decoration: none;
+  color: black;
+}
+
+#new_item a:hover {
+  text-decoration: underline;
+}
+
+#new_item_image {
+  float: left;
+  margin-right: 5px;
+}
+
+#new_item_image a {
+  background-image: url("/site_media/images/wiki/add.png");
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+#new_item_image a:hover {
+  background-image: url("/site_media/images/wiki/add_hover.png");
+  text-decoration: none;
+}
+
+#new_item_text {
+  display: table-cell;
+  font-size: 1.5em;
+  height: 24px;
+  vertical-align: middle;
+  width: 167px;
+}
+
+label {
+  font-size: 1.3em;
+}
+input[type=text] {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  width: 890px;
+}
+textarea {
+  width: 900px;
+  height: 300px;
+}
+
+#back_to_wiki_page {
+  float: right;
+}
+
+#back_to_wiki_page a {
+  text-decoration: none;
+  color: black;
+}
+
+#back_to_wiki_page a:hover {
+  text-decoration: underline;
+}
+
+#back_to_wiki_page_image {
+  float: left;
+  margin-right: 5px;
+}
+
+#back_to_wiki_page_image a {
+  background-image: url("/site_media/images/wiki/back.png");
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+#back_to_wiki_page_text {
+  display: table-cell;
+  font-size: 1.5em;
+  height: 24px;
+  vertical-align: middle;
+  width: 200px;
+}
+
+#wiki_item_page {
+  text-align: justify;
+  font-size: 1.2em;
+  background-color: #E6E6E6;
+  padding: 10px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  overflow: hidden;
+  border: thin solid #9BCD9B;
+}
+
+.pagination {
+  text-align: center;
+}
+
+.pagination .current {
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  background-color: lightGrey;
+  padding: 3px;
+}
+
+.pagination a, .pagination a:visited {
+  color: black;
+}

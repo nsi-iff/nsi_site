@@ -3,15 +3,24 @@ PIP=pip
 
 export DJANGO_SETTINGS_MODULE=settings
 
-all: deps test
+all: deps test_database test remove_test_database
 
 database:
 	@$(PYTHON) manage.py syncdb
 	@$(PYTHON) manage.py migrate
 
 test_database:
+	@echo ==============================================
+	@echo ========== Creating test database ============
+	@echo
 	@$(PYTHON) manage.py syncdb --settings=settings_test
 	@$(PYTHON) manage.py migrate --settings=settings_test
+
+
+remove_test_database:
+	@echo ==============================================
+	@echo ========== Deleting test database ============
+	@rm nsi_site-test.db
 
 deps: app_deps functional_deps unit_deps
 
@@ -74,6 +83,6 @@ functional: functional_deps deps
 unit: unit_deps deps
 	@echo ==============================================
 	@echo ============ Running unit specs ==============
-	@specloud --with-django
+	@specloud --with-django --nocapture
 	@echo
 

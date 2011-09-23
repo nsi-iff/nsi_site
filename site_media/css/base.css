@@ -59,12 +59,12 @@ body {
   float: left;
   position: relative;
   z-index: auto !important;
-  width: 150px;
+  width: 128px;
 }
 
 #header #menu ul li#last {
   border-right: none;
-  width: 143px;
+  width: 126px;
   color: #646464;
   font-weight: bold;
   line-height: 3.1em;
@@ -106,7 +106,7 @@ body {
 }
 
 #header #menu ul li:hover ul li {
-  width: 143px;
+  width: 126px;
 }
 
 #header #menu ul li:hover ul li a {

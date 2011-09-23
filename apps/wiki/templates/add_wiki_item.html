@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block styles %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/wiki.css"/>
+{% endblock styles %}
+
+{% block scripts %}
+  {{ block.super }}
+  <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    bkLib.onDomLoaded(function() {
+      new nicEditor({fullPanel : true}).panelInstance('id_content'); 
+      $('.nicEdit-main').attr('name', 'nicEdit-main');
+    });
+  </script>
+{% endblock scripts %}
+
+{% block content %}
+
+<form method="POST" action="">
+  {{ wiki_item_form.as_p }}
+  <input type="submit" value="Enviar" name="send">
+</form>
+
+{% endblock content %}
+
