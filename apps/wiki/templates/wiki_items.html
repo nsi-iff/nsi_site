@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load pagination_tags %}
+
+{% block styles %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/wiki.css"/>
+{% endblock styles %}
+
+{% block content %}
+
+  {% if user.is_authenticated %}
+    <div id="new_item">
+        <div id="new_item_image">
+          <a href="/wiki/novo_item/" title="Adicionar um item">&nbsp;</a>
+        </div>
+        <div id="new_item_text">
+          <a href="/wiki/novo_item/" title="Adicionar um item">
+            <span>Adicionar um item</span>
+          </a>
+        </div>
+      </a>
+    </div>
+  {% endif %}
+
+  {% autopaginate wiki_items 5 %}
+  {% for wiki_item in wiki_items %}
+    <div class="wiki_item">
+      <a class="wiki_item_title" href="/wiki/{{ wiki_item.slug }}/" title="Visualizar &quot;{{ wiki_item.title }}&quot;">{{ wiki_item.title }}</a>
+      {% if user.is_authenticated %}
+        <div class="manage_wiki_item">
+          <a class="edit" href="/wiki/{{ wiki_item.slug }}/editar/" title="Editar &quot;{{ wiki_item.title }}&quot;">&nbsp;</a>
+          <a class="delete" href="/wiki/{{ wiki_item.slug }}/excluir/" title="Excluir &quot;{{ wiki_item.title }}&quot;">&nbsp;</a>
+        </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+  {% paginate %}
+
+{% endblock content %}

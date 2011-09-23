@@ -1,8 +1,8 @@
 from django.conf.urls.defaults import *
-from django.views.generic.simple import direct_to_template
 from django.conf import settings
-
 from django.contrib import admin
+
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -19,6 +19,8 @@ urlpatterns = patterns('',
     url(r'^', include('apps.members.urls')),
 
     url(r'^', include('apps.tools.urls')),
+
+    (r'^wiki/', include('apps.wiki.urls')),
 
     (r'^site_media/(.*)$', 'django.views.static.serve', {"document_root": settings.MEDIA_ROOT}),
 )
