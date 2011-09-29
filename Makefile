@@ -24,7 +24,7 @@ remove_test_database:
 
 deps: app_deps functional_deps unit_deps
 
-app_deps: django pil south docutils django-pagination
+app_deps: django pil south docutils django-pagination linaro_django_pagination
 
 functional_deps: selenium lettuce splinter should-dsl nose lxml
 
@@ -71,6 +71,9 @@ model_mommy:
 
 django-pagination:
 	@$(PYTHON) -c 'import pagination' 2>/dev/null || $(PIP) install -e git+https://github.com/tiagosc/django-pagination.git#egg=pagination
+
+linaro_django_pagination:
+	@$(PYTHON) -c 'import linaro_django_pagination' 2>/dev/null || $(PIP) install -U linaro_django_pagination
 
 test: functional unit
 
