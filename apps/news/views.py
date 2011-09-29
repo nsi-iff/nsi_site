@@ -4,7 +4,7 @@ from apps.news.models import News
 
 
 def show_news(request):
-    news = News.objects.all().order_by('-date_and_time')
+    news = News.objects.all()
     return render_to_response(
         'show_news.html',
         {'news': news},
