@@ -10,7 +10,7 @@
 
 {% block content %}
   <div class="member_details">
-      <img class="avatar" src="{{ MEDIA_URL }}/{{ member.photo.url_100x100 }}" alt="{{ member.name }}" title="{{ member.name }}" >
+      <img class="avatar" src="{{ MEDIA_URL }}/{{ member.photo.url }}" alt="{{ member.name }}" title="{{ member.name }}" >
       <div class="data">
         <h1>{{ member.name }}</h1>
         {% if member.nickname %}

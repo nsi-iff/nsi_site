@@ -10,7 +10,7 @@
 {% for member in members %}
   <div class="member" id="member{{ member.id }}">
     <a href="/membro/{{ member.slug }}" title="{{ member.name }}">
-      <img class="avatar" src="{{ MEDIA_URL }}/{{ member.photo.url_100x100 }}" alt="{{ member.name }}"/>
+      <img class="avatar" src="{{ MEDIA_URL }}/{{ member.photo.url }}" alt="{{ member.name }}"/>
     </a>
     <div class="member_data">
       <h1>

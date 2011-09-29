@@ -25,6 +25,8 @@
   float: left;
   border: none;
   border: 2px solid white;
+  max-width: 100px;
+  max-height: 100px;
 }
 
 .member_data {

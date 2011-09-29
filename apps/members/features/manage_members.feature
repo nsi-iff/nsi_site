@@ -14,7 +14,7 @@ Feature: Member maintenance
 
     When I go to the "Pluck" member page
 
-    Then I should see an image called "pluck_photo.100x100.png"
+    Then I should see an image called "pluck_photo.png"
     And I should see "Pluck"
     And I should see "Phd em Desenvolvimento de software, bolsista do NSI desde das trevas"
     And I should see "Atualmente trabalha como suporte de madeira"
@@ -43,7 +43,7 @@ Feature: Member maintenance
 
     When I go to the "Pluck" member page
 
-    Then I should see an image called "pluck_photo.100x100.png"
+    Then I should see an image called "pluck_photo.png"
     And I should see "Pluck"
     And I should see "Phd em Desenvolvimento de software, bolsista do NSI desde das trevas"
     And I should see "Atualmente trabalha como suporte de madeira"
@@ -74,8 +74,8 @@ Feature: Member maintenance
 
     Then I should see the following members:
       | photo | name | function | currently_does | site | lattes | github | twitter | slideshare |
-      | pluck_photo.100x100.png | Pluck | bolsista | Phd em Desenvolvimento de software, bolsista do NSI desde das trevas | http://www.pluck.com/ | http://lattes.cnpq.br/pluck | http://github.com/pluck | http://twitter.com/pluck | http://www.slideshare.net/pluck |
-      | batata_photo.100x100.png | Batata | pesquisador | Concluindo graduação | http://www.batata.com/ | http://lattes.cnpq.br/batata | http://github.com/batata | http://twitter.com/batata | http://www.slideshare.net/batata |
+      | pluck_photo.png | Pluck | bolsista | Phd em Desenvolvimento de software, bolsista do NSI desde das trevas | http://www.pluck.com/ | http://lattes.cnpq.br/pluck | http://github.com/pluck | http://twitter.com/pluck | http://www.slideshare.net/pluck |
+      | batata_photo.png | Batata | pesquisador | Concluindo graduação | http://www.batata.com/ | http://lattes.cnpq.br/batata | http://github.com/batata | http://twitter.com/batata | http://www.slideshare.net/batata |
 
 
   Scenario: showing all former members
@@ -89,11 +89,11 @@ Feature: Member maintenance
 
     When I go to "page that list all former members"
 
-    Then I should see an image called "batata_photo.100x100.png"
+    Then I should see an image called "batata_photo.png"
     And I should see "Batata"
     And I should see "bolsista"
     And I should see "Graduado"
-    And I should see an image called "pedro_photo.100x100.png"
+    And I should see an image called "pedro_photo.png"
     And I should see "Pedro"
     And I should see "Concluindo graduação"
     And I should see "pesquisador"
@@ -110,7 +110,7 @@ Feature: Member maintenance
 
     When I go to the "Pluck" former member page
 
-    Then I should see an image called "pluck_photo.100x100.png"
+    Then I should see an image called "pluck_photo.png"
     And I should see "Pluck"
     And I should see "Plunk"
     And I should see "Phd em Desenvolvimento de software, bolsista do NSI desde das trevas"
