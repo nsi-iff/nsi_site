@@ -1,5 +1,5 @@
 /*
-*	Code to display coderwall.com badges 
+*	Code to display coderwall.com badges
 */
 
 $(document).ready(function(){
@@ -9,7 +9,7 @@ $(document).ready(function(){
         var width = 75;
 
         $.getJSON(coderwallJSONurl, function(data) {
-        $("<a href='http://coderwall.com/" + member + "' id='coderwall_link'>Coderwall Achievements</a> <br /><br />").appendTo("#coderwall");
+        $("<p><a href='http://coderwall.com/" + member + "' id='coderwall_link'>Coderwall Achievements</a></p> <br /><br />").appendTo("#coderwall");
           $.each(data.data.badges, function(i, item) {
             $("<img/>").attr("src", item.badge)
               .attr("float", "left")
@@ -29,3 +29,4 @@ $(document).ready(function(){
             });
         });
 });
+
