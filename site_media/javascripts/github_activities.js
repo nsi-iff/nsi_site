@@ -27,7 +27,7 @@ function placeActivities(feed) {
 }
 
 $(document).ready(function(){
-  var github_feed = $('span#github_feed')[0].innerHTML;
+  var github_feed = $('span#github_feed').text();
   parseRSS(github_feed, placeActivities);
 });
 
