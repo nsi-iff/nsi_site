@@ -10,16 +10,15 @@ function parseRSS(url, callback) {
 }
 
 function placeActivities(feed) {
-  xunda = feed;
   $('div.github_activities span.text_highlight').show();
   var div_activities = $('ul.activities');
   $(feed.entries).each(function(key, entry){
     var author = entry.author;
     var title = entry.title;
     var link = entry.link;
-    //remove author from entry title
-    //TODO: use '.replace' with regex instead of .split.trim
-    title = title.split(author)[1].trim();
+    //remove author from start of entry title
+    var author_regexp = new RegExp("^" + author + " ");
+    title = title.replace(author_regexp, '');
     var div_entry = $('<a />').append($('<li />').text(title))
     div_entry.attr('href', link);
     div_entry.attr('target', '_blank');
