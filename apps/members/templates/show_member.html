@@ -6,6 +6,7 @@
 {% block scripts %}
     {{ block.super }}
     <script src="{{ MEDIA_URL }}/javascripts/coderwall.js" type="text/javascript"> </script>
+    <script src="{{ MEDIA_URL }}/javascripts/github_activities.js" type="text/javascript"> </script>
 {% endblock scripts %}
 
 {% block content %}
@@ -75,8 +76,19 @@
           </ul>
         </p>
         {% endif %}
+        {% if member.github %}
+        <div class="github_activities">
+          <span id="github_feed" hidden>{{ member.github_feed }}</span>
+          <a href="{{ member.github_feed }}" target="_blank">
+            <p><span class="text_highlight" hidden>Atividades no Github:</span></p>
+          </a>
+          <ul class="activities">
+          </ul>
+        </div>
+        {% endif %}
         <div id="coderwall">
         </div>
       </div>
   </div>
 {% endblock content %}
+
