@@ -8,7 +8,7 @@ class ParticipationInline(admin.TabularInline):
     extra = 1
 
 class MemberAdmin(admin.ModelAdmin):
-    list_display = ('name', 'function', 'site','github', 'twitter','slideshare','lattes','started_nsi_date', 'is_renegade')
+    list_display = ('name', 'function', 'site','github', 'twitter','slideshare','lattes','phone','started_nsi_date', 'is_renegade')
     list_filter = ('function','started_nsi_date','is_renegade')
     inlines = [ParticipationInline]
 
