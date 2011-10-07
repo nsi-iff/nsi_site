@@ -40,16 +40,13 @@ class Member(models.Model):
     slug = models.SlugField(max_length=100, blank=True)
 
     def github_link(self):
-        github_site = "http://github.com/"
-        return github_site + self.github
+        return "http://github.com/" + self.github
 
     def twitter_link(self):
-        twitter_site = "http://twitter.com/"
-        return twitter_site + self.twitter
+        return "http://twitter.com/" + self.twitter
 
     def slideshare_link(self):
-        slideshare_site = "http://www.slideshare.net/"
-        return slideshare_site + self.slideshare
+        return "http://www.slideshare.net/" + self.slideshare
 
     def __unicode__(self):
         return self.name
