@@ -10,8 +10,8 @@ def there_exist_a_tool(step):
     for tool_hashes in step.hashes:
         Tool.objects.create(**tool_hashes)
         if tool_hashes.get('logo'):
-          file_name = tool_hashes['logo'].split('/')[-1]
-          shutil.copy2(os.path.join(settings.PROJECT_ROOT_PATH, 'apps', 'tools',
+            file_name = tool_hashes['logo'].split('/')[-1]
+            shutil.copy2(os.path.join(settings.PROJECT_ROOT_PATH, 'apps', 'tools',
                                   'features', 'resources', file_name),
                      os.path.join(settings.MEDIA_ROOT, 'test', 'images', 'tools'))
 
@@ -34,4 +34,3 @@ def and_tool_has_related_projects(step, tool_name):
 def i_go_to_tool_page(step, tool_name):
     tool_obj = Tool.objects.get(name=tool_name)
     world.browser.visit(django_url('/ferramenta/%s' % tool_obj.slug))
-

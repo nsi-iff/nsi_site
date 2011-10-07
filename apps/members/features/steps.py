@@ -29,12 +29,12 @@ def and_member_participation_the_project_in(step, member_name, project_name, sta
     member = Member.objects.get(name=member_name)
     project = Project.objects.get(name=project_name)
     Participation(member=member, project=project, start_date=start_participation_date).save()
-    
+
 @step(r'"(.*)" member participated on "(.*)" project between "(.*)" and "(.*)"')
 def and_member_participated_on_project_between(step, member_name, project_name, start_participation_date, end_participation_date):
     member = Member.objects.get(name=member_name)
     project = Project.objects.get(name=project_name)
-    Participation(member=member, project=project, start_date=start_participation_date, end_date=end_participation_date).save()    
+    Participation(member=member, project=project, start_date=start_participation_date, end_date=end_participation_date).save()
 
 @step(r'I go to the "(.+)" member page')
 def i_go_to_member_page(step, member_name):
@@ -53,29 +53,29 @@ def i_should_see_a_label_with_link(step, link_text, link_href):
     link_value = links[0].value
     link_label, link_value_text = link_value.split(': ')
     link_value_text |should| equal_to(link_text)
- 
+
 @step(r'I should see the following members')
 def i_should_see_the_following_members(step):
-    
+
     for member_data in step.hashes:
         member = Member.objects.get(name=member_data['name'])
-        
+
         container_photo = world.browser.find_by_css('#member%s .avatar' % member.id)
         container_image_name = container_photo[0]['src'].split("/")[-1]
         container_image_name |should| equal_to(member_data['photo'])
-        
+
         title_text = world.browser.find_by_css('#member%s h1' % member.id)
         title_text[0].value |should| equal_to(member_data['name'])
-        
+
         function_text = world.browser.find_by_css('#member%s span' % member.id)
         function_text[0].value |should| equal_to(member_data['function'])
-        
+
         currently_does_text = world.browser.find_by_css('#member%s p' % member.id)
         currently_does_text[0].value |should| equal_to(member_data['currently_does'])
-        
+
         container_links = world.browser.find_by_css('#member%s .links a' % member.id)
         container_links_href = [x['href'] for x in container_links]
-        
+
         member_data['site'] |should| be_into(container_links_href)
         member_data['github'] |should| be_into(container_links_href)
         member_data['twitter'] |should| be_into(container_links_href)

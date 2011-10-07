@@ -17,6 +17,11 @@
         {% if member.nickname %}
         <br> ({{ member.nickname }})
         {% endif %}
+        {% if user.is_authenticated %}
+            {% if member.phone %}
+            <br><br> {{ member.phone }}
+            {% endif %}
+        {% endif %}
         <h3>{{ member.currently_does }}</h3>
         <p>{{ member.life_and_work }}</p>
         <p><span class="text_highlight">Função:</span> <span>{{ member.get_function_display }}</span></p>

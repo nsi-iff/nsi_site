@@ -24,6 +24,7 @@ class Participation(models.Model):
 class Member(models.Model):
     name = models.CharField(max_length=100)
     nickname = models.CharField(max_length=100, null=True, blank=True)
+    phone = models.CharField(max_length=13, null=True, blank=True)
     currently_does = models.TextField()
     life_and_work = models.TextField()
     function = models.CharField(max_length=100, choices=MEMBER_FUNCTIONS)
@@ -39,19 +40,13 @@ class Member(models.Model):
     slug = models.SlugField(max_length=100, blank=True)
 
     def github_link(self):
-        github_site = "http://github.com/"
-        return github_site + self.github
-
-    def github_feed(self):
-        return self.github_link() + '.atom'
+        return "http://github.com/" + self.github
 
     def twitter_link(self):
-        twitter_site = "http://twitter.com/"
-        return twitter_site + self.twitter
+        return "http://twitter.com/" + self.twitter
 
     def slideshare_link(self):
-        slideshare_site = "http://www.slideshare.net/"
-        return slideshare_site + self.slideshare
+        return "http://www.slideshare.net/" + self.slideshare
 
     def __unicode__(self):
         return self.name
