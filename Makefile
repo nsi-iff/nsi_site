@@ -18,8 +18,7 @@ test_database:
 
 
 remove_test_database:
-	@echo ==============================================
-	@echo ========== Deleting test database ============
+	@echo Deleting test database... 
 	@rm nsi_site-test.db
 
 deps: app_deps functional_deps unit_deps
