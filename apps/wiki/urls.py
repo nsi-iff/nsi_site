@@ -11,7 +11,7 @@ urlpatterns = patterns('apps.wiki.views',
     (r'^item_editado_com_sucesso/$',
         direct_to_template, {'template': 'wiki_item_successfully_updated.html'}
     ),
-    (r'^item_excluido_com_sucesso/$', 
+    (r'^item_excluido_com_sucesso/$',
         direct_to_template, {'template': 'wiki_item_successfully_deleted.html'}
     ),
     (r'^novo_item/adicionado_com_sucesso/$',

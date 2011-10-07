@@ -41,11 +41,11 @@ class Member(models.Model):
 
     def github_link(self):
         github_site = "http://github.com/"
-        return github_site + self.github 
+        return github_site + self.github
 
     def twitter_link(self):
         twitter_site = "http://twitter.com/"
-        return twitter_site + self.twitter 
+        return twitter_site + self.twitter
 
     def slideshare_link(self):
         slideshare_site = "http://www.slideshare.net/"

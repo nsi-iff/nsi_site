@@ -34,7 +34,7 @@ def and_member_participation_the_project_in(step, member_name, project_name, sta
 def and_member_participated_on_project_between(step, member_name, project_name, start_participation_date, end_participation_date):
     member = Member.objects.get(name=member_name)
     project = Project.objects.get(name=project_name)
-    Participation(member=member, project=project, start_date=start_participation_date, end_date=end_participation_date).save()    
+    Participation(member=member, project=project, start_date=start_participation_date, end_date=end_participation_date).save()
 
 @step(r'I go to the "(.+)" member page')
 def i_go_to_member_page(step, member_name):
