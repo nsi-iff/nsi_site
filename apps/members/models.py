@@ -48,6 +48,9 @@ class Member(models.Model):
     def slideshare_link(self):
         return "http://www.slideshare.net/" + self.slideshare
 
+    def github_feed(self):
+        return self.github_link() + '.atom'
+
     def __unicode__(self):
         return self.name
 
