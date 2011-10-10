@@ -10,7 +10,6 @@ function parseRSS(url, callback) {
 }
 
 function placeActivities(feed) {
-  xunda = feed;
   if (feed.entries.length > 0) {
     $('div.github_activities span.text_highlight').show();
     var div_activities = $('ul.activities');
