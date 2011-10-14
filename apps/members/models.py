@@ -42,11 +42,17 @@ class Member(models.Model):
     def github_link(self):
         return "http://github.com/" + self.github
 
+    def github_feed(self):
+        return "http://github.com/" + self.github + ".atom"
+
     def twitter_link(self):
         return "http://twitter.com/" + self.twitter
 
     def slideshare_link(self):
         return "http://www.slideshare.net/" + self.slideshare
+
+    def github_feed(self):
+        return self.github_link() + '.atom'
 
     def __unicode__(self):
         return self.name
@@ -59,3 +65,4 @@ class Member(models.Model):
         else:
             self.is_renegade = False
             super(Member, self).save(*args, **kwargs)
+
