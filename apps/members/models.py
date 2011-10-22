@@ -42,9 +42,6 @@ class Member(models.Model):
     def github_link(self):
         return "http://github.com/" + self.github
 
-    def github_feed(self):
-        return "http://github.com/" + self.github + ".atom"
-
     def twitter_link(self):
         return "http://twitter.com/" + self.twitter
 
