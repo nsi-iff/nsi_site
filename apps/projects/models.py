@@ -15,17 +15,21 @@ class Project(models.Model):
     description = models.TextField()
     logo = ImageWithThumbsField(upload_to='images/projects', null=True, blank=True, sizes=((200, 200), (90, 90), ))
     sponsor = models.CharField(max_length=100)
+    github = models.CharField(max_length=80, null=True, blank=True)
     status = models.CharField(max_length=100, choices=PROJECT_STATES)
     start_date = models.DateField()
     end_date = models.DateField(null=True, blank=True)
     slug = models.SlugField(max_length=100, blank=True)
+
+    def github_link(self):
+        return "http://github.com/" + self.github
 
     def finished(self):
         return self.end_date is not None
 
     def __unicode__(self):
         return self.name
-        
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
         if self.finished():
@@ -33,6 +37,7 @@ class Project(models.Model):
             super(Project, self).save(*args, **kwargs)
         else:
             super(Project, self).save(*args, **kwargs)
+
 
 class Document(models.Model):
     title = models.CharField(max_length=100)

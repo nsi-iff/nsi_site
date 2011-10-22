@@ -18,13 +18,21 @@
     <p>{{ project.description }}</p>
 
     <p><span class="text_highlight">Patrocinador:</span> <span>{{ project.sponsor }}</span></p>
+
+    {% if project.github %}
+    <span class="text_highlight">Github:</span>
+    <a href="{{ project.github_link }}" target="_blank">
+        <span id="github_project">{{ project.github }}</span>
+    </a>
+    {% endif %}
+
     <p><span class="text_highlight">Status:</span> <span>{{ project.get_status_display }}</span></p>
     {% if project.finished %}
       <p><span class="text_highlight">Duração:</span> <span>{{ project.start_date|date:"d/m/Y" }} a {{ project.end_date|date:"d/m/Y" }}</span></p>
     {% else %}
-      <p><span class="text_highlight">Início:</span> <span>{{ project.start_date|date:"d/m/Y" }}</span>
+      <p><span class="text_highlight">Início:</span> <span>{{ project.start_date|date:"d/m/Y" }}</span></p>
     {% endif %}
-    
+
     {% if project.document_set.all %}
       <p><span class="text_highlight">Documentos relacionados:</span></p>
       <table id="documents">
@@ -43,7 +51,7 @@
         </tbody>
       </table>
     {% endif %}
-    
+
     {% if participations %}
     <p><span class="text_highlight">Membros:</span></p>
     <ul>
