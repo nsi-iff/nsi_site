@@ -24,6 +24,10 @@ class Project(models.Model):
     def github_link(self):
         return "http://github.com/" + self.github
 
+    def github_feed(self):
+        return self.github_link() + "/commits/master.atom"
+
+
     def finished(self):
         return self.end_date is not None
 

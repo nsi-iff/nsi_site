@@ -99,6 +99,20 @@
   text-decoration: none;
 }
 
-#project_details #data ul li a:hover, span#github_project {
+#project_details #data ul li a:hover, span#github_project a {
   text-decoration: underline;
+}
+
+#project_details a {
+  clear: both;
+  color: black;
+  text-decoration:none;
+}
+
+#project_details #data ul a:hover, span#github_project a {
+  text-decoration: underline;
+}
+
+div.github_activities ul.activities li {
+  padding: 3px 0 3px 0;
 }
