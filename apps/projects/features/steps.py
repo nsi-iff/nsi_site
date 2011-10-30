@@ -3,6 +3,7 @@ import shutil
 from django.conf import settings
 from lettuce import step, world
 from lettuce.django import django_url
+from should_dsl import should
 from model_mommy import mommy
 from apps.members.models import Member
 from apps.members.models import Participation
@@ -40,3 +41,9 @@ def project_has_attached_the_following_documents(step, project_name):
     document.project = project
     document.save()
 
+@step(u'I should see a label "(.*)" with the link to "(.*)"')
+def i_should_see_a_label_with_link(step, link_text, link_href):
+    links = world.browser.find_link_by_href(link_href)
+    links |should| have_at_least(1).item
+    link_value = links[0].value
+    link_value |should| equal_to(link_text)

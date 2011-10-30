@@ -8,7 +8,7 @@ Feature: Member maintenance
       | name     |
       | NSI Site |
     And exist a member:
-      | name | currently_does | life_and_work | function |site | github | twitter | slideshare | lattes | photo | started_nsi_date |
+      | name  | currently_does | life_and_work | function |site | github | twitter | slideshare | lattes | photo | started_nsi_date |
       | Pluck | Phd em Desenvolvimento de software, bolsista do NSI desde das trevas | Atualmente trabalha como suporte de madeira | bolsista | http://www.pluck.com | pluck | pluck | pluck | http://lattes.cnpq.br/pluck | test/images/members/pluck_photo.png | 2000-01-01  |
     And "Pluck" member started participation the "NSI Site" project in "2011-01-01"
 

@@ -4,6 +4,7 @@ from apps.projects.models import Project
 
 
 class ProjectTest(TestCase):
+
     def test_finishing(self):
         project = Project(start_date='2011-01-01', end_date=None)
         project |should_not| be_finished
