@@ -78,7 +78,6 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.admin',
-    'lettuce.django',
     'south',
     'linaro_django_pagination',
     'apps.home_page',

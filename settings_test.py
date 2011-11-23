@@ -12,3 +12,5 @@ DATABASES = {
         'PORT': '',
         }
 }
+
+INSTALLED_APPS += ("lettuce.django",)
