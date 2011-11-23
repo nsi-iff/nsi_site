@@ -1,3 +1,12 @@
 .main {
     padding-top: 40px;
 }
+
+#footer {
+    background-color: #eee;
+    height: 90px;
+    padding: 40px 0 10px 0;
+}
+
+#footer p {
+}
