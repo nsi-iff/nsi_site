@@ -6,7 +6,8 @@
     <link rel="icon" type="image/x-icon" href="{{ MEDIA_URL }}/images/base/favicon.ico" />
 
     {% block styles %}
-      <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/base.css"/>
+        <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ MEDIA_URL }}/css/base.css" type="text/css" media="screen" charset="utf-8"/>
     {% endblock styles %}
 
     {% block scripts %}
@@ -15,59 +16,43 @@
   </head>
 
   <body>
-    <div id="main">
-      <div id="header">
-        <div id="center_header">
-          <a href="/" alt="Página inicial do site do NSI" title="Página inicial do site do NSI">
-            <img id="logo_nsi" src="{{ MEDIA_URL }}/images/base/logo.png" alt="Núcleo de Pesquisa em Sistemas de Informação" />
-          </a>
-        </div>
-        <div id="menu">
-          {% block menu %}
-            <ul>
-              <li>
-                <a href="/">Início</a>
-              </li>
-
-              <li>
-                <a href="/sobre">Sobre</a>
-              </li>
-
-              <li>
-                <a href="/projetos">Projetos</a>
-              </li>
-
-              <li>
-                <a href="/noticias">Noticias</a>
-              </li>
-
-              <li>
-                <a href="/ferramentas">Ferramentas</a>
-              </li>
-
-              <li>
-                <a href="/wiki">Wiki</a>
-              </li>
-
-              <li id="last">
-                Membros
-                <ul class="dropdown-menu">
-                  <li><a href="/membros">Membros atuais</a></li>
-                  <li><a href="/ex-membros">Ex-membros</a></li>
-                </ul>
-              </li>
-            </ul>
-          {% endblock menu %}
-        </div>
+      <div class="main">
+          <div id="header">
+              <div class="menu">
+                  {% block menu %}
+                  <div class="topbar-wrapper" style="z-index: 5;">
+                      <div class="topbar" data-dropdown="dropdown">
+                          <div class="topbar-inner">
+                              <div class="container">
+                                  <h3 class="active"><a href="#">NSI</a></h3>
+                                  <ul class="nav">
+                                      <li><a href="#">Projetos</a></li>
+                                      <li><a href="#">Noticias</a></li>
+                                      <li><a href="#">Open Source</a></li>
+                                      <li class="dropdown">
+                                      <a href="#" class="dropdown-toggle">Membros</a>
+                                      <ul class="dropdown-menu">
+                                          <li><a href="#">Atuais</a></li>
+                                          <li><a href="#">Ex-membros</a></li>
+                                      </ul>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </div><!-- /topbar-inner -->
+                      </div><!-- /topbar -->
+                  </div>
+                  {% endblock menu %}
+              </div>
+          </div>
+          <div id="content">
+              {% block content %}
+              {% endblock content %}
+          </div>
+          <div id="footer">
+              <p>Desenvolvido por NSI - Núcleo de Pesquisa em Sistemas de Informação / IFF - Instituto Federal Fluminense</p>
+              <p>Rua Dr. Siqueira, 273 - Parque Dom Bosco - Campos dos Goytacazes, RJ - CEP 28030-130 TEL.: (22 ) 2726 2800 FAX.: (22) 2733 3079 Ramal: 2904</p>
+          </div>
       </div>
-      <div id="content">
-        {% block content %}
-        {% endblock content %}
-      </div>
-      <div id="footer">
-        <p>Desenvolvido por NSI - Núcleo de Pesquisa em Sistemas de Informação / IFF - Instituto Federal Fluminense</p>
-        <p>Rua Dr. Siqueira, 273 - Parque Dom Bosco - Campos dos Goytacazes, RJ - CEP 28030-130 TEL.: (22 ) 2726 2800 FAX.: (22) 2733 3079 Ramal: 2904</p>
-      </div>
-    </div>
+      <script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-dropdown.js" type="text/javascript" charset="utf-8"></script>
   </body>
 </html>
