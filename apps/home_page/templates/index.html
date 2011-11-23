@@ -1,85 +1,36 @@
 {% extends 'base.html' %}
 
 {% block styles %}
-  {{ block.super }}
-  <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/index.css"/>
-{% endblock styles %}
-
+    {{ block.super }}
+    <link rel="stylesheet" href="{{ MEDIA_URL }}/css/index.css" type="text/css" media="screen" charset="utf-8"/>
+{% endblock %}
 
 {% block content %}
-  <div id="highlights">
-    <div id="projects">
-      <div class="title_highlights" id="title_projects">
-        Projetos
-      </div>
-      {% for project_obj in projects %}
-      <div class="entry">
-        <img src="{{ MEDIA_URL }}/images/base/projects.32x32.png">
-        <div class="text_entry">
-          <a href="/projeto/{{ project_obj.slug }}" title="{{ project_obj.name }}">{{ project_obj.name }}</a>
+    <div class="box box-nsi">
+        <div class="header container">
+            <h1>Nucleo de Pesquisa em Sistemas de Informaçao</h1>
+            <p>
+                Lorem ipsum dolor sit amet, maiores ornare ac fermentum, imperdiet ut vivamus a, nam lectus at nunc.
+                <br />
+                Quam euismod sem, semper ut potenti pellentesque quisque. In eget sapien
+            </p>
         </div>
-      </div>
-      {% endfor %}
-    </div>
-    
-    <div id="news">
-      <div class="title_highlights" id="title_news">
-        Notícias
-      </div>
-      {% for news_obj in news %}
-      <div class="entry">
-        {% if news_obj.image %}
-            <div class="image_news">
-              <a href="/noticia/{{ news_obj.slug }}" title="{{ news_obj.title }}">
-              <img class="index_image" src="{{ MEDIA_URL }}/{{ news_obj.image.url }}" alt="{{ news_obj.title }}"/></a>
-            </div>
-            <div class="news_title_with_image">
-        {% else %}
-          <div class="news_title_without_image">
-        {% endif %}
-          <a href="/noticia/{{ news_obj.slug }}" title="{{ news_obj.title }}"><p>{{ news_obj.title }}</p></a>
-        </div>
-      <span class="text_highlight">Postado por: </span>{{ news_obj.author }}
-      <span class="text_data">{{ news_obj.date_and_time|date:"d/m/Y" }}</span>
-      </div>
-      {% endfor %}
-      <div id="read_more">
-        <a href="/noticias"><p>Leia mais <span>+</span></p></a>
-      </div>
-    </div>
-    
-    <div id="tools">
-      <div class="title_highlights" id="title_tools">
-        Ferramentas
-      </div>
-      {% for tool_obj in tools %}
-      <div class="entry">
-        <img src="{{ MEDIA_URL }}/images/base/tools.32x32.png">
-        <div class="text_entry">
-           <a href="/ferramenta/{{ tool_obj.slug }}" title="{{ tool_obj.name }}">{{ tool_obj.name }}</a>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
 
-    <div id="planetaNSI">
-      <div class="title_highlights" id="title_planetaNSI">
-        Planeta NSI
-      </div>
-      <div class="entry">
-          <img src="{{ MEDIA_URL }}/images/base/feed.32x32.png">
-        <div class="text_entry" id="feed">
-          <a href="http://planetansi.heroku.com/feeds"> Feeds </a>
+        <div class="content container">
+            <div class="row">
+                <span class="span-one-third">
+                    <h6>Projetos</h6>
+                    <p>projetos fodas do nsi</p>
+                </span>
+                <span class="span-one-third">
+                    <h6>Open Source</h6>
+                    <p>projetos fodas do nsi</p>
+                </span>
+                <span class="span-one-third">
+                    <h6>Planeta NSI</h6>
+                    <p>projetos fodas do nsi</p>
+                </span>
+            </div>
         </div>
-      </div>
-      <div class="entry">
-          <img src="{{ MEDIA_URL }}/images/base/github.32x32.png">
-        <div class="text_entry" id="github">
-          <a href="http://planetansi.heroku.com/feeds/githubs"> GitHub </a>
-        </div>
-      </div> 
-      </div>
     </div>
-    
-  </div>  
 {% endblock content %}
