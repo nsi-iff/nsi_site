@@ -24,9 +24,9 @@
             {% for project in projects %}
             <div class="row individual-project round">
                 <span class="span16">
-                    <h6><a href="/projeto/{{ project.slug }}">{{ project.name }}</a></h6>
+                    <h3><a href="/projeto/{{ project.slug }}">{{ project.name }}</a></h3>
                     <p>{{ project.description|slice:"250"}} ...</p>
-                    <a id="know_more"href="/projeto/{{ project.slug }}" title="Saiba mais"><span>Saiba mais</span></a>
+                    <p><a id="know_more"href="/projeto/{{ project.slug }}" title="Saiba mais">Saiba mais</a></p>
                 </span>
             </div>
             <br />
