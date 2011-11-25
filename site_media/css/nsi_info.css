@@ -1,0 +1,35 @@
+.box-nsi_info .header {
+    height: 40px;
+    padding: 20px 0;
+}
+
+.box-nsi_info .header * {
+    text-align: center;
+}
+
+.box-nsi_info .content span {
+    border: 1px solid #eee;
+    text-align: center;
+    margin: 40px 0;
+    -moz-box-shadow: 3px 3px 3px #d6d6d6;
+    -webkit-box-shadow: 3px 3px 3px #d6d6d6;
+    box-shadow: 3px 3px 3px #d6d6d6;
+    overflow: hidden;
+}
+
+.box-nsi_info .content span * {
+    margin: 10px auto;
+    width: 80%;
+}
+
+.box-nsi_info .content span h1 {
+    border-bottom: 1px solid #aaa;
+    text-align: center;
+    padding: 20px 0 10px;
+}
+
+.box-nsi_info .content span p {
+    text-align: justify;
+    font-size: 16px;
+    padding: 10px 0 0;
+}
