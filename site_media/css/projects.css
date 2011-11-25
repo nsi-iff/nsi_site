@@ -1,0 +1,32 @@
+.box-projects .header {
+    height: 100px;
+    padding: 20px 0;
+}
+
+.box-projects .header * {
+    text-align: center;
+}
+
+.individual-project {
+    padding: 20px 0;
+    background-color: #eee;
+}
+
+.round {
+  -moz-border-radius:    10px;
+  -webkit-border-radius: 10px;
+  border-radius:         10px;
+}
+
+.individual-project h6, .individual-project p {
+    text-align: left;
+}
+
+#know_more span {
+    float: right;
+    margin-right: 10px;
+}
+
+.box-projects .content span {
+    text-align: center;
+}
