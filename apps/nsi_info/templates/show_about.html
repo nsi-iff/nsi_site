@@ -2,10 +2,18 @@
 {% block styles %}
   {{ block.super }} <link rel="stylesheet" type="text/css" href="/site_media/css/nsi_info.css"/>
 {% endblock styles %}
-{% block content %}
 
-<div class="nsi_info">
-  <p>{{ nsi_info.about_as_html|safe }}</p>
-</div>
+{% block content %}
+    <div class="box box-nsi_info">
+        <div class="content container">
+            <div class="row">
+                <span class="span16">
+                    <h1>Sobre</h1>
+                    <p>{{ nsi_info.about_as_html|safe }}</p>
+                </span>
+            </div>
+            <br />
+        </div>
+    </div>
 
 {% endblock content %}
