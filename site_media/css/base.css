@@ -3,11 +3,15 @@
 }
 
 #footer {
-    background-color: #eee;
+    border-top: 4px solid #04819E;
+    background-color: #015367;
     height: 90px;
     padding: 40px 0 10px 0;
 }
 
 #footer p {
-    text-align: center;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
 }
