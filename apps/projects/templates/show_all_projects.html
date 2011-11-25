@@ -8,21 +8,30 @@
 {% endblock scripts %}
 
 {% block content %}
-
-<h1>{{ project_count }} projeto{{ project_count|pluralize }}</h1>
-
-<div id="projects">
-{% autopaginate projects 5 %}
-{% for project in projects %}
-  <div class="project">
-    {% if project.logo %}
-      <a href="/projeto/{{ project.slug }}" title="{{ project.name }}"><img src="{{ MEDIA_URL }}/{{ project.logo.url }}" alt="{{ project.name }}" title="{{ project.name }}"/></a>
-    {% endif %}
-    <h2><a href="/projeto/{{ project.slug }}">{{ project.name }}</a></h2>
-    <p>{{ project.description|slice:"250"}} ... </p>
-    <a id="know_more"href="/projeto/{{ project.slug }}" title="Saiba mais">Saiba mais <span>+</span></a>
-  </div>  
-{% endfor %}
-</div>
-{% paginate %}
+    <div class="box box-projects">
+        <div class="header">
+            <div class="container">
+                <h1>{{ project_count }} projeto{{ project_count|pluralize }}</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, maiores ornare ac fermentum, imperdiet ut vivamus a, nam lectus at nunc.
+                    <br />
+                    Quam euismod sem, semper ut potenti pellentesque quisque. In eget sapien
+                </p>
+            </div>
+        </div>
+        <div class="content container">
+            {% autopaginate projects 5 %}
+            {% for project in projects %}
+            <div class="row individual-project round">
+                <span class="span16">
+                    <h6><a href="/projeto/{{ project.slug }}">{{ project.name }}</a></h6>
+                    <p>{{ project.description|slice:"250"}} ...</p>
+                    <a id="know_more"href="/projeto/{{ project.slug }}" title="Saiba mais"><span>Saiba mais</span></a>
+                </span>
+            </div>
+            <br />
+            {% endfor %}
+            {% paginate %}
+        </div>
+    </div>
 {% endblock content %}
