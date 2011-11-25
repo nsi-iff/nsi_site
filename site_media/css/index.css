@@ -25,5 +25,24 @@
 }
 
 .box-nsi .content span {
+    border: 1px solid #eee;
     text-align: center;
+    height: 250px;
+    margin: 20px 0;
+    -moz-box-shadow: 0px 3px 3px #d6d6d6;
+    -webkit-box-shadow: 0px 3px 3px #d6d6d6;
+    box-shadow: 0px 3px 3px #d6d6d6;
 }
+
+.box-nsi .content span:first-child {
+    margin-right: 27px;
+}
+
+.box-nsi .content span:last-child {
+    margin-left: 27px;
+}
+
+.box-nsi .content span h3 {
+    
+}
+
