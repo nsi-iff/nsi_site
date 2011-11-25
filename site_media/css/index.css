@@ -13,15 +13,18 @@
 }
 
 .box-nsi .header h1 {
-    font-size: 46px;
+    color: #303030;
+    font-size: 42px;
     line-height: 1;
     letter-spacing: -1px;
+    margin-top: 15px;
 }
 
 .box-nsi .header p {
     font-size: 20px;
     line-height: 27px;
-    margin-top: 10px;
+    margin-top: 25px;
+    letter-spacing: -1px;
 }
 
 .box-nsi .content span {
