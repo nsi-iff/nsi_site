@@ -1,10 +1,27 @@
 .box-nsi {
-    height: 250px;
-    padding: 60px 0;
 }
 
-.box-nsi .header h1, .box-nsi .header p {
+.box-nsi .header {
+    background: url(../images/project_papper.png);
+    height: 160px;
+    padding: 40px 0;
+}
+
+.box-nsi .header * {
     text-align: center;
+    margin-bottom: 0;
+}
+
+.box-nsi .header h1 {
+    font-size: 46px;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.box-nsi .header p {
+    font-size: 20px;
+    line-height: 27px;
+    margin-top: 10px;
 }
 
 .box-nsi .content span {
