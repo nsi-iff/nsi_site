@@ -22,7 +22,7 @@
         <div class="content container">
             {% autopaginate projects 5 %}
             {% for project in projects %}
-            <div class="row individual-project round">
+            <div class="row individual-project">
                 <span class="span16">
                     <h3><a href="/projeto/{{ project.slug }}">{{ project.name }}</a></h3>
                     <p>{{ project.description|slice:"250"}} ...</p>
