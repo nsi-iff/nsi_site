@@ -3,79 +3,40 @@
 {% block scripts %}
   {{ block.super }}
   <link rel="stylesheet" type="text/css" href="/site_media/css/projects.css"/>
-
 {% endblock scripts %}
 
 {% block content %}
-
     <div class="box box-project">
         <div class="header">
             <div class="container">
                 <h1>{{ project.name }}</h1>
-                {% if project.logo %}
-                    <img id="logo_image" src="{{ MEDIA_URL }}{{ project.logo.url }}" alt="{{ project.name }}" title="{{ project.name }}"/>
-                {% endif %}
             </div>
         </div>
 
-        <div class="content container">
+        <div class="content">
+            <div class="container">
+                <div class="project-data">
+                    <ul class="members">
+                        {% for member in project_members %}
+                            <li>
+                                <a href="{{ member.get_absolute_url }}">
+                                    <img src="{{ MEDIA_URL }}{{ member.photo.url }}" />
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
 
-            <div class="row">
-                <span class="span16">
-                    <p><b>Descrição:</b> {{ project.description }}</p>
-                </span>
-                <span class="span16">
-                    <p><b>Patrocinador:</b> {{ project.sponsor }}</p>
-                </span>
-                {% if project.github %}
-                <span class="span16">
-                    <p><b>Github:</b> <a href="{{ project.github_link }}" target="_blank">{{ project.github }}</a></p>
-                </span>
-                {% endif %}
-                <span class="span16">
-                    <p><b>Status:</b> {{ project.get_status_display }}</p>
-                    {% if project.finished %}
-                        <p><b>Duração:</b> {{ project.start_date|date:"d/m/Y" }} a {{ project.end_date|date:"d/m/Y" }}</p>
-                    {% else %}
-                        <p><b>Início:</b> {{ project.start_date|date:"d/m/Y" }}</p>
-                    {% endif %}
-                </span>
-                <span class="span16">
-                    {% if project.document_set.all %}
-                        <p><b>Documentos relacionados:</b></p>
-                        <table id="documents">
-                            <thead>
-                                <tr><th>Nome</th><th>Descrição</th><th>Enviado</th></tr>
-                            </thead>
-                            <tbody>
-                            {% for document in project.document_set.all %}
-                                <tr>
-                                    <td>{{ document.title }}</td>
-                                    <td>{{ document.description }}</td>
-                                    <td>{{ document.uploaded_at|date:"d/m/Y à\s H:i" }}</td>
-                                    <td><a href="{{ MEDIA_URL }}/{{ document.file.url }}">Download</a></td>
-                                </tr>
-                            {% endfor %}
-                            </tbody>
-                        </table>
-                    {% endif %}
-                </span>
-                <span class="span16">
-                    {% if participations %}
-                        <p><b>Membros:</b></p>
-                        <ul>
-                            {% for participation in participations %}
-                                {% if participation.project.name == project.name %}
-                                    <li>
-                                    <a href="/membro/{{ participation.member.id }}">{{ participation.member.name }}</a>
-                                    </li>
-                                {% endif %}
-                            {% endfor %}
-                        </ul>
-                    {% endif %}
-                </span>
+                    <span class="sponsor"><strong>sponsor:</strong> {{ project.sponsor }}</span>
+                    <span class="status"><strong>status:</strong> {{ project.status }}</span>
+                    <span class="start"><strong>start:</strong> {{ project.start_date }}</span>{% if project.end_date %} | <span class="end">end: {{ project.end_date }}</span>{% endif %}
+                </div>
+
+                <div class="project-description">
+                    <p>
+                        {{ project.description }}
+                    </p>
+                </div>
             </div>
         </div>
     </div>
-
 {% endblock content %}
