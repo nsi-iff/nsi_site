@@ -1,35 +1,26 @@
 .box-nsi_info .header {
-    height: 40px;
-    padding: 20px 0;
+    padding: 40px 0 20px;
 }
 
 .box-nsi_info .header * {
-    text-align: center;
+    text-align: left;
+}
+
+.box-nsi_info .header h1 {
+    padding-bottom: 20px;
+    border-bottom: 4px solid #A7CC81;
 }
 
 .box-nsi_info .content span {
-    border: 1px solid #eee;
-    text-align: center;
-    margin: 40px 0;
-    -moz-box-shadow: 3px 3px 3px #d6d6d6;
-    -webkit-box-shadow: 3px 3px 3px #d6d6d6;
-    box-shadow: 3px 3px 3px #d6d6d6;
+    border-bottom: 1px dotted #A7CC81;
     overflow: hidden;
-}
-
-.box-nsi_info .content span * {
-    margin: 10px auto;
-    width: 80%;
-}
-
-.box-nsi_info .content span h1 {
-    border-bottom: 1px solid #aaa;
-    text-align: center;
-    padding: 20px 0 10px;
+    padding-bottom: 15px;
+    margin-top: -30px;
 }
 
 .box-nsi_info .content span p {
     text-align: justify;
     font-size: 16px;
-    padding: 10px 0 0;
+    padding: 10px 0;
+    word-wrap: break-word;
 }
