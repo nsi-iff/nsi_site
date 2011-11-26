@@ -32,11 +32,11 @@
     text-align: center;
     height: 250px;
     margin: 20px 0;
-    -webkit-transition: all 0.3s ease-in;  /* Saf3.2+, Chrome */
-     -moz-transition: all 0.3s ease-in;  /* FF4+ */
-      -ms-transition: all 0.3s ease-in;  /* IE10? */
-       -o-transition: all 0.3s ease-in;  /* Opera 10.5+ */
-          transition: all 0.3s ease-in;
+    -webkit-transition: box-shadow 0.3s ease-in;  /* Saf3.2+, Chrome */
+     -moz-transition: box-shadow 0.3s ease-in;  /* FF4+ */
+      -ms-transition: box-shadow 0.3s ease-in;  /* IE10? */
+       -o-transition: box-shadow 0.3s ease-in;  /* Opera 10.5+ */
+          transition: box-shadow 0.3s ease-in;
 
     -moz-box-shadow: 3px 3px 3px #d6d6d6;
     -webkit-box-shadow: 3px 3px 3px #d6d6d6;
@@ -46,11 +46,11 @@
 
 .box-nsi .content span:hover {
     cursor: pointer;
-    -webkit-transition: all 0.3s ease-out;  /* Saf3.2+, Chrome */
-     -moz-transition: all 0.3s ease-out;  /* FF4+ */
-      -ms-transition: all 0.3s ease-out;  /* IE10? */
-       -o-transition: all 0.3s ease-out;  /* Opera 10.5+ */
-          transition: all 0.3s ease-out;
+    -webkit-transition: box-shadow 0.3s ease-out;  /* Saf3.2+, Chrome */
+     -moz-transition: box-shadow 0.3s ease-out;  /* FF4+ */
+      -ms-transition: box-shadow 0.3s ease-out;  /* IE10? */
+       -o-transition: box-shadow 0.3s ease-out;  /* Opera 10.5+ */
+          transition: box-shadow 0.3s ease-out;
 
     -moz-box-shadow: 6px 6px 6px #d4d4d4;
     -webkit-box-shadow: 6px 6px 6px #d4d4d4;
