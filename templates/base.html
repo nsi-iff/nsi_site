@@ -6,13 +6,9 @@
     <link rel="icon" type="image/x-icon" href="{{ MEDIA_URL }}/images/base/favicon.ico" />
 
     {% block styles %}
-        <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ MEDIA_URL }}/css/bootstrap.min.css">
         <link rel="stylesheet" href="{{ MEDIA_URL }}/css/base.css" type="text/css" media="screen" charset="utf-8"/>
     {% endblock styles %}
-
-    {% block scripts %}
-      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-    {% endblock scripts %}
   </head>
 
   <body>
@@ -56,6 +52,9 @@
             </div>
           </div>
       </div>
-      <script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-dropdown.js" type="text/javascript" charset="utf-8"></script>
+    {% block scripts %}
+        <script src="{{ MEDIA_URL }}/javascripts/jquery-1.6.1.min.js"></script>
+        <script src="{{ MEDIA_URL }}/javascripts/bootstrap-dropdown.js" type="text/javascript" charset="utf-8"></script>
+    {% endblock scripts %}
   </body>
 </html>
