@@ -11,12 +11,7 @@
     <div class="box box-projects">
         <div class="header">
             <div class="container">
-                <h1>{{ project_count }} projeto{{ project_count|pluralize }}</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, maiores ornare ac fermentum, imperdiet ut vivamus a, nam lectus at nunc.
-                    <br />
-                    Quam euismod sem, semper ut potenti pellentesque quisque. In eget sapien
-                </p>
+                <h1>projetos</h1>
             </div>
         </div>
         <div class="content container">
@@ -24,9 +19,13 @@
             {% for project in projects %}
             <div class="row individual-project">
                 <span class="span16">
+                    {% if project.logo %}
+                        <img src="{{ MEDIA_URL }}{{ project.logo.url }}" />
+                    {% endif %}
+                    <div class="project-data">
                     <h3><a href="/projeto/{{ project.slug }}">{{ project.name }}</a></h3>
-                    <p>{{ project.description|slice:"250"}} ...</p>
-                    <p><a id="know_more"href="/projeto/{{ project.slug }}" title="Saiba mais">Saiba mais</a></p>
+                    <p>{{ project.description|slice:"250"}}&#133;</p>
+                    </div>
                 </span>
             </div>
             <br />
