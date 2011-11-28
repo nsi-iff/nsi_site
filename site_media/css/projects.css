@@ -22,10 +22,6 @@
     padding-bottom: 15px;
 }
 
-.box-projects .content span:hover {
-    cursor: pointer;
-}
-
 .box-projects .content span h3 {
     font-size: 25px;
 }
