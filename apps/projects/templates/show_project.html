@@ -26,9 +26,9 @@
                         {% endfor %}
                     </ul>
 
-                    <span class="sponsor"><strong>sponsor:</strong> {{ project.sponsor }}</span>
-                    <span class="status"><strong>status:</strong> {{ project.status }}</span>
-                    <span class="start"><strong>start:</strong> {{ project.start_date }}</span>{% if project.end_date %} | <span class="end">end: {{ project.end_date }}</span>{% endif %}
+                    <span class="sponsor"><strong>Patrocinador:</strong> {{ project.sponsor }}</span>
+                    <span class="status"><strong>Status:</strong> {{ project.get_status_display }}</span>
+					<span class="start"><strong>Início:</strong> {{ project.start_date }}</span>{% if project.end_date %} | <span class="end"><strong>Fim:</strong> {{ project.end_date }}</span>{% endif %}
                 </div>
 
                 <div class="project-description">
