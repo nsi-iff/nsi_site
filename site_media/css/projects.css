@@ -82,3 +82,8 @@
 .box-project .content .start, .box-project .content .end {
     display: inline;
 }
+
+.box-project .content .project-description {
+	margin: 10px 0 20px 0;
+	text-align: justify;
+}
