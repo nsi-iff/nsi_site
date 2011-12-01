@@ -1,0 +1,77 @@
+.box-members .header {
+    padding: 40px 0 20px;
+}
+
+.box-members .header * {
+    text-align: left;
+}
+
+.box-members .header h1 {
+    padding-bottom: 20px;
+    border-bottom: 4px solid #A7CC81;
+}
+
+.row {
+    padding-bottom: 20px;
+}
+
+.box-members .content span h3 {
+    border-bottom: 1px solid #aaa;
+    font-size: 20px;
+    text-align: right;
+}
+
+.box-members .content span a {
+    color: #669933;
+}
+
+.box-members .content img {
+  float: left;
+  border: none;
+  border: 2px solid white;
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.box-members .content span {
+    border: 1px solid #eee;
+    padding: 5px;
+    text-align: center;
+    height: 150px;
+    margin: 10px 0;
+    -webkit-transition: box-shadow 0.3s ease-in;  /* Saf3.2+, Chrome */
+     -moz-transition: box-shadow 0.3s ease-in;  /* FF4+ */
+      -ms-transition: box-shadow 0.3s ease-in;  /* IE10? */
+       -o-transition: box-shadow 0.3s ease-in;  /* Opera 10.5+ */
+          transition: box-shadow 0.3s ease-in;
+
+    -moz-box-shadow: 3px 3px 3px #d6d6d6;
+    -webkit-box-shadow: 3px 3px 3px #d6d6d6;
+    box-shadow: 3px 3px 3px #d6d6d6;
+    overflow: hidden;
+    width: 290px;
+}
+
+.box-members .content span:first-child, .box-members .content span:nth-child(3n+1) {
+    margin-right: 15px;
+    margin-left: 20px;
+}
+
+.box-members .content span:nth-child(3n) {
+    margin-left: 15px;
+}
+
+.box-members .content span p {
+    text-align: right;
+    font-size: 12px;
+}
+
+.box-members .content .links {
+    float: right;
+    margin: 5px 0px;
+}
+
+
+.box-members .content li {
+    display: inline;
+}
