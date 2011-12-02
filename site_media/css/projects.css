@@ -74,6 +74,15 @@
     display: block;
 }
 
+.box-project .content .members {
+    display: inline-block;
+}
+
+.box-project .content .members li {
+    float: left;
+    padding: 0 5px 0 0;
+}
+
 .box-project .content strong {
     font-size: 14px;
     display:inline;
