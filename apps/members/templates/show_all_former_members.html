@@ -6,58 +6,60 @@
 {% endblock styles %}
 
 {% block content %}
-<div class="members_content">
-{% for member in members %}
-  <div class="member" id="member{{ member.id }}">
-    <a href="/ex-membro/{{ member.slug }}" title="{{ member.name }}">
-      <img class="avatar" src="{{ MEDIA_URL }}/{{ member.photo.url }}" alt="{{ member.name }}"/>
-    </a>
-    <div class="member_data">
-      <h1>
-        <a href="/ex-membro/{{ member.slug }}" title="{{ member.name }}">{{ member.name }}</a>
-      </h1>
-      <span class="discret">{{ member.get_function_display }}</span>
-      <p>{{ member.currently_does }}</p>
+    <div class="box box-members">
+        <div class="header">
+            <div class="container">
+                <h1>Ex-membros</h1>
+            </div>
+        </div>
+        <div class="content container">
+            <div class="row">
+                {% for member in members %}
+                    <span class="span-one-third">
+                        <img src="{{ MEDIA_URL }}/{{ member.photo.url }}" alt="{{ member.name }}"/>
+                        <h3> <a href="/membro/{{ member.slug }}" title="{{ member.name }}">{{ member.name }}</a> </h3>
+                        <p>{{ member.get_function_display }}</p>
+                        <p>{{ member.currently_does }}</p>
+                        <ul class="links">
+                            {% if member.site %}
+                            <li>
+                                <a href="{{ member.site }}" target="_blank">
+                                    <img src="{{ MEDIA_URL }}/images/base/icon_site.png" alt="Site" title="Site"/>
+                                </a>
+                            </li>
+                            {% endif %}
+                            {% if member.lattes %}
+                            <li>
+                                <a href="{{ member.lattes }}" target="_blank">
+                                    <img src="{{ MEDIA_URL }}/images/base/icon_lattes.png" alt="Lattes" title="Lattes"/>
+                                </a>
+                            </li>
+                            {% endif %}
+                            {% if member.github %}
+                            <li>
+                                <a href="{{ member.github_link }}" target="_blank">
+                                    <img src="{{ MEDIA_URL }}/images/base/icon_github.png" alt="Github" title="Github"/>
+                                </a>
+                            </li>
+                            {% endif %}
+                            {% if member.twitter %}
+                            <li>
+                                <a href="{{ member.twitter_link }}" target="_blank">
+                                    <img src="{{ MEDIA_URL }}/images/base/icon_twitter.png" alt="Twitter" title="Twitter"/>
+                                </a>
+                            </li>
+                            {% endif %}
+                            {% if member.slideshare %}
+                            <li>
+                                <a href="{{ member.slideshare_link }}" target="_blank">
+                                    <img src="{{ MEDIA_URL }}/images/base/icon_slideshare.png" alt="Slideshare" title="Slideshare"/>
+                                </a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </span>
+                {% endfor %}
+            </div>
+        </div>
     </div>
-    <ul class="links">
-      {% if member.site %}
-      <li>
-        <a href="{{ member.site }}" target="_blank">
-          <img src="{{ MEDIA_URL }}/images/base/icon_site.png" alt="Site" title="Site"/>
-        </a>
-      </li>
-      {% endif %}
-      {% if member.lattes %}
-      <li>
-        <a href="{{ member.lattes }}" target="_blank">
-          <img src="{{ MEDIA_URL }}/images/base/icon_lattes.png" alt="Lattes" title="Lattes"/>
-        </a>
-      </li>
-      {% endif %}
-      {% if member.github %}
-      <li>
-        <a href="{{ member.github_link }}" target="_blank">
-          <img src="{{ MEDIA_URL }}/images/base/icon_github.png" alt="Github" title="Github"/>
-        </a>
-      </li>
-      {% endif %}
-      {%if member.twitter %}
-      <li>
-        <a href="{{ member.twitter_link }}" target="_blank">
-          <img src="{{ MEDIA_URL }}/images/base/icon_twitter.png" alt="Twitter" title="Twitter"/>
-        </a>
-      </li>
-      {% endif %}
-      {% if member.slideshare %}
-      <li>
-        <a href="{{ member.slideshare_link }}" target="_blank">
-          <img src="{{ MEDIA_URL }}/images/base/icon_slideshare.png" alt="Slideshare" title="Slideshare"/>
-        </a>
-      </li>
-      {% endif %}
-    </ul>
-  </div>
-{% endfor %}
-</div>
 {% endblock content %}
-
