@@ -10,90 +10,92 @@
 {% endblock scripts %}
 
 {% block content %}
-  <div class="member_details">
-      <img class="avatar" src="{{ MEDIA_URL }}/{{ member.photo.url }}" alt="{{ member.name }}" title="{{ member.name }}" >
-      <div class="data">
-        <h1>{{ member.name }}</h1>
-        {% if member.nickname %}
-        <br> ({{ member.nickname }})
-        {% endif %}
-        {% if user.is_authenticated %}
-            {% if member.phone %}
-            <br><br> {{ member.phone }}
-            {% endif %}
-        {% endif %}
-        <h3>{{ member.currently_does }}</h3>
-        <p>{{ member.life_and_work }}</p>
-        <p><span class="text_highlight">Função:</span> <span>{{ member.get_function_display }}</span></p>
-        <div class="member_links">
-          {% if member.site %}
-          <a href="{{ member.site }}" target="_blank">
-            <img src="{{ MEDIA_URL }}/images/base/icon_site.png" alt="Site" title="Site"/>
-            <span class="text_highlight">Site:</span> <span>{{ member.site }}</span>
-          </a>
-          {% endif %}
-          {% if member.lattes %}
-          <a href="{{ member.lattes }}" target="_blank">
-            <img src="{{ MEDIA_URL }}/images/base/icon_lattes.png" alt="Lattes" title="Lattes"/>
-            <span class="text_highlight">Curriculo Lattes:</span> <span>{{ member.lattes }}</span>
-          </a>
-          {% endif %}
-          {% if member.github %}
-          <a href="{{ member.github_link }}" target="_blank">
-            <img src="{{ MEDIA_URL }}/images/base/icon_github.png" alt="Github" title="Github"/>
-            <span class="text_highlight">Github:</span> <span id="github_user">{{ member.github }}</span>
-          </a>
-          {% endif %}
-          {%if member.twitter %}
-          <a href="{{ member.twitter_link }}" target="_blank">
-            <img src="{{ MEDIA_URL }}/images/base/icon_twitter.png" alt="Twitter" title="Twitter"/>
-            <span class="text_highlight">Twitter:</span> <span>@{{ member.twitter }}</span>
-          </a>
-          {% endif %}
-          {% if member.slideshare %}
-          <a href="{{ member.slideshare_link }}" target="_blank">
-            <img src="{{ MEDIA_URL }}/images/base/icon_slideshare.png" alt="Slideshare" title="Slideshare"/>
-            <span class="text_highlight">SlideShare:</span> <span>{{ member.slideshare }}</span>
-          </a>
-          {% endif %}
+    <div class="box box-member">
+        <div class="header">
+            <div class="container">
+                <h1>{{ member.name }}</h1>
+            </div>
         </div>
-        {% if member.desertion_nsi_date %}
-          <span class="text_highlight">Data de início no NSI:</span> <span>{{ member.started_nsi_date|date:"d/m/Y" }}</span>
-          <br/>
-          <span class="text_highlight">Data de saída do NSI:</span> <span>{{ member.desertion_nsi_date|date:"d/m/Y" }}</span>
-        {% else %}
-          <span class="text_highlight">Membro desde:</span> <span>{{ member.started_nsi_date|date:"d/m/Y" }}</span>
-        {% endif %}
-        {% if participation_list %}
-        <p>
-          <h3>Participações:</h3>
-          <ul>
-          {% for participation in participation_list %}
-            <li>
-              <p>{{ participation.project.name }}</p>
-              {% if participation.end_date %}
-                <p>Duração: {{ participation.start_date|date:"d/m/Y" }} a {{ participation.end_date|date:"d/m/Y" }}</p>
-              {% else %}
-                <p>Início: {{ participation.start_date|date:"d/m/Y" }}
-              {% endif %}
-            </li>
-          {% endfor %}
-          </ul>
-        </p>
-        {% endif %}
-        {% if member.github %}
-        <div class="github_activities">
-          <span id="github_feed" hidden>{{ member.github_feed }}</span>
-          <a href="{{ member.github_feed }}" target="_blank">
-            <p><span class="text_highlight" hidden>Atividades no Github:</span></p>
-          </a>
-          <ul class="activities">
-          </ul>
-        </div>
-        {% endif %}
-        <div id="coderwall">
-        </div>
-      </div>
-  </div>
-{% endblock content %}
 
+        <div class="content">
+            <div class="container">
+                <div class="avatar">
+                    <img src="{{ MEDIA_URL }}/{{ member.photo.url }}" alt="{{ member.name }}" title="{{ member.name }}" >
+                </div>
+                <div class="member-data">
+                    <p><strong>{{ member.currently_does }}</strong></p>
+                    <p>{{ member.life_and_work }}</p>
+                    <p><strong>Função:</strong> {{ member.get_function_display }}</p>
+                    <ul class="links">
+                        {% if member.site %}
+                            <a href="{{ member.site }}" target="_blank">
+                                <img src="{{ MEDIA_URL }}/images/base/icon_site.png" alt="Site" title="Site"/>
+                                <p><strong>Site:</strong> {{ member.site }}</p>
+                            </a>
+                        {% endif %}
+                        {% if member.lattes %}
+                            <a href="{{ member.lattes }}" target="_blank">
+                                <img src="{{ MEDIA_URL }}/images/base/icon_lattes.png" alt="Lattes" title="Lattes"/>
+                                <p><strong>Lattes:</strong> {{ member.lattes }}</p>
+                            </a>
+                        {% endif %}
+                        {% if member.github %}
+                            <a href="{{ member.github_link }}" target="_blank">
+                                <img src="{{ MEDIA_URL }}/images/base/icon_github.png" alt="Github" title="Github"/>
+                                <p id="github_user"><strong>Github:</strong> {{ member.github_link }}</p>
+                            </a>
+                        {% endif %}
+                        {% if member.twitter %}
+                            <a href="{{ member.twitter_link }}" target="_blank">
+                                <img src="{{ MEDIA_URL }}/images/base/icon_twitter.png" alt="Twitter" title="Twitter"/>
+                                <p><strong>Twitter:</strong> {{ member.twitter_link }}</p>
+                            </a>
+                        {% endif %}
+                        {% if member.slideshare %}
+                            <a href="{{ member.slideshare_link }}" target="_blank">
+                                <img src="{{ MEDIA_URL }}/images/base/icon_slideshare.png" alt="Slideshare" title="Slideshare"/>
+                                <p><strong>Slideshare:</strong> {{ member.slideshare }}</p>
+                            </a>
+                        {% endif %}
+                    </ul>
+
+                    {% if member.desertion_nsi_date %}
+                        <p><strong>Data de início no NSI:</strong> {{ member.started_nsi_date|date:"d/m/Y" }}</p>
+                        <p><strong>Data de saída do NSI:</strong> {{ member.desertion_nsi_date|date:"d/m/Y" }}</p>
+                    {% else %}
+                        <p><strong>Membro desde:</strong> {{ member.started_nsi_date|date:"d/m/Y" }}</p> <br />
+                    {% endif %}
+
+                    {% if participation_list %}
+                        <strong>Participações:</strong> <br /><br />
+                        <ul>
+                            {% for participation in participation_list %}
+                                <li>
+                                    <p>{{ participation.project.name }}</p>
+                                        {% if participation.end_date %}
+                                            <p>Duração: {{ participation.start_date|date:"d/m/Y" }} a {{ participation.end_date|date:"d/m/Y" }}</p>
+                                        {% else %}
+                                            <p>Início: {{ participation.start_date|date:"d/m/Y" }}
+                                        {% endif %}
+                                </li>
+                            {% endfor %}
+                    {% endif %}
+                    {% if member.github %}
+                        <div class="coderwall">
+                        </div>
+                    {% endif %}
+<!-- TODO -->
+<!--        <div class="github_activities">-->
+<!--          <span id="github_feed" hidden>{{ member.github_feed }}</span>-->
+<!--          <a href="{{ member.github_feed }}" target="_blank">-->
+<!--            <p><span class="text_highlight" hidden>Atividades no Github:</span></p>-->
+<!--          </a>-->
+<!--          <ul class="activities">-->
+<!--          </ul>-->
+<!--        </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
