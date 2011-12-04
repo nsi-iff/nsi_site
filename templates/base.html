@@ -29,8 +29,8 @@
                                       <li class="dropdown">
                                       <a href="#" class="dropdown-toggle">Membros</a>
                                       <ul class="dropdown-menu">
-                                          <li><a href="#">Atuais</a></li>
-                                          <li><a href="#">Ex-membros</a></li>
+                                          <li><a href="/membros">Atuais</a></li>
+                                          <li><a href="/ex-membros">Ex-membros</a></li>
                                       </ul>
                                       </li>
                                   </ul>
@@ -53,6 +53,7 @@
           </div>
       </div>
     {% block scripts %}
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
         <script src="{{ MEDIA_URL }}/javascripts/jquery-1.6.1.min.js"></script>
         <script src="{{ MEDIA_URL }}/javascripts/bootstrap-dropdown.js" type="text/javascript" charset="utf-8"></script>
     {% endblock scripts %}
