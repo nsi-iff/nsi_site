@@ -1,16 +1,3 @@
-.box-members .header {
-    padding: 40px 0 20px;
-}
-
-.box-members .header * {
-    text-align: left;
-}
-
-.box-members .header h1 {
-    padding-bottom: 20px;
-    border-bottom: 4px solid #A7CC81;
-}
-
 .row {
     padding-bottom: 20px;
 }
