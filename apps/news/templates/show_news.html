@@ -8,24 +8,32 @@
 {% endblock styles %}
 
 {% block content %}
-  <div id="news">
-    {% autopaginate news 5 %}
-    {% for new in news %}
-      <div class="new">
-        {% if new.image %}
-          <a href="/noticia/{{ new.slug }}" title="{{ new.title }}">
-            <img class="floated_image" src="{{ MEDIA_URL }}/{{ new.image.url }}" alt="{{ new.title }}" title="{{ new.title }}" />
-          </a>
-        {% endif %}
-        <h1><a href="/noticia/{{ new.slug }}" title="{{ new.title }}">{{ new.title }}</a></h1>
-        <h2>{{ new.summary }}</h2>
-        <h3>{{ new.body|slice:"200" }} ...</h3>
-        <p>
-          <span>Data:</span> {{ new.date_and_time|date:"d/m/Y à\s H:i" }} - <span>Postado por:</span> {{ new.author }}
-          <a href="/noticia/{{ new.slug }}">Leia mais <span>+</span></a>
-        </p>
-      </div>
-    {% endfor %}
-  </div>
-  {% paginate %}
+  <div class="box box-news">
+        <div class="header">
+            <div class="container">
+                <h1>Noticias</h1>
+            </div>
+        </div>
+        <div class="content container">
+            {% autopaginate news 5 %}
+            {% for new in news %}
+            <div class="row individual-new">
+                <span class="span16">
+                    {% if new.image %}
+                        <img src="{{ MEDIA_URL }}{{ new.image.url }}" />
+                    {% endif %}
+                    <div class="new-data">
+                        <h3><a href="/noticia/{{ new.slug }}">{{ new.title }}</a></h3>
+                        <h4>{{ new.summary }}</h4>
+                        <div>
+                            <span>Data:</span> {{ new.date_and_time|date:"d/m/Y à\s H:i" }} - <span>Postado por:</span> <strong>{{ new.author }}</strong>
+                        </div>
+                    </div>
+                </span>
+            </div>
+            <br />
+            {% endfor %}
+            {% paginate %}
+        </div>
+    </div>
 {% endblock content %}

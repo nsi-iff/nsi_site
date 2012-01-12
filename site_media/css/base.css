@@ -28,3 +28,12 @@
     font-weight: bold;
     text-align: left;
 }
+
+.pagination a {
+    float: none;
+    padding: 0;
+    line-height: 34px;
+    border: none;
+    text-decoration: none;
+    color: #A7CC81;
+}

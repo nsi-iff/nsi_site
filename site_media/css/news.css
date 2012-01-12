@@ -1,0 +1,19 @@
+.box-news .content span h3 {
+    font-size: 25px;
+    line-height: 25px;
+}
+
+.box-news .content span h3 a {
+    color: #A7CC81;
+}
+
+.box-news .content span h4 {
+    font-size: 15px;
+    color: #929292;
+}
+
+.box-news .content .individual-new .span16 {
+    padding-bottom: 15px;
+    border-bottom: 1px dotted #ccc;
+}
+
