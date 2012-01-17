@@ -83,9 +83,8 @@
         {% endif %}
         {% if member.github %}
         <div class="github_activities">
-          <span id="github_feed" hidden>{{ member.github_feed }}</span>
-          <a href="{{ member.github_feed }}" target="_blank">
             <p><span class="text_highlight" hidden>Atividades no Github:</span></p>
+            <script> $('div.github_activities').activities({ 'username': '{{ member.github }}', 'hide_username': true }); </script>
           </a>
           <ul class="activities">
           </ul>
