@@ -1,41 +1,49 @@
-function parseRSS(url, callback) {
-  $.ajax({
-    url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&callback=?&q=' + encodeURIComponent(url),
-    async: true,
-    dataType: 'json',
-    success: function(data) {
-      callback(data.responseData.feed);
+// jQuery plugin to show github user's activities
+// https://github.com/bernardofire/github-activities
+
+(function($) {
+    function parse(feed, container, settings) {
+        if (feed.entries.length > 0) {
+            $(feed.entries).each(function(key, entry){
+                var content = entry.contentSnippet;
+                //convert special chars and remove unnecessary "   ..." from content
+                var description = $('<a />').html(content).text().trim().replace(new RegExp("[\n ]+...$"),'');
+                var title = entry.title;
+                if (settings.hide_username)
+                    title = title.replace(new RegExp('^' + entry.author + ' '), '');
+                var li_entry = $('<li />').text(title);
+                var div_entry = $('<a />').append(li_entry);
+                div_entry.attr({
+                    'href': entry.link,
+                    'target': '_blank',
+                    'title': description
+                });
+                $(container).append(div_entry);
+            });
+        }
     }
-  });
-}
 
-function placeActivities(feed) {
-  if (feed.entries.length > 0) {
-    $('div.github_activities span.text_highlight').show();
-    var div_activities = $('ul.activities');
-    $(feed.entries).each(function(key, entry){
-      var author = entry.author;
-      var title = entry.title;
-      var link = entry.link;
-      var content = entry.contentSnippet;
-      //remove author from start of entry title
-      var author_regexp = new RegExp("^" + author + " ");
-      title = title.replace(author_regexp, '');
-      //convert special chars and remove unnecessary "   ..." from content
-      var description = $('<a />').html(content).text().trim().replace(new RegExp("[\n ]+...$"),'')
+    $.fn.extend({
+        activities:
+            function(options) {
+                var defaults = {
+                    'username': '',
+                    'hide_username': false,
+                }
 
-      var li_entry = $('<li />').text(title)
-      var div_entry = $('<a />').append(li_entry)
-      div_entry.attr('href', link);
-      div_entry.attr('target', '_blank');
-      div_entry.attr('title', description);
-      div_activities.append(div_entry);
+                var settings = $.extend(defaults, options);
+
+                return this.each(function() {
+                    var container = $(this)
+                    $.ajax({
+                        url: 'http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&callback=?&q=' + encodeURIComponent('http://github.com/' + settings.username + '.atom'),
+                        async: true,
+                        dataType: 'json',
+                        success: function(data) {
+                            parse(data.responseData.feed, container, settings);
+                        }
+                    });
+                });
+        }
     });
-  }
-}
-
-$(document).ready(function(){
-  var github_feed = $('span#github_feed').text();
-  parseRSS(github_feed, placeActivities);
-});
-
+})(jQuery);
