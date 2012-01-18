@@ -6,25 +6,38 @@
 {% endblock scripts %}
 
 {% block content %}
-  <div class="new">
-    {% if news_obj.image %}
-      <div id="new_image">
-        <img class="floated_image" src="{{ MEDIA_URL }}/{{ news_obj.image.url }}" alt="{{ news_obj.title }}" title="{{ news_obj.title }}" />
-      </div>
-    {% endif %}
-    <h1>{{ news_obj.title }}</h1>
-    <h2>{{ news_obj.summary }}</h2>
-    <h3>{{ news_obj.body_as_html|safe }}</h3>
-    <p><span class="text_highlight">Postado por:</span> {{ news_obj.author }}</p>
-    <p><span class="text_highlight">Data:</span> {{ news_obj.date_and_time|date:"d/m/Y à\s H:i" }}</p>
-    {% if news_obj.projects_relateds.all %}
-    <p><span class="text_highlight">Projetos relacionados:</span></p>
-      <ul>
-        {% for project in news_obj.projects_relateds.all %}
-          <li><a href="/projeto/{{ project.slug }}">{{ project.name }}</a></li>
-        {% endfor %}
-      </ul>
-    {% endif %}
+  <div class="news box-news">
+    <div class="header-news">
+        <div class="container">
+            <h1>{{ news_obj.title }}</h1>
+            <h2>{{ news_obj.summary }}</h2>
+        </div>
+    </div>
+
+    <div class="content-news">
+        <div class="container">
+            {% if news_obj.image %}
+              <div id="new_image">
+                <img class="floated_image" src="{{ MEDIA_URL }}/{{ news_obj.image.url }}" alt="{{ news_obj.title }}" title="{{ news_obj.title }}" />
+              </div>
+            {% endif %}
+            <div class='content'>{{ news_obj.body_as_html|safe }}</div>
+            <p class='news-info'><span class="text_highlight">Por:</span> {{ news_obj.author }} | {{ news_obj.date_and_time|date:"d/m/Y à\s H:i" }}</p>
+        </div>
+    </div>
+
+    <div class="footer-news">
+        <div class="container">
+            {% if news_obj.projects_relateds.all %}
+            <p><span class="text_highlight">Projetos relacionados:</span></p>
+              <ul>
+                {% for project in news_obj.projects_relateds.all %}
+                  <li><a href="/projeto/{{ project.slug }}">{{ project.name }}</a></li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+        </div>
+    </div>
   </div>
 {% endblock content %}
 
