@@ -118,11 +118,15 @@
     border: none
 }
 
-.box-member .content li {
-    display: inline;
-}
-
 .box-member .content img:last-child {
     padding-bottom: 20px;
+}
+
+div.github_activities ul.activities li {
+  padding: 1px 0 1px 0;
+}
+
+div.github_activities ul.activities a:hover {
+  text-decoration: underline;
 }
 

@@ -81,56 +81,16 @@
                             {% endfor %}
                     {% endif %}
                     {% if member.github %}
+                        <div class="github_activities">
+                            <p><span class="text_highlight" hidden>Atividades no Github:</span></p>
+                            <ul class="activities"> </ul>
+                            <script> $('ul.activities').activities({ 'username': '{{ member.github }}', 'hide_username': true }); </script>
+                        </div>
                         <div class="coderwall">
                         </div>
                     {% endif %}
-<!-- TODO -->
-<!--        <div class="github_activities">-->
-<!--          <span id="github_feed" hidden>{{ member.github_feed }}</span>-->
-<!--          <a href="{{ member.github_feed }}" target="_blank">-->
-<!--            <p><span class="text_highlight" hidden>Atividades no Github:</span></p>-->
-<!--          </a>-->
-<!--          <ul class="activities">-->
-<!--          </ul>-->
-<!--        </div>-->
                 </div>
             </div>
-<!--MERGE -->
-{#         {% if member.desertion_nsi_date %} #}
-{#           <span class="text_highlight">Data de início no NSI:</span> <span>{{ member.started_nsi_date|date:"d/m/Y" }}</span> #}
-{#           <br/> #}
-{#           <span class="text_highlight">Data de saída do NSI:</span> <span>{{ member.desertion_nsi_date|date:"d/m/Y" }}</span> #}
-{#         {% else %} #}
-{#           <span class="text_highlight">Membro desde:</span> <span>{{ member.started_nsi_date|date:"d/m/Y" }}</span> #}
-{#         {% endif %} #}
-{#         {% if participation_list %} #}
-{#         <p> #}
-{#           <h3>Participações:</h3> #}
-{#           <ul> #}
-{#           {% for participation in participation_list %} #}
-{#             <li> #}
-{#               <p>{{ participation.project.name }}</p> #}
-{#               {% if participation.end_date %} #}
-{#                 <p>Duração: {{ participation.start_date|date:"d/m/Y" }} a {{ participation.end_date|date:"d/m/Y" }}</p> #}
-{#               {% else %} #}
-{#                 <p>Início: {{ participation.start_date|date:"d/m/Y" }} #}
-{#               {% endif %} #}
-{#             </li> #}
-{#           {% endfor %} #}
-{#           </ul> #}
-{#         </p> #}
-{#         {% endif %} #}
-{#         {% if member.github %} #}
-{#         <div class="github_activities"> #}
-{#             <p><span class="text_highlight" hidden>Atividades no Github:</span></p> #}
-{#             <script> $('div.github_activities').activities({ 'username': '{{ member.github }}', 'hide_username': true }); </script> #}
-{#           </a> #}
-{#           <ul class="activities"> #}
-{#           </ul> #}
-{#         </div> #}
-{#         {% endif %} #}
-{#         <div id="coderwall"> #}
-{# >>>>>>> origin/master #}
         </div>
     </div>
 
