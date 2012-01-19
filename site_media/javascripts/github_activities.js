@@ -47,3 +47,9 @@
         }
     });
 })(jQuery);
+
+$(document).ready(function() {
+    var github_link = $('#github_user').text().split('/');
+    var member = github_link[github_link.length-1]
+    $('ul.activities').activities({ 'username': member, 'hide_username': true });
+});
