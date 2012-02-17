@@ -7,7 +7,7 @@ function github_project() {
                     html += "<div class='project-infos'>";
                         html += "<span>watchers: ${watchers}</span>";
                         html += "<span>fork: ${forks}</span>";
-                        html += "<span>homepage: <a href='${homepage}'</a>${homepage}</span>";
+                        html += "{{if homepage }}<span>homepage: <a href='${homepage}'</a>${homepage}</span> {{/if}}";
                     html += "</div>";
                 html += '</div>';
             html += "</span>";
