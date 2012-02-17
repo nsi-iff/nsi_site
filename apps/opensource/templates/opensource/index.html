@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{{ MEDIA_URL }}/css/projects.css" type="text/css" media="screen" charset="utf-8"/>
+    <style type="text/css" media="screen">
+        .project-data {
+            width: 100% !important;
+        }
+
+        .project-infos span {
+            border-left: 1px solid #A7CC81;
+            border-bottom: none !important;
+            padding: 5px 5px 5px 5px;
+            padding-bottom: 5px !important;
+        }
+
+        .project-infos span:first-child {
+            padding-left: 0;
+            border-left: none;
+        }
+
+        .project-infos a {
+            color: #A7CC81;
+        }
+    </style>
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
+    <script src="{{ MEDIA_URL}}/javascripts/github_projects.js" type="text/javascript" charset="utf-8"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="box box-projects">
+        <div class="header">
+            <div class="container">
+                <h1>Projetos Open Source</h1>
+            </div>
+        </div>
+        <div class="content container"></div>
+    </div>
+{% endblock %}

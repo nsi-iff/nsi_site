@@ -87,6 +87,7 @@ INSTALLED_APPS = (
     'apps.tools',
     'apps.members',
     'apps.wiki',
+    'apps.opensource',
 )
 
 PAGINATION_DEFAULT_WINDOW = 1

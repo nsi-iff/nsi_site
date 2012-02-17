@@ -1,4 +1,5 @@
 from django.conf.urls.defaults import *
+from django.views.generic.base import TemplateView
 from django.conf import settings
 from django.contrib import admin
 
@@ -19,6 +20,8 @@ urlpatterns = patterns('',
     url(r'^', include('apps.members.urls')),
 
     url(r'^', include('apps.tools.urls')),
+
+    url(r"^opensource/$", TemplateView.as_view(template_name="opensource/index.html")),
 
     (r'^wiki/', include('apps.wiki.urls')),
 
