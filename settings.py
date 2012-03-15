@@ -1,5 +1,5 @@
+# -*- coding: utf-8 -*-
 import os
-
 
 PROJECT_ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
 
@@ -30,16 +30,18 @@ SITE_ID = 1
 USE_I18N = True
 USE_L10N = True
 
-STATIC_ROOT = os.path.join(PROJECT_ROOT_PATH, 'site_media')
+MEDIA_ROOT = os.path.join(PROJECT_ROOT_PATH, 'media')
 
-STATIC_URL = '/site_media'
+MEDIA_URL = '/media/'
 
-ADMIN_MEDIA_PREFIX = STATIC_URL +"admin/"
+STATIC_ROOT = os.path.join(PROJECT_ROOT_PATH, 'collected_statics')
+
+STATIC_URL = '/static'
+
+ADMIN_MEDIA_PREFIX = STATIC_URL +"/admin/"
 
 STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(PROJECT_ROOT_PATH, 'site_media'),
 )
 
 STATICFILES_FINDERS = (
@@ -92,8 +94,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
-    'django.contrib.admin',
     'django.contrib.staticfiles',
+    'django.contrib.admin',
     'south',
     'linaro_django_pagination',
     'apps.home_page',

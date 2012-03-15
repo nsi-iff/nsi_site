@@ -18,7 +18,7 @@ test_database:
 
 
 remove_test_database:
-	@echo Deleting test database... 
+	@echo Deleting test database...
 	@rm nsi_site-test.db
 
 deps: app_deps functional_deps unit_deps
@@ -46,3 +46,5 @@ unit: unit_deps deps
 	@specloud --with-django --nocapture
 	@echo
 
+run:
+	@python manage.py runserver 0.0.0.0:8000
