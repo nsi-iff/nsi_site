@@ -4,7 +4,7 @@
 
 {% block styles %}
   {{ block.super }}
-  <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/news.css">
+  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}/css/news.css">
 {% endblock styles %}
 
 {% block content %}
@@ -20,7 +20,7 @@
             <div class="row individual-new">
                 <span class="span16">
                     {% if new.image %}
-                        <img src="{{ MEDIA_URL }}{{ new.image.url }}" />
+                        <img src="{{ STATIC_URL }}{{ new.image.url }}" />
                     {% endif %}
                     <div class="new-data">
                         <h3><a href="/noticia/{{ new.slug }}">{{ new.title }}</a></h3>

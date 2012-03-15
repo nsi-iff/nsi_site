@@ -2,7 +2,7 @@
 
 {% block scripts %}
   {{ bloc.super }}
-  <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/news.css">
+  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}/css/news.css">
 {% endblock scripts %}
 
 {% block content %}
@@ -18,7 +18,7 @@
         <div class="container">
             {% if news_obj.image %}
               <div id="new_image">
-                <img class="floated_image" src="{{ MEDIA_URL }}/{{ news_obj.image.url }}" alt="{{ news_obj.title }}" title="{{ news_obj.title }}" />
+                <img class="floated_image" src="{{ STATIC_URL }}/{{ news_obj.image.url }}" alt="{{ news_obj.title }}" title="{{ news_obj.title }}" />
               </div>
             {% endif %}
             <div class='content'>{{ news_obj.body_as_html|safe }}</div>

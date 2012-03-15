@@ -4,7 +4,7 @@
 
 {% block scripts %}
   {{ block.super }}
-  <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/projects.css"/>
+  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}/css/projects.css"/>
 {% endblock scripts %}
 
 {% block content %}
@@ -20,7 +20,7 @@
             <div class="row individual-project">
                 <span class="span16">
                     {% if project.logo %}
-                        <img src="{{ MEDIA_URL }}{{ project.logo.url }}" />
+                        <img src="{{ STATIC_URL }}{{ project.logo.url }}" />
                     {% endif %}
                     <div class="project-data">
                     <h3><a href="/projeto/{{ project.slug }}">{{ project.name }}</a></h3>

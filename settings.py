@@ -30,9 +30,23 @@ SITE_ID = 1
 USE_I18N = True
 USE_L10N = True
 
-MEDIA_ROOT = os.path.join(PROJECT_ROOT_PATH, 'site_media')
-MEDIA_URL = '/site_media'
-#ADMIN_MEDIA_PREFIX = '/admin_media/'
+STATIC_ROOT = os.path.join(PROJECT_ROOT_PATH, 'site_media')
+
+STATIC_URL = '/static/'
+
+ADMIN_MEDIA_PREFIX = STATIC_URL +"admin/"
+
+STATICFILES_DIRS = (
+    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+)
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
 
 SECRET_KEY = 'orv%lcr5o-_@#uq+)@^krb)fh*_p$v*!xtayj4sly@d1s)r^1+'
 
@@ -78,6 +92,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.admin',
+    'django.contrib.staticfiles',
     'south',
     'linaro_django_pagination',
     'apps.home_page',

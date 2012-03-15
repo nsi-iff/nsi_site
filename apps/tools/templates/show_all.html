@@ -4,7 +4,7 @@
 
 {% block styles %}
   {{ block.super }}
-  <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/tools.css">
+  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}/css/tools.css">
 {% endblock styles %}
 
 {% block content %}
@@ -14,7 +14,7 @@
       <div class="tool">
         {% if tool.logo %}
           <a href="/ferramenta/{{ tool.slug }}" title="{{ tool.name }}">
-            <img src="{{ MEDIA_URL }}{{ tool.logo.url }}" alt="{{ tool.name }}" title="{{ tool.name }}"/>
+            <img src="{{ STATIC_URL }}{{ tool.logo.url }}" alt="{{ tool.name }}" title="{{ tool.name }}"/>
           </a>  
         {% endif %} 
         <div id="data"> 

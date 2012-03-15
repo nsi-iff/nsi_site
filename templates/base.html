@@ -3,11 +3,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <title>{% block title %}NSI - Núcleo de Pesquisa em Sistemas de Informação{% endblock title %}</title>
-    <link rel="icon" type="image/x-icon" href="{{ MEDIA_URL }}/images/base/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="{{ STATIC_URL }}/images/base/favicon.ico" />
 
     {% block styles %}
-        <link rel="stylesheet" href="{{ MEDIA_URL }}/css/bootstrap.min.css">
-        <link rel="stylesheet" href="{{ MEDIA_URL }}/css/base.css" type="text/css" media="screen" charset="utf-8"/>
+        <link rel="stylesheet" href="{{ STATIC_URL }}/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}/css/base.css" type="text/css" media="screen" charset="utf-8"/>
     {% endblock styles %}
   </head>
 
@@ -53,8 +53,8 @@
           </div>
       </div>
     {% block scripts %}
-        <script src="{{ MEDIA_URL }}/javascripts/jquery-1.7.1.min.js"></script>
-        <script src="{{ MEDIA_URL }}/javascripts/bootstrap-dropdown.js" type="text/javascript" charset="utf-8"></script>
+        <script src="{{ STATIC_URL }}/javascripts/jquery-1.7.1.min.js"></script>
+        <script src="{{ STATIC_URL }}/javascripts/bootstrap-dropdown.js" type="text/javascript" charset="utf-8"></script>
     {% endblock scripts %}
 
   </body>

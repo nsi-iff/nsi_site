@@ -5,8 +5,8 @@
 
 {% block scripts %}
     {{ block.super }}
-    <script src="{{ MEDIA_URL }}/javascripts/coderwall.js" type="text/javascript"> </script>
-    <script src="{{ MEDIA_URL }}/javascripts/github_activities.js" type="text/javascript"> </script>
+    <script src="{{ STATIC_URL }}/javascripts/coderwall.js" type="text/javascript"> </script>
+    <script src="{{ STATIC_URL }}/javascripts/github_activities.js" type="text/javascript"> </script>
 {% endblock scripts %}
 
 {% block content %}
@@ -20,7 +20,7 @@
         <div class="content">
             <div class="container">
                 <div class="avatar">
-                    <img src="{{ MEDIA_URL }}/{{ member.photo.url }}" alt="{{ member.name }}" title="{{ member.name }}" >
+                    <img src="{{ STATIC_URL }}/{{ member.photo.url }}" alt="{{ member.name }}" title="{{ member.name }}" >
                 </div>
                 <div class="member-data">
                     <p><strong>{{ member.currently_does }}</strong></p>
@@ -29,31 +29,31 @@
                     <ul class="links">
                         {% if member.site %}
                             <a href="{{ member.site }}" target="_blank">
-                                <img src="{{ MEDIA_URL }}/images/base/icon_site.png" alt="Site" title="Site"/>
+                                <img src="{{ STATIC_URL }}/images/base/icon_site.png" alt="Site" title="Site"/>
                                 <p><strong>Site:</strong> {{ member.site }}</p>
                             </a>
                         {% endif %}
                         {% if member.lattes %}
                             <a href="{{ member.lattes }}" target="_blank">
-                                <img src="{{ MEDIA_URL }}/images/base/icon_lattes.png" alt="Lattes" title="Lattes"/>
+                                <img src="{{ STATIC_URL }}/images/base/icon_lattes.png" alt="Lattes" title="Lattes"/>
                                 <p><strong>Lattes:</strong> {{ member.lattes }}</p>
                             </a>
                         {% endif %}
                         {% if member.github %}
                             <a href="{{ member.github_link }}" target="_blank">
-                                <img src="{{ MEDIA_URL }}/images/base/icon_github.png" alt="Github" title="Github"/>
+                                <img src="{{ STATIC_URL }}/images/base/icon_github.png" alt="Github" title="Github"/>
                                 <p id="github_user"><strong>Github:</strong> {{ member.github_link }}</p>
                             </a>
                         {% endif %}
                         {% if member.twitter %}
                             <a href="{{ member.twitter_link }}" target="_blank">
-                                <img src="{{ MEDIA_URL }}/images/base/icon_twitter.png" alt="Twitter" title="Twitter"/>
+                                <img src="{{ STATIC_URL }}/images/base/icon_twitter.png" alt="Twitter" title="Twitter"/>
                                 <p><strong>Twitter:</strong> {{ member.twitter_link }}</p>
                             </a>
                         {% endif %}
                         {% if member.slideshare %}
                             <a href="{{ member.slideshare_link }}" target="_blank">
-                                <img src="{{ MEDIA_URL }}/images/base/icon_slideshare.png" alt="Slideshare" title="Slideshare"/>
+                                <img src="{{ STATIC_URL }}/images/base/icon_slideshare.png" alt="Slideshare" title="Slideshare"/>
                                 <p><strong>Slideshare:</strong> {{ member.slideshare }}</p>
                             </a>
                         {% endif %}

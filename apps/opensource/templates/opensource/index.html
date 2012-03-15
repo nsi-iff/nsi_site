@@ -2,7 +2,7 @@
 
 {% block styles %}
     {{ block.super }}
-    <link rel="stylesheet" href="{{ MEDIA_URL }}/css/projects.css" type="text/css" media="screen" charset="utf-8"/>
+    <link rel="stylesheet" href="{{ STATIC_URL }}/css/projects.css" type="text/css" media="screen" charset="utf-8"/>
     <style type="text/css" media="screen">
         .project-data {
             width: 100% !important;
@@ -29,7 +29,7 @@
 {% block scripts %}
     {{ block.super }}
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
-    <script src="{{ MEDIA_URL}}/javascripts/github_projects.js" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ STATIC_URL}}/javascripts/github_projects.js" type="text/javascript" charset="utf-8"></script>
 {% endblock %}
 
 {% block content %}

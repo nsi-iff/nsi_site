@@ -20,7 +20,7 @@
                         {% for member in project_members %}
                             <li>
                                 <a href="/membro/{{ member.slug }}">
-                                    <img src="{{ MEDIA_URL }}{{ member.photo.url }}" />
+                                    <img src="{{ STATIC_URL }}{{ member.photo.url }}" />
                                 </a>
                             </li>
                         {% endfor %}

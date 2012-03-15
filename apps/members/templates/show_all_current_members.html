@@ -2,7 +2,7 @@
 
 {% block styles %}
   {{ block.super }}
-  <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}/css/members.css"/>
+  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}/css/members.css"/>
 {% endblock styles %}
 
 {% block content %}
@@ -16,7 +16,7 @@
             <div class="row">
                 {% for member in members %}
                     <span class="span-one-third">
-                        <img src="{{ MEDIA_URL }}/{{ member.photo.url }}" alt="{{ member.name }}"/>
+                        <img src="{{ STATIC_URL }}/{{ member.photo.url }}" alt="{{ member.name }}"/>
                         <h3> <a href="/membro/{{ member.slug }}" title="{{ member.name }}">{{ member.name }}</a> </h3>
                         <p>{{ member.get_function_display }}</p>
                         <p>{{ member.currently_does }}</p>
@@ -24,35 +24,35 @@
                             {% if member.site %}
                             <li>
                                 <a href="{{ member.site }}" target="_blank">
-                                    <img src="{{ MEDIA_URL }}/images/base/icon_site.png" alt="Site" title="Site"/>
+                                    <img src="{{ STATIC_URL }}/images/base/icon_site.png" alt="Site" title="Site"/>
                                 </a>
                             </li>
                             {% endif %}
                             {% if member.lattes %}
                             <li>
                                 <a href="{{ member.lattes }}" target="_blank">
-                                    <img src="{{ MEDIA_URL }}/images/base/icon_lattes.png" alt="Lattes" title="Lattes"/>
+                                    <img src="{{ STATIC_URL }}/images/base/icon_lattes.png" alt="Lattes" title="Lattes"/>
                                 </a>
                             </li>
                             {% endif %}
                             {% if member.github %}
                             <li>
                                 <a href="{{ member.github_link }}" target="_blank">
-                                    <img src="{{ MEDIA_URL }}/images/base/icon_github.png" alt="Github" title="Github"/>
+                                    <img src="{{ STATIC_URL }}/images/base/icon_github.png" alt="Github" title="Github"/>
                                 </a>
                             </li>
                             {% endif %}
                             {% if member.twitter %}
                             <li>
                                 <a href="{{ member.twitter_link }}" target="_blank">
-                                    <img src="{{ MEDIA_URL }}/images/base/icon_twitter.png" alt="Twitter" title="Twitter"/>
+                                    <img src="{{ STATIC_URL }}/images/base/icon_twitter.png" alt="Twitter" title="Twitter"/>
                                 </a>
                             </li>
                             {% endif %}
                             {% if member.slideshare %}
                             <li>
                                 <a href="{{ member.slideshare_link }}" target="_blank">
-                                    <img src="{{ MEDIA_URL }}/images/base/icon_slideshare.png" alt="Slideshare" title="Slideshare"/>
+                                    <img src="{{ STATIC_URL }}/images/base/icon_slideshare.png" alt="Slideshare" title="Slideshare"/>
                                 </a>
                             </li>
                             {% endif %}

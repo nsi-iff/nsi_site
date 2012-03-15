@@ -8,7 +8,7 @@
 {% block content %}
 <div class="tool" id="tool_details">
   {% if tool.logo %}
-    <img src="{{ MEDIA_URL }}{{ tool.logo.url }}" alt="{{ tool.name }}" title="{{ tool.name }}"/>
+    <img src="{{ STATIC_URL }}{{ tool.logo.url }}" alt="{{ tool.name }}" title="{{ tool.name }}"/>
   {% endif %}
   <div id="data">
     <h1>{{ tool.name }}</h1>
