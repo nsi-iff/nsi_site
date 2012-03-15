@@ -1,4 +1,4 @@
-should-dsl==2.0a5
+should-dsl==2.0a4
 model-mommy==0.6.2
 NoseDjango==0.8.1
 specloud==0.4.4
