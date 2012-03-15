@@ -2,7 +2,6 @@ NoseDjango==0.8.1
 lettuce==0.1.33
 lxml==2.3
 nose==1.1.2
-pinocchio==0.2
 selenium==2.5.0
-should-dsl==2.0a5
+should-dsl==2.0a4
 splinter==0.4
