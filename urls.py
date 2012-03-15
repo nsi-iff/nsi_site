@@ -2,7 +2,7 @@ from django.conf.urls.defaults import *
 from django.views.generic.base import TemplateView
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.conf import settings
+
 
 admin.autodiscover()
 
@@ -26,9 +26,4 @@ urlpatterns = patterns('',
     (r'^wiki/', include('apps.wiki.urls')),
 )
 
-if settings.DEBUG:
-    urlpatterns += patterns('django.contrib.staticfiles.views',
-        url(r'^site_media/(?P<path>.*)$', 'serve'),
-    )
-    
-# urlpatterns += staticfiles_urlpatterns()
+urlpatterns += staticfiles_urlpatterns()
