@@ -8,6 +8,7 @@ def show_index(request):
     news = News.objects.all()[:3]
     projects = Project.objects.filter(status='aberto')
     tools = Tool.objects.filter(highlight=True)
+
     return render_to_response(
         'index.html',
         {'news': news, 'projects': projects, 'tools': tools},

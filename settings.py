@@ -32,7 +32,7 @@ USE_L10N = True
 
 STATIC_ROOT = os.path.join(PROJECT_ROOT_PATH, 'site_media')
 
-STATIC_URL = '/static/'
+STATIC_URL = '/site_media'
 
 ADMIN_MEDIA_PREFIX = STATIC_URL +"admin/"
 
@@ -61,7 +61,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.debug",
     "django.core.context_processors.i18n",
     "django.core.context_processors.media",
-    "django.core.context_processors.request"
+    "django.core.context_processors.request",
+    'django.core.context_processors.static',
 )
 
 MIDDLEWARE_CLASSES = (
