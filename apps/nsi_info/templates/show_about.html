@@ -3,6 +3,13 @@
   {{ block.super }} <link rel="stylesheet" type="text/css" href="/site_media/css/nsi_info.css"/>
 {% endblock styles %}
 
+{% block scripts %}
+    {{ block.super }}
+    <script>
+        $('li#sobre').addClass('active')
+    </script>
+{% endblock %}
+
 {% block content %}
     <div class="box box-nsi_info">
         <div class="header">

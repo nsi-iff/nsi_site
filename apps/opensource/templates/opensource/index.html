@@ -30,6 +30,9 @@
     {{ block.super }}
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
     <script src="{{ STATIC_URL}}/javascripts/github_projects.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        $('li#opensource').addClass('active')
+    </script>
 {% endblock %}
 
 {% block content %}

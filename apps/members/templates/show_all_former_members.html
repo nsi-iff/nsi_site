@@ -5,6 +5,13 @@
   <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}/css/members.css"/>
 {% endblock styles %}
 
+{% block scripts %}
+    {{ block.super }}
+    <script>
+        $('li#membros').addClass('active')
+    </script>
+{% endblock %}
+
 {% block content %}
     <div class="box box-members">
         <div class="header">

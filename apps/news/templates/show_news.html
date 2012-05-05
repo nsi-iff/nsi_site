@@ -7,6 +7,14 @@
   <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}/css/news.css">
 {% endblock styles %}
 
+{% block scripts %}
+    {{ block.super }}
+    <script>
+        $('li#noticias').addClass('active')
+    </script>
+{% endblock %}
+
+
 {% block content %}
   <div class="box box-news">
         <div class="header">

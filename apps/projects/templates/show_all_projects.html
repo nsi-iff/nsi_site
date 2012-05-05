@@ -5,6 +5,9 @@
 {% block scripts %}
   {{ block.super }}
   <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}/css/projects.css"/>
+  <script>
+     $('li#projetos').addClass('active')
+  </script>
 {% endblock scripts %}
 
 {% block content %}
